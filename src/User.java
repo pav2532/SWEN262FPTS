@@ -1,28 +1,36 @@
 import java.util.*;
 
+/*
+ * User class represent each user using this system
+ */
 public class User {
 	private int ID;
 	private String userName;
 	private String encryptedPassword;
 	private static int numberOfUser = 0;
 	
+	// Constructor
 	public User(String userName){
 		this.ID = ++numberOfUser;
 		this.userName = userName;
 	}
 	
+	// get the User's ID
 	public int getID(){
 		return ID;
 	}
 	
+	//get the User's name
 	public String getUserName(){
 		return userName;
 	}
 	
+	// get the User's encrypted password
 	public String getEncryptedPassword(){
 		return encryptedPassword;
 	}
 	
+	//Reverse the password
 	public String encrypt(String password){
 		String reverse = "";
 		char[] pass = password.toCharArray(); 
@@ -41,6 +49,7 @@ public class User {
 		return false;
 	}
 	
+	// Main function for testing input and encrypted password
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter your username");
