@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 /*
  * User class represent each user using this system
@@ -49,6 +50,20 @@ public class User {
 		return false;
 	}
 	
+	public void transferUsernamePassword() throws IOException{
+		FileWriter file = new FileWriter("/Users/QuangVu/Desktop/workspace/SE262-FPTS/src/Account.txt", true);
+		PrintWriter writer = null;
+		try{
+			writer = new PrintWriter(file);
+			writer.println(userName + "," + encryptedPassword);
+		}
+		finally{
+			if (writer != null){
+				writer.close();
+			}
+		}
+	}
+	
 	// Main function for testing input and encrypted password
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -56,9 +71,24 @@ public class User {
 		String username = scanner.nextLine();
 		System.out.println("Please enter your password");
 		String password = scanner.nextLine();
+		String username2 = scanner.nextLine();
+		String password2 = scanner.nextLine();
 		scanner.close();
+		
 		User newUser = new User(username);
 		newUser.encryptedPassword = newUser.encrypt(password);
-		newUser.authenticate(newUser.encrypt(password));
+		try {
+			newUser.transferUsernamePassword();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		User newUser2 = new User(username2);
+		newUser2.encryptedPassword = newUser2.encrypt(password2);
+		try {
+			newUser2.transferUsernamePassword();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
