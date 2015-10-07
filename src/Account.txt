@@ -1,0 +1,3 @@
+a,b,c
+ai,la,la
+vai,qua,po
