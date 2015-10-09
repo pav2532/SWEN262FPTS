@@ -1,3 +1,2 @@
-a,b,c
-ai,la,la
-vai,qua,po
+B, Quang, 4.5, October
+S, ABC, 10

@@ -1,5 +1,5 @@
 
-public abstract class Account {
+public class Account {
 
 	private String name;
 	
