@@ -5,6 +5,12 @@ public class EquitiesHolder {
 
 	protected HashMap<String,HashMap<String,Holding>> Indices;
 	
+	/**
+	 * Adds the given holding to the EquitiesHolder (the 'world')
+	 * 
+	 * @param newEquity	Holding object to add to the 'world'
+	 * @param Index	Array of Indices the holding exists in
+	 */
 	public void addEquity(Holding newEquity, String[] Index){
 		for(int i = 0; i < Index.length; i++ ){
 			if(Indices.containsKey(Index[i])){
