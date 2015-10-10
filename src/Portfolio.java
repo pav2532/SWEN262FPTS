@@ -12,5 +12,4 @@ public class Portfolio extends Observable {
 	public static void main(String[] args) {
 
 	}
-
 }
