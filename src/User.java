@@ -31,6 +31,10 @@ public class User {
 		return encryptedPassword;
 	}
 	
+	public void setPassword(String pass){
+		this.encryptedPassword = pass;
+	}
+	
 	//Reverse the password
 	public String encrypt(String password){
 		String reverse = "";
@@ -61,34 +65,6 @@ public class User {
 			if (writer != null){
 				writer.close();
 			}
-		}
-	}
-	
-	// Main function for testing input and encrypted password
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter your username");
-		String username = scanner.nextLine();
-		System.out.println("Please enter your password");
-		String password = scanner.nextLine();
-		String username2 = scanner.nextLine();
-		String password2 = scanner.nextLine();
-		scanner.close();
-		
-		User newUser = new User(username);
-		newUser.encryptedPassword = newUser.encrypt(password);
-		try {
-			newUser.transferUsernamePassword();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		User newUser2 = new User(username2);
-		newUser2.encryptedPassword = newUser2.encrypt(password2);
-		try {
-			newUser2.transferUsernamePassword();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
