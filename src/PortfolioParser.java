@@ -5,6 +5,7 @@ public class PortfolioParser {
 	
 	public void importFile(String filename){
 		String line = null;
+		Portfolio portfolio;
 		ArrayList<Account> allAccount = new ArrayList<Account>();
 		HashMap<String, Integer> holding = new HashMap<String, Integer>();
 		try{
@@ -21,7 +22,6 @@ public class PortfolioParser {
 				if(separateValue[0].equals("B")){
 					Account account = new Account(separateValue[1], Float.valueOf(separateValue[2]), separateValue[3]);
 					allAccount.add(account);
-					System.out.println(account.getName());
 				// Stock/Holding
 				}else if(separateValue[0].equals("S")){
 					int value = Integer.valueOf(separateValue[2]);
@@ -30,6 +30,8 @@ public class PortfolioParser {
 					
 				}
 			}
+			System.out.println(allAccount);
+			System.out.println(holding);
 			bufferedReader.close();
 		}
 		catch(FileNotFoundException e){
