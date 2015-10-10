@@ -77,8 +77,29 @@ public class GViewControl extends JFrame implements Observer{
 		
 		signIn.setSize(signIn.getPreferredSize());
 		signIn.setLocation(100, 100);
+		signIn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				// Read the file -> compare all the existing accounts with 
+				// the one that user just typed in
+				// if not found one, tell them to sign up
+				// if you found one, allow them to log in and load their Portfolio
+				UserParser userParser = new UserParser();
+				String associatePassword = userParser.findAccount(userAccount, "/Users/QuangVu/Documents/workspace/SE262-FPTS/src/Account.txt");
+				if(associatePassword != null){
+					User user = new User(userAccount);
+					user.setPassword(associatePassword);
+					if(user.authenticate(user.encrypt(pass))){
+						JOptionPane.showMessageDialog(null, "Log in sucessful");
+					}else{
+						JOptionPane.showMessageDialog(null, "Not a correct password");
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Please check your username or sign up new account");
+				}
+			} 
+		});
 		add(signIn);
-		
 		
 		setVisible(true);
 	}

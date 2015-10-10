@@ -32,7 +32,7 @@ public class User {
 	}
 	
 	public void setPassword(String pass){
-		this.encryptedPassword = pass;
+		this.encryptedPassword = pass; 
 	}
 	
 	//Reverse the password
