@@ -54,6 +54,7 @@ public class User {
 		return false;
 	}
 	
+	//Record new account in the account file
 	public void transferUsernamePassword() throws IOException{
 		FileWriter file = new FileWriter("/Users/QuangVu/Desktop/workspace/SE262-FPTS/src/Account.txt", true);
 		PrintWriter writer = null;

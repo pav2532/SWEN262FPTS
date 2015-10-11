@@ -89,6 +89,8 @@ public class GViewControl extends JFrame implements Observer{
 					User user = new User(userAccount);
 					user.setPassword(associatePassword);
 					if(user.authenticate(user.encrypt(pass))){
+						getContentPane().removeAll();
+						getContentPane().repaint();
 						JOptionPane.showMessageDialog(null, "Log in sucessful");
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");

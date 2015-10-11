@@ -5,7 +5,6 @@ public class PortfolioParser {
 	
 	public void importFile(String filename){
 		String line = null;
-		Portfolio portfolio;
 		ArrayList<Account> allAccount = new ArrayList<Account>();
 		HashMap<String, Integer> holding = new HashMap<String, Integer>();
 		try{
@@ -30,8 +29,6 @@ public class PortfolioParser {
 					
 				}
 			}
-			System.out.println(allAccount);
-			System.out.println(holding);
 			bufferedReader.close();
 		}
 		catch(FileNotFoundException e){
@@ -40,10 +37,5 @@ public class PortfolioParser {
 		catch(IOException e){
 			e.printStackTrace();
 		}
-	}
-	
-	public static void main(String[] args){
-		PortfolioParser parser = new PortfolioParser();
-		parser.importFile("/Users/QuangVu/Desktop/workspace/SE262-FPTS/src/Account.txt");
 	}
 }
