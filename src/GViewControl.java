@@ -14,6 +14,9 @@ public class GViewControl extends JFrame implements Observer{
 	private JLabel passwordLabel = new JLabel("Password");
 	private JButton signUp = new JButton("Sign Up");
 	private JButton signIn = new JButton("Sign In");
+	private JMenuBar menu = new JMenuBar();
+	private JMenu file = new JMenu("File");
+	private JMenuItem exit = new JMenuItem("Exit");
 	private String userAccount;
 	private String pass;
 	
@@ -26,6 +29,16 @@ public class GViewControl extends JFrame implements Observer{
 		setSize(350,250);
 		setLocation(500, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		exit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.exit(0);
+			}
+		});
+		file.add(exit);
+		menu.add(file);
+		
 		
 		passwordLabel.setSize(passwordLabel.getPreferredSize());
 		passwordLabel.setLocation(10, 60);
@@ -92,6 +105,7 @@ public class GViewControl extends JFrame implements Observer{
 						getContentPane().removeAll();
 						getContentPane().repaint();
 						JOptionPane.showMessageDialog(null, "Log in sucessful");
+						setJMenuBar(menu);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}
