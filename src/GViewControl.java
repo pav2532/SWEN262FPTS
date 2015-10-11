@@ -66,6 +66,7 @@ public class GViewControl extends JFrame implements Observer{
 		passwordLogIn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				pass = passwordLogIn.getPassword().toString();
+				System.out.println(pass);
 			}
 			
 		});
@@ -75,13 +76,19 @@ public class GViewControl extends JFrame implements Observer{
 		signUp.setLocation(10, 100);
 		signUp.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				User newUser = new User(userAccount);
-				String encryptedPass = newUser.encrypt(pass);
-				newUser.setPassword(encryptedPass);
-				try {
-					newUser.transferUsernamePassword();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+				UserParser userParser = new UserParser();
+				String existAccount = userParser.findAccount(userAccount, "src/Account.txt");
+				if(existAccount == null){
+					User newUser = new User(userAccount);
+					String encryptedPass = newUser.encrypt(pass);
+					newUser.setPassword(encryptedPass);
+					try {
+						newUser.transferUsernamePassword();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}else{
+					JOptionPane.showMessageDialog(null, "This username is already exist. Please choose another username");
 				}
 			}
 		});
