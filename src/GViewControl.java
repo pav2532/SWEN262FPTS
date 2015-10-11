@@ -64,8 +64,9 @@ public class GViewControl extends JFrame implements Observer{
 		passwordLogIn.setToolTipText("Please enter your password");
 		passwordLogIn.setLocation(80, 60);
 		passwordLogIn.addActionListener(new ActionListener(){
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				pass = passwordLogIn.getPassword().toString();
+				pass = passwordLogIn.getText();
 				System.out.println(pass);
 			}
 			
@@ -79,6 +80,7 @@ public class GViewControl extends JFrame implements Observer{
 				UserParser userParser = new UserParser();
 				String existAccount = userParser.findAccount(userAccount, "src/Account.txt");
 				if(existAccount == null){
+					System.out.println(pass);
 					User newUser = new User(userAccount);
 					String encryptedPass = newUser.encrypt(pass);
 					newUser.setPassword(encryptedPass);
@@ -105,6 +107,8 @@ public class GViewControl extends JFrame implements Observer{
 				UserParser userParser = new UserParser();
 				String associatePassword = userParser.findAccount(userAccount, "src/Account.txt");
 				if(associatePassword != null){
+					System.out.println(associatePassword);
+					System.out.println(pass);
 					User user = new User(userAccount);
 					user.setPassword(associatePassword);
 					if(user.authenticate(user.encrypt(pass))){
