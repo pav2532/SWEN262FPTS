@@ -51,9 +51,8 @@ public class GViewControl extends JFrame implements Observer{
 		passwordLogIn.setToolTipText("Please enter your password");
 		passwordLogIn.setLocation(80, 60);
 		passwordLogIn.addActionListener(new ActionListener(){
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				pass = passwordLogIn.getText();
+				pass = passwordLogIn.getPassword().toString();
 			}
 			
 		});
@@ -84,7 +83,7 @@ public class GViewControl extends JFrame implements Observer{
 				// if not found one, tell them to sign up
 				// if you found one, allow them to log in and load their Portfolio
 				UserParser userParser = new UserParser();
-				String associatePassword = userParser.findAccount(userAccount, "/Users/QuangVu/Documents/workspace/SE262-FPTS/src/Account.txt");
+				String associatePassword = userParser.findAccount(userAccount, "src/Account.txt");
 				if(associatePassword != null){
 					User user = new User(userAccount);
 					user.setPassword(associatePassword);
