@@ -9,3 +9,12 @@
 /Account.class
 /EquitiesHolder.class
 /Holding.class
+/GViewControl$1.class
+/GViewControl$2.class
+/GViewControl$3.class
+/GViewControl$4.class
+/Transaction.class
+/buyTransaction.class
+/UserParser.class
+/sellTransaction.class
+/transferTransaction.class
