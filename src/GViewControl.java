@@ -17,6 +17,8 @@ public class GViewControl extends JFrame implements Observer{
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenuItem exit = new JMenuItem("Exit");
+	private JMenuItem open = new JMenuItem("Import");
+	private JFileChooser fileChooser = new JFileChooser("Import");
 	private String userAccount;
 	private String pass;
 	
@@ -36,7 +38,17 @@ public class GViewControl extends JFrame implements Observer{
 				System.exit(0);
 			}
 		});
+		
+		open.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(fileChooser.showOpenDialog(null) == fileChooser.APPROVE_OPTION){
+					String file = fileChooser.getSelectedFile().toString();
+					System.out.println(file);
+				}
+			}
+		});
 		file.add(exit);
+		file.add(open);
 		menu.add(file);
 		
 		
@@ -87,6 +99,7 @@ public class GViewControl extends JFrame implements Observer{
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					JOptionPane.showMessageDialog(null, "Sign up successfully");
 				}else{
 					JOptionPane.showMessageDialog(null, "This username is already exist. Please choose another username");
 				}
@@ -111,6 +124,8 @@ public class GViewControl extends JFrame implements Observer{
 						getContentPane().removeAll();
 						getContentPane().repaint();
 						JOptionPane.showMessageDialog(null, "Log in sucessful");
+						setSize(800, 500);
+						setLocation(250, 150);
 						setJMenuBar(menu);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
