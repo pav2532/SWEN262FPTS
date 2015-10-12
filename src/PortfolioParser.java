@@ -31,7 +31,7 @@ public class PortfolioParser {
 					if(separateValue[1].equals("S")){
 						sellTransaction sell = new sellTransaction(separateValue[2], separateValue[3], Float.valueOf(separateValue[4]), Integer.valueOf(separateValue[5]));
 						allTransaction.add(sell);
-					}else if(separateValue[1].equals("B")){
+					}else if(separateValue[1].equals("T")){
 						transferTransaction transfer = new transferTransaction(separateValue[2], separateValue[3], Float.valueOf(separateValue[4]));
 						allTransaction.add(transfer);
 					}else{
@@ -51,4 +51,5 @@ public class PortfolioParser {
 		}
 		return portfolio;
 	}
+	
 }

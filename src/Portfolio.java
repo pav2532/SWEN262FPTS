@@ -13,4 +13,16 @@ public class Portfolio extends Observable {
 		this.holding = holding;
 		this.allTransaction = allTransaction;
 	}
+	
+	public ArrayList<Account> getAllAccount(){
+		return allAccount;
+	}
+	
+	public ArrayList<Transaction> getAllTransaction(){
+		return allTransaction;
+	}
+	
+	public HashMap<String, Integer> getHolding(){
+		return holding;
+	} 
 }

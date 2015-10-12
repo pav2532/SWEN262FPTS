@@ -8,6 +8,7 @@ import javax.swing.*;
 public class GViewControl extends JFrame implements Observer{
 	
 	private Portfolio portfolio;
+	private PortfolioParser portfolioParser;
 	private JTextField usernameLogIn = new JTextField();
 	private JPasswordField passwordLogIn = new JPasswordField();
 	private JLabel usernameLabel = new JLabel("Username");
@@ -41,9 +42,10 @@ public class GViewControl extends JFrame implements Observer{
 		
 		open.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				if(fileChooser.showOpenDialog(null) == fileChooser.APPROVE_OPTION){
+				if(fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 					String file = fileChooser.getSelectedFile().toString();
-					System.out.println(file);
+					portfolioParser = new PortfolioParser();
+					portfolio = portfolioParser.importFile(file);
 				}
 			}
 		});
