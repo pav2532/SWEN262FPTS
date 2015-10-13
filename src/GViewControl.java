@@ -8,7 +8,6 @@ import javax.swing.*;
 public class GViewControl extends JFrame implements Observer{
 	
 	private Portfolio portfolio;
-	private PortfolioParser portfolioParser;
 	private JTextField usernameLogIn = new JTextField();
 	private JPasswordField passwordLogIn = new JPasswordField();
 	private JLabel usernameLabel = new JLabel("Username");
@@ -19,6 +18,8 @@ public class GViewControl extends JFrame implements Observer{
 	private JMenu file = new JMenu("File");
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem open = new JMenuItem("Import");
+	private JScrollPane scrollPane;
+	private JTable equityTable;
 	private JFileChooser fileChooser = new JFileChooser("Import");
 	private String userAccount;
 	private String pass;
@@ -27,12 +28,25 @@ public class GViewControl extends JFrame implements Observer{
 		super(name);
 		//this.portfolio = p;
 		//this.portfolio.addObserver(this);
+		String[] columnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
+		// Example data
+		Object[][] data = {
+				{"3"},
+				{"2"},
+				{"1"},
+				{"1"}
+		};
 		
 		setLayout(null);
 		setSize(350,250);
 		setLocation(500, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		equityTable = new JTable(data, columnName);
+		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
+		equityTable.setFillsViewportHeight(true);
+		equityTable.setVisible(true);
+		scrollPane = new JScrollPane(equityTable);
 		
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -44,7 +58,7 @@ public class GViewControl extends JFrame implements Observer{
 			public void actionPerformed(ActionEvent e){
 				if(fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 					String file = fileChooser.getSelectedFile().toString();
-					portfolioParser = new PortfolioParser();
+					PortfolioParser portfolioParser = new PortfolioParser();
 					portfolio = portfolioParser.importFile(file);
 				}
 			}
@@ -52,7 +66,6 @@ public class GViewControl extends JFrame implements Observer{
 		file.add(exit);
 		file.add(open);
 		menu.add(file);
-		
 		
 		passwordLabel.setSize(passwordLabel.getPreferredSize());
 		passwordLabel.setLocation(10, 60);
@@ -66,30 +79,21 @@ public class GViewControl extends JFrame implements Observer{
 		usernameLogIn.setSize(usernameLogIn.getPreferredSize());
 		usernameLogIn.setToolTipText("Please enter your username");
 		usernameLogIn.setLocation(80, 25);
-		usernameLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				userAccount = usernameLogIn.getText();
-			}
-		});
 		add(usernameLogIn);
 		
 		passwordLogIn.setColumns(15);
 		passwordLogIn.setSize(passwordLogIn.getPreferredSize());
 		passwordLogIn.setToolTipText("Please enter your password");
 		passwordLogIn.setLocation(80, 60);
-		passwordLogIn.addActionListener(new ActionListener(){
-			@SuppressWarnings("deprecation")
-			public void actionPerformed(ActionEvent e) {
-				pass = passwordLogIn.getText();
-			}
-			
-		});
 		add(passwordLogIn);
 		
 		signUp.setSize(signUp.getPreferredSize());
 		signUp.setLocation(10, 100);
 		signUp.addActionListener(new ActionListener(){
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e){
+				pass = passwordLogIn.getText();
+				userAccount = usernameLogIn.getText();
 				UserParser userParser = new UserParser();
 				String existAccount = userParser.findAccount(userAccount, "src/Account.txt");
 				if(existAccount == null){
@@ -112,11 +116,10 @@ public class GViewControl extends JFrame implements Observer{
 		signIn.setSize(signIn.getPreferredSize());
 		signIn.setLocation(100, 100);
 		signIn.addActionListener(new ActionListener(){
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e){
-				// Read the file -> compare all the existing accounts with 
-				// the one that user just typed in
-				// if not found one, tell them to sign up
-				// if you found one, allow them to log in and load their Portfolio
+				pass = passwordLogIn.getText();
+				userAccount = usernameLogIn.getText();
 				UserParser userParser = new UserParser();
 				String associatePassword = userParser.findAccount(userAccount, "src/Account.txt");
 				if(associatePassword != null){
@@ -126,9 +129,10 @@ public class GViewControl extends JFrame implements Observer{
 						getContentPane().removeAll();
 						getContentPane().repaint();
 						JOptionPane.showMessageDialog(null, "Log in sucessful");
-						setSize(800, 500);
-						setLocation(250, 150);
+						setSize(1000, 500);
+						setLocation(150, 150);
 						setJMenuBar(menu);
+						add(scrollPane);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}
