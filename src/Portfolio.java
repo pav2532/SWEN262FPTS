@@ -25,4 +25,18 @@ public class Portfolio extends Observable {
 	public HashMap<String, Integer> getHolding(){
 		return holding;
 	} 
+	
+	public void save() throws IOException{
+		FileWriter file = new FileWriter("src/ExamplePortfolio.txt");
+		PrintWriter writer = null;
+		try{
+			writer = new PrintWriter(file);
+			writer.println(userID +", " + allAccount + ", " + allTransaction + ", " + holding);
+		}
+		finally{
+			if (writer != null){
+				writer.close();
+			}
+		}
+	}
 }

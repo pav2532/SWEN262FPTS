@@ -18,6 +18,7 @@ public class GViewControl extends JFrame implements Observer{
 	private JMenu file = new JMenu("File");
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem open = new JMenuItem("Import");
+	private JMenuItem save = new JMenuItem("Save");
 	private JMenuItem equityOption = new JMenuItem("Equity");
 	private JMenuItem portfolioOption = new JMenuItem("Portfolio");
 	private JMenuItem accountOption = new JMenuItem("Account");
@@ -83,7 +84,16 @@ public class GViewControl extends JFrame implements Observer{
 				}
 			}
 		});
-		
+
+		save.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				try {
+					portfolio.save();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		equityOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				scrollPane.setViewportView(equityTable);
@@ -102,6 +112,7 @@ public class GViewControl extends JFrame implements Observer{
 			} 
 		});
 		file.add(open);
+		file.add(save);
 		file.add(equityOption);
 		file.add(portfolioOption);
 		file.add(accountOption);
