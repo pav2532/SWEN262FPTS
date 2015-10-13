@@ -18,8 +18,13 @@ public class GViewControl extends JFrame implements Observer{
 	private JMenu file = new JMenu("File");
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem open = new JMenuItem("Import");
+	private JMenuItem equityOption = new JMenuItem("Equity");
+	private JMenuItem portfolioOption = new JMenuItem("Portfolio");
+	private JMenuItem accountOption = new JMenuItem("Account");
 	private JScrollPane scrollPane;
 	private JTable equityTable;
+	private JTable portfolioTable;
+	private JTable accountTable;
 	private JFileChooser fileChooser = new JFileChooser("Import");
 	private String userAccount;
 	private String pass;
@@ -28,10 +33,18 @@ public class GViewControl extends JFrame implements Observer{
 		super(name);
 		//this.portfolio = p;
 		//this.portfolio.addObserver(this);
-		String[] columnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
+		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
+		String[] portfolioColumnName = {"Account", "Holding", "Transaction"};
+		String[] accountColumnName = {"Name", "Balance", "Date Created"};
 		// Example data
-		Object[][] data = {
+		Object[][] equityData = {
 				{"3", "1", "2", "3"},
+		};
+		Object[][] portfolioData = {
+				{"User10", "hlo", "1000"}	
+		};
+		Object[][] accountData = {
+				{"abc123", "10000", "10/10/2010"}
 		};
 		
 		setLayout(null);
@@ -39,9 +52,17 @@ public class GViewControl extends JFrame implements Observer{
 		setLocation(500, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		equityTable = new JTable(data, columnName);
+		portfolioTable = new JTable(portfolioData, portfolioColumnName);
+		portfolioTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
+		portfolioTable.setFillsViewportHeight(true);
+		
+		equityTable = new JTable(equityData, equityColumnName);
 		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
 		equityTable.setFillsViewportHeight(true);
+		
+		accountTable = new JTable(accountData, accountColumnName);
+		accountTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
+		accountTable.setFillsViewportHeight(true);
 		
 		scrollPane = new JScrollPane(equityTable);
 		scrollPane.setSize(scrollPane.getPreferredSize());
@@ -62,8 +83,29 @@ public class GViewControl extends JFrame implements Observer{
 				}
 			}
 		});
-		file.add(exit);
+		
+		equityOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				scrollPane.setViewportView(equityTable);
+			}
+		});
+		
+		portfolioOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				scrollPane.setViewportView(portfolioTable);
+			}
+		});
+		
+		accountOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				scrollPane.setViewportView(accountTable);
+			} 
+		});
 		file.add(open);
+		file.add(equityOption);
+		file.add(portfolioOption);
+		file.add(accountOption);
+		file.add(exit);
 		menu.add(file);
 		
 		passwordLabel.setSize(passwordLabel.getPreferredSize());
