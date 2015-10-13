@@ -31,10 +31,7 @@ public class GViewControl extends JFrame implements Observer{
 		String[] columnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
 		// Example data
 		Object[][] data = {
-				{"3"},
-				{"2"},
-				{"1"},
-				{"1"}
+				{"3", "1", "2", "3"},
 		};
 		
 		setLayout(null);
@@ -45,8 +42,10 @@ public class GViewControl extends JFrame implements Observer{
 		equityTable = new JTable(data, columnName);
 		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
 		equityTable.setFillsViewportHeight(true);
-		equityTable.setVisible(true);
+		
 		scrollPane = new JScrollPane(equityTable);
+		scrollPane.setSize(scrollPane.getPreferredSize());
+		scrollPane.setLocation(100, 200);
 		
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -132,7 +131,7 @@ public class GViewControl extends JFrame implements Observer{
 						setSize(1000, 500);
 						setLocation(150, 150);
 						setJMenuBar(menu);
-						add(scrollPane);
+						setContentPane(scrollPane);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}
