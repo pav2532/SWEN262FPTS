@@ -10,7 +10,12 @@ import java.util.*;
  */
 public class BullMarket implements Algorithim {
     
-    public HashMap simulate(int percentage, HashMap equities, String type){
-        return null;
+    public Holding simulate(int percentage, int type, int intervals,Holding holding){
+    	Holding tempHolding = new Holding(holding);
+		Float price = tempHolding.getPrice()*((100+percentage)/100);
+		tempHolding.setPrice(price);
+        return tempHolding;
+        
+
     }
 }
