@@ -6,5 +6,7 @@
 import java.util.*;
 
 public interface Algorithim {
-    public HashMap simulate (int percentage, HashMap equities, String Type);
+
+    
+    public Holding simulate (int percentage, int type, int intervals,Holding holding);
 }

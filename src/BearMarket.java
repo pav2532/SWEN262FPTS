@@ -8,14 +8,17 @@ import java.util.HashMap;
  */
 
 /**
+ * Deacrease 
  *
  * @author PedroVega
  */
 public class BearMarket implements Algorithim {
 
     @Override
-    public HashMap simulate(int percentage, HashMap equities, String Type) {
-        return null;
+    public Holding simulate(int percentage, int type, int intervals,Holding holding) {
+    	Holding tempHolding = new Holding(holding);
+		Float price = tempHolding.getPrice()*(100-percentage)/100;
+		tempHolding.setPrice(price);
+        return tempHolding;
     }
-    
 }
