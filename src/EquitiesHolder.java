@@ -27,6 +27,11 @@ public class EquitiesHolder {
 		}
 	}//end addEquity
 		
+	public Holding getHolding(String ticker){
+		HashMap<String,Holding> temp = new HashMap<String,Holding>();
+		temp = TickerSearch(temp,ticker);
+		return temp.get(ticker);
+	}
 	
 	/**
 	 * using the search terms, calls the needed search functions and
