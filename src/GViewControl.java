@@ -37,7 +37,7 @@ public class GViewControl extends JFrame implements Observer{
 		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
 		String[] portfolioColumnName = {"Account", "Holding", "Transaction"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
-		// Example data
+		// equity data is going to get the info from equity class
 		Object[][] equityData = {
 				{"3", "1", "2", "3"},
 		};
