@@ -14,6 +14,8 @@ public class GViewControl extends JFrame implements Observer{
 	private JLabel passwordLabel = new JLabel("Password");
 	private JButton signUp = new JButton("Sign Up");
 	private JButton signIn = new JButton("Sign In");
+	private JButton buy = new JButton("Buy");
+	private JButton sell = new JButton("Sell");
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenuItem exit = new JMenuItem("Exit");
@@ -29,6 +31,8 @@ public class GViewControl extends JFrame implements Observer{
 	private JFileChooser fileChooser = new JFileChooser("Import");
 	private String userAccount;
 	private String pass;
+	private String selectedTickerSymbol;
+	private String selectedSharePrice;
 	
 	public GViewControl(String name){
 		super(name);
@@ -38,6 +42,7 @@ public class GViewControl extends JFrame implements Observer{
 		String[] portfolioColumnName = {"Account", "Holding", "Transaction"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
 		// equity data is going to get the info from equity class
+		
 		Object[][] equityData = {
 				{"3", "1", "2", "3"},
 		};
@@ -47,7 +52,7 @@ public class GViewControl extends JFrame implements Observer{
 		Object[][] accountData = {
 				{"abc123", "10000", "10/10/2010"}
 		};
-		
+	
 		setLayout(null);
 		setSize(350,250);
 		setLocation(500, 250);
@@ -58,7 +63,7 @@ public class GViewControl extends JFrame implements Observer{
 		portfolioTable.setFillsViewportHeight(true);
 		
 		equityTable = new JTable(equityData, equityColumnName);
-		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
+		equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
 		equityTable.setFillsViewportHeight(true);
 		
 		accountTable = new JTable(accountData, accountColumnName);
@@ -69,6 +74,22 @@ public class GViewControl extends JFrame implements Observer{
 		scrollPane.setSize(scrollPane.getPreferredSize());
 		scrollPane.setLocation(100, 200);
 		
+		buy.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				int tickerRow = equityTable.getSelectedRow();
+				int tickerCol = equityTable.getSelectedColumn();
+				int sharePriceRow = tickerRow;
+				int sharePriceCol = tickerCol +2;
+				selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, tickerCol).toString();
+				selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, sharePriceCol).toString();
+			}
+		});
+		
+		buy.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+			}
+		});
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
@@ -184,7 +205,9 @@ public class GViewControl extends JFrame implements Observer{
 						setSize(1000, 500);
 						setLocation(150, 150);
 						setJMenuBar(menu);
-						setContentPane(scrollPane);
+						setLayout(new BorderLayout());
+						add(scrollPane, BorderLayout.CENTER);
+						add(buy, BorderLayout.SOUTH);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}
