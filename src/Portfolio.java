@@ -39,4 +39,41 @@ public class Portfolio extends Observable {
 			}
 		}
 	}
+	
+	public void buy(String ticker, Float price, int NumShares, Account account) throws InsufficentFundsException{
+			int index = allAccount.lastIndexOf(account);
+			if(index == -1){
+				return;
+			}
+			
+			if( 1 == allAccount.get(index).removeFunds(price*NumShares)){
+				if(holding.containsKey(ticker)){
+					int oldShares = holding.get(ticker);
+					holding.put(ticker, NumShares+oldShares);
+				}else{
+					holding.put(ticker, NumShares);
+				}
+			}else{
+				throw new InsufficentFundsException();
+			}
+		
+		notifyObservers();
+		return;
+	}
+	
+	public void sell(String ticker, Float price, int NumShares, Account account) throws NotEnoughOwnedSharesException{
+		int index = allAccount.lastIndexOf(account);
+		if(index == -1){
+			return;
+		}
+		
+		allAccount.get(index).addFunds(price*NumShares);
+		if(holding.get(ticker) == NumShares){
+			holding.remove(ticker);
+		}else if(holding.get(ticker) > NumShares){
+			holding.put(ticker, holding.get(ticker)-NumShares);
+		}else{
+			throw new NotEnoughOwnedSharesException();
+		}
+	}
 }
