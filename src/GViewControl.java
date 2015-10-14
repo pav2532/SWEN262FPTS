@@ -16,12 +16,10 @@ public class GViewControl extends JFrame implements Observer{
 	private JLabel passwordLabel = new JLabel("Password");
 	private JButton signUp = new JButton("Sign Up");
 	private JButton signIn = new JButton("Sign In");
-<<<<<<< Updated upstream
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
 	private JButton buyConfirm = new JButton("Confirm");
-=======
->>>>>>> Stashed changes
+
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -54,7 +52,7 @@ public class GViewControl extends JFrame implements Observer{
       
 		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
-<<<<<<< Updated upstream
+
 		String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
 		
 		// equity data is going to get the info from equity class
@@ -98,18 +96,18 @@ public class GViewControl extends JFrame implements Observer{
 				holdingData[i] = data;
 			}
 		}
-=======
-		// Example data
-		Object[][] equityData = {
-				{"3", "1", "2", "3"},
-		};
-		Object[][] portfolioData = {
-				{"User10", "hlo", "1000"}	
-		};
-		Object[][] accountData = {
-				{"abc123", "10000", "10/10/2010"}
-		};
->>>>>>> Stashed changes
+
+//		// Example data
+//		Object[][] equityData = {
+//				{"3", "1", "2", "3"},
+//		};
+//		Object[][] portfolioData = {
+//				{"User10", "hlo", "1000"}	
+//		};
+//		Object[][] accountData = {
+//				{"abc123", "10000", "10/10/2010"}
+//		};
+
 		
 		setLayout(null);
 		setSize(350,250);
@@ -133,7 +131,7 @@ public class GViewControl extends JFrame implements Observer{
 		scrollPane.setSize(scrollPane.getPreferredSize());
 		scrollPane.setLocation(100, 200);
 		
-<<<<<<< Updated upstream
+
 		
 		buyConfirm.addActionListener(new ActionListener(){
 		   public void actionPerformed(ActionEvent e){
@@ -183,8 +181,7 @@ public class GViewControl extends JFrame implements Observer{
 		      buyFrame.add(numShare);
 			}
 		});
-=======
->>>>>>> Stashed changes
+
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
