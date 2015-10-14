@@ -9,13 +9,16 @@ public class GViewControl extends JFrame implements Observer{
 	
 	private Portfolio portfolio;
 	private JTextField usernameLogIn = new JTextField();
+   private JTextField numShare = new JTextField();
 	private JPasswordField passwordLogIn = new JPasswordField();
+	private JLabel numberOfShare = new JLabel("Number of Share");
 	private JLabel usernameLabel = new JLabel("Username");
 	private JLabel passwordLabel = new JLabel("Password");
 	private JButton signUp = new JButton("Sign Up");
 	private JButton signIn = new JButton("Sign In");
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
+	private JButton buyConfirm = new JButton("Confirm");
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -26,11 +29,13 @@ public class GViewControl extends JFrame implements Observer{
 	private JMenuItem accountOption = new JMenuItem("Account");
 	private JMenuItem holdingOption = new JMenuItem("Holding");
 	private JMenuItem transactionOption = new JMenuItem("Transaction");
+	private JComboBox<String> accountDropList;
 	private JScrollPane scrollPane;
 	private JTable equityTable;
 	private JTable accountTable;
 	private JTable holdingTable;
 	private JFileChooser fileChooser = new JFileChooser("Import");
+	private ArrayList<Account> allAccount;
 	private String userAccount;
 	private String pass;
 	private String selectedTickerSymbol;
@@ -40,22 +45,26 @@ public class GViewControl extends JFrame implements Observer{
 		super(name);
 		//this.portfolio = p;
 		//this.portfolio.addObserver(this);
+		
+		// Just for testing purpose, we need to import the portfolio right away to get
+      // the data of the portfolio
+      PortfolioParser portfolioParser = new PortfolioParser();
+      portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
+      
 		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
 		String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
+		
 		// equity data is going to get the info from equity class
 			
 		Object[][] equityData = {
 				{"3", "1", "2", "3"},
 		};
 		
-		// Just for testing purpose, we need to import the portfolio right away to get
-		// the data of the portfolio
-		PortfolioParser portfolioParser = new PortfolioParser();
-		portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
+		
 		
 		// Populate account data for the account table
-		ArrayList<Account> allAccount = portfolio.getAllAccount();
+		allAccount = portfolio.getAllAccount();
 		Object[][] accountData = new Object[allAccount.size()][];
 		for(int i = 0; i < allAccount.size(); i++){
 			// Get each account from the account list
@@ -69,6 +78,12 @@ public class GViewControl extends JFrame implements Observer{
 				accountData[i] = data;
 			}
 		}
+		
+		// Create a drop down for all available account
+		accountDropList = new JComboBox<String>();
+		for(Account a : allAccount){
+		   accountDropList.addItem(a.getName());
+		}		
 		
 		// Populate holding data for the holding table
 		HashMap<String, Integer> holding = portfolio.getHolding();
@@ -104,6 +119,23 @@ public class GViewControl extends JFrame implements Observer{
 		scrollPane.setSize(scrollPane.getPreferredSize());
 		scrollPane.setLocation(100, 200);
 		
+		
+		buyConfirm.addActionListener(new ActionListener(){
+		   public void actionPerformed(ActionEvent e){
+		       for(Account a : allAccount){
+		          if(a.getName().equals(selectedTickerSymbol)){
+		             try {
+                     portfolio.buy(selectedTickerSymbol, Float.valueOf(selectedSharePrice), Integer.valueOf(numShare.getText()), a);
+                  } catch (NumberFormatException e1) {
+                     e1.printStackTrace();
+                  } catch (InsufficentFundsException e1) {
+                     e1.printStackTrace();
+                  }
+		            break;
+		          }
+		       }
+		   }
+		});
 		buy.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
 				int tickerRow = equityTable.getSelectedRow();
@@ -117,7 +149,23 @@ public class GViewControl extends JFrame implements Observer{
 		
 		buy.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				
+				JFrame buyFrame = new JFrame();
+				buyFrame.setLayout(null);
+				buyFrame.setSize(350, 250);
+				buyFrame.setLocation(500, 250);
+		      buyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		      buyFrame.setVisible(true);
+		      numberOfShare.setSize(numberOfShare.getPreferredSize());
+		      numberOfShare.setLocation(10, 50);
+		      numShare.setColumns(15);
+		      numShare.setToolTipText("Enter the amount you want to buy");
+		      numShare.setSize(numShare.getPreferredSize());
+		      numShare.setLocation(120, 50);
+		      accountDropList.setLocation(10, 80);
+		      accountDropList.setSize(accountDropList.getPreferredSize());
+		      buyFrame.add(accountDropList);
+		      buyFrame.add(numberOfShare);
+		      buyFrame.add(numShare);
 			}
 		});
 		exit.addActionListener(new ActionListener(){
