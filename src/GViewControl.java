@@ -18,16 +18,18 @@ public class GViewControl extends JFrame implements Observer{
 	private JButton sell = new JButton("Sell");
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
+	private JMenu portfolioOption = new JMenu("Portfolio");
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem open = new JMenuItem("Import");
 	private JMenuItem save = new JMenuItem("Save");
 	private JMenuItem equityOption = new JMenuItem("Equity");
-	private JMenuItem portfolioOption = new JMenuItem("Portfolio");
 	private JMenuItem accountOption = new JMenuItem("Account");
+	private JMenuItem holdingOption = new JMenuItem("Holding");
+	private JMenuItem transactionOption = new JMenuItem("Transaction");
 	private JScrollPane scrollPane;
 	private JTable equityTable;
-	private JTable portfolioTable;
 	private JTable accountTable;
+	private JTable holdingTable;
 	private JFileChooser fileChooser = new JFileChooser("Import");
 	private String userAccount;
 	private String pass;
@@ -39,29 +41,53 @@ public class GViewControl extends JFrame implements Observer{
 		//this.portfolio = p;
 		//this.portfolio.addObserver(this);
 		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
-		String[] portfolioColumnName = {"Account", "Holding", "Transaction"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
+		String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
 		// equity data is going to get the info from equity class
-		
+			
 		Object[][] equityData = {
 				{"3", "1", "2", "3"},
 		};
-		Object[][] portfolioData = {
-				{"User10", "hlo", "1000"}	
-		};
-		Object[][] accountData = {
-				{"abc123", "10000", "10/10/2010"}
-		};
-	
+		
+		// Just for testing purpose, we need to import the portfolio right away to get
+		// the data of the portfolio
+		PortfolioParser portfolioParser = new PortfolioParser();
+		portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
+		
+		// Populate account data for the account table
+		ArrayList<Account> allAccount = portfolio.getAllAccount();
+		Object[][] accountData = new Object[allAccount.size()][];
+		for(int i = 0; i < allAccount.size(); i++){
+			// Get each account from the account list
+			// Get the name, balance, and the created date -> assign to the data list
+			// Add the data into the accountData which will be used for the JTable
+			for(Account a : allAccount){
+				Object[] data = new Object[3];
+				data[0] = a.getName();
+				data[1] = a.getBalance();
+				data[2] = a.getDateCreated();
+				accountData[i] = data;
+			}
+		}
+		
+		// Populate holding data for the holding table
+		HashMap<String, Integer> holding = portfolio.getHolding();
+		Object[][] holdingData = new Object[holding.size()][];
+		for(int i = 0; i < holding.size(); i++){
+			for(String key : holding.keySet()){
+				Object[] data = new Object[2];
+				data[0] = key;
+				data[1] = holding.get(key);
+				holdingData[i] = data;
+			}
+		}
+		
 		setLayout(null);
 		setSize(350,250);
 		setLocation(500, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		portfolioTable = new JTable(portfolioData, portfolioColumnName);
-		portfolioTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
-		portfolioTable.setFillsViewportHeight(true);
-		
+		portfolioOption.add(accountOption);
 		equityTable = new JTable(equityData, equityColumnName);
 		equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
 		equityTable.setFillsViewportHeight(true);
@@ -69,6 +95,10 @@ public class GViewControl extends JFrame implements Observer{
 		accountTable = new JTable(accountData, accountColumnName);
 		accountTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
 		accountTable.setFillsViewportHeight(true);
+		
+		holdingTable = new JTable(holdingData, holdingColumnName);
+		holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
+		holdingTable.setFillsViewportHeight(true);
 		
 		scrollPane = new JScrollPane(equityTable);
 		scrollPane.setSize(scrollPane.getPreferredSize());
@@ -120,23 +150,26 @@ public class GViewControl extends JFrame implements Observer{
 				scrollPane.setViewportView(equityTable);
 			}
 		});
-		
-		portfolioOption.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				scrollPane.setViewportView(portfolioTable);
-			}
-		});
-		
+
 		accountOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				scrollPane.setViewportView(accountTable);
 			} 
 		});
+		
+		holdingOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				scrollPane.setViewportView(holdingTable);
+			}
+		});
+		
 		file.add(open);
 		file.add(save);
 		file.add(equityOption);
 		file.add(portfolioOption);
-		file.add(accountOption);
+		portfolioOption.add(accountOption);
+		portfolioOption.add(holdingOption);
+		portfolioOption.add(transactionOption);
 		file.add(exit);
 		menu.add(file);
 		

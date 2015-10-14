@@ -17,7 +17,7 @@ public class PortfolioParser {
 				
 				// Strip out any unnecessary character around the word
 				for(int i = 0; i< separateValue.length; i++){
-					separateValue[i] = separateValue[i].replaceAll("[^a-zA-Z0-9]", "");
+					separateValue[i] = separateValue[i].replaceAll("[^a-zA-Z0-9/.]", "");
 				}
 				// Bank account line
 				if(separateValue[0].equals("B")){
