@@ -3,13 +3,11 @@ import java.io.*;
 
 
 public class EquityParser {
-	
-	
-	public EquitiesHolder findAccount(String userName, String filename) throws IOException{
+	public String findAccount(String userName, String filename) throws IOException{
 	String line = null;
+  	ArrayList<String> input = new ArrayList<String>();
+  	String ticker = "";
   	Holding newEquity = null;
-  	EquitiesHolder temp = new EquitiesHolder();
-  	
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(filename));
@@ -19,18 +17,13 @@ public class EquityParser {
 		}
 			while ((line = br.readLine()) != null) {
 				String[] separateValue = line.split(",");
-				newEquity = new Holding(separateValue[0],separateValue[1], Float.valueOf(separateValue[3]));	
-				String[] indices = new String[separateValue.length-3];
-				for(int i = 3; i < separateValue.length; i++){
-					indices[i-3] = separateValue[i]; 
+				for(int i = 0; i< separateValue.length; i++){
+					addEquity(newEquity, separateValue[i]);			}
 				}
-				temp.addEquity(newEquity, indices);			
-			}
-				
-			return temp;
+			//return equity;
+			
 				//ticker symbol, equity name, initial per share price
 	}
-	
 }
   
 

@@ -19,7 +19,6 @@ public class GViewControl extends JFrame implements Observer{
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
 	private JButton buyConfirm = new JButton("Confirm");
-
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -39,6 +38,8 @@ public class GViewControl extends JFrame implements Observer{
 	private ArrayList<Account> allAccount;
 	private String userAccount;
 	private String pass;
+	private String selectedTickerSymbol;
+	private String selectedSharePrice;
 	
 	public GViewControl(String name){
 		super(name);
@@ -96,19 +97,6 @@ public class GViewControl extends JFrame implements Observer{
 				holdingData[i] = data;
 			}
 		}
-
-//		// Example data
-//		Object[][] equityData = {
-//				{"3", "1", "2", "3"},
-//		};
-//		Object[][] portfolioData = {
-//				{"User10", "hlo", "1000"}	
-//		};
-//		Object[][] accountData = {
-//				{"abc123", "10000", "10/10/2010"}
-//		};
-
-		
 		setLayout(null);
 		setSize(350,250);
 		setLocation(500, 250);
@@ -116,7 +104,7 @@ public class GViewControl extends JFrame implements Observer{
 		
 		portfolioOption.add(accountOption);
 		equityTable = new JTable(equityData, equityColumnName);
-		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
+		equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
 		equityTable.setFillsViewportHeight(true);
 		
 		accountTable = new JTable(accountData, accountColumnName);
@@ -299,8 +287,10 @@ public class GViewControl extends JFrame implements Observer{
 						JOptionPane.showMessageDialog(null, "Log in sucessful");
 						setSize(1000, 500);
 						setLocation(150, 150);
+						setLayout(new BorderLayout());
+						add(scrollPane, BorderLayout.CENTER);
+						add(buy, BorderLayout.SOUTH);
 						setJMenuBar(menu);
-						setContentPane(scrollPane);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}

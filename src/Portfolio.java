@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.Map.Entry;
 
 public class Portfolio extends Observable {
 	private String name;
@@ -32,17 +31,7 @@ public class Portfolio extends Observable {
 		PrintWriter writer = null;
 		try{
 			writer = new PrintWriter(file);
-			for(int i = 0; i < allAccount.size(); i++){
-				writer.println("B,"+allAccount.get(i).getName()+","+allAccount.get(i).getBalance()+","+allAccount.get(i).getDateCreated());
-			}
-			for(int i = 0; i< allTransaction.size(); i++){
-				writer.println(allTransaction.get(i).saveTransaction());
-			}
-			for(Entry<String, Integer> IndexEntry : holding.entrySet()){
-				
-				writer.println("S,"+IndexEntry.getKey()+","+IndexEntry.getValue());
-				
-			}
+			writer.println(userID +", " + allAccount + ", " + allTransaction + ", " + holding);
 		}
 		finally{
 			if (writer != null){
