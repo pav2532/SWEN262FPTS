@@ -3,3 +3,4 @@ bin/.gitignore
 *.class
 
 *.class
+/bin/
