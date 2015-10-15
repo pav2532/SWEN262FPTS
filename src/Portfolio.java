@@ -51,7 +51,7 @@ public class Portfolio {
 		}
 	}
 	
-	public void buy(String ticker, Float price, int NumShares, Account account) throws InsufficentFundsException{
+	public void buy(String ticker, Float price, int NumShares, Account account) throws InsufficientFundsException{
 			int index = allAccount.lastIndexOf(account);
 			if(index == -1){
 				return;
@@ -65,7 +65,7 @@ public class Portfolio {
 					holding.put(ticker, NumShares);
 				}
 			}else{
-				throw new InsufficentFundsException();
+				throw new InsufficientFundsException();
 			}
 		
 		return;

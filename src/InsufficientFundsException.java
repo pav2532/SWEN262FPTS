@@ -1,5 +1,5 @@
 
-public class InsufficentFundsException extends Exception {
+public class InsufficientFundsException extends Exception {
 
 	/**
 	 * 

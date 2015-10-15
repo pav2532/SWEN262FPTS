@@ -2,12 +2,15 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.*;
 
 public class GViewControl extends JFrame{
-   
+   private  User currentUser;
    private Portfolio portfolio;
    private JTextField usernameLogIn = new JTextField();
    private JTextField numShare = new JTextField();
@@ -53,11 +56,8 @@ public class GViewControl extends JFrame{
    public GViewControl(String name){
       super(name);
       
-      // Just for testing purpose, we need to import the portfolio right away to get
-      // the data of the portfolio
-      PortfolioParser portfolioParser = new PortfolioParser();
-      portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
       
+
       String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
       
       // equity data is going to get the info from equity class
@@ -92,36 +92,8 @@ public class GViewControl extends JFrame{
       
       
       
-      // Populate account data for the account table
-      allAccount = portfolio.getAllAccount();
-      accountData = new Object[allAccount.size()][];
-      for(int i = 0; i < allAccount.size(); i++){
-         for(Account a : allAccount){
-            Object[] data = new Object[3];
-            data[0] = a.getName();
-            data[1] = a.getBalance();
-            data[2] = a.getDateCreated();
-            accountData[i] = data;
-         }
-      }
+     
       
-      // Create a drop down for all available account
-      accountDropList = new JComboBox<String>();
-      for(Account a : allAccount){
-         accountDropList.addItem(a.getName());
-      }     
-      
-      // Populate holding data for the holding table
-      holding = portfolio.getHolding();
-      holdingData = new Object[holding.size()][];
-      for(int i = 0; i < holding.size(); i++){
-         for(String key : holding.keySet()){
-            Object[] data = new Object[2];
-            data[0] = key;
-            data[1] = holding.get(key);
-            holdingData[i] = data;
-         }
-      }
       
       setLayout(null);
       setSize(350,250);
@@ -133,13 +105,7 @@ public class GViewControl extends JFrame{
       equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
       equityTable.setFillsViewportHeight(true);
       
-      accountTable = new JTable(accountData, accountColumnName);
-      accountTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
-      accountTable.setFillsViewportHeight(true);
-      
-      holdingTable = new JTable(holdingData, holdingColumnName);
-      holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
-      holdingTable.setFillsViewportHeight(true);
+    
       
       scrollPane = new JScrollPane(equityTable);
       scrollPane.setSize(scrollPane.getPreferredSize());
@@ -154,7 +120,7 @@ public class GViewControl extends JFrame{
                      portfolio.buy(selectedTickerSymbol, Float.valueOf(selectedSharePrice), Integer.valueOf(numShare.getText()), a);
                   } catch (NumberFormatException e1) {
                      e1.printStackTrace();
-                  } catch (InsufficentFundsException e1) {
+                  } catch (InsufficientFundsException e1) {
                      e1.printStackTrace();
                   }
                   break;
@@ -163,14 +129,15 @@ public class GViewControl extends JFrame{
              
              holding = portfolio.getHolding();
              holdingData = new Object[holding.size()][];
-             for(int i = 0; i < holding.size(); i++){
-                for(String key : holding.keySet()){
+             int index = 0;
+            	 for(Entry<String,Integer> entry : portfolio.getHolding().entrySet()){
                    Object[] data = new Object[2];
-                   data[0] = key;
-                   data[1] = holding.get(key);
-                   holdingData[i] = data;
+                   data[0] = entry.getKey();
+                   data[1] = entry.getValue();
+                   holdingData[index] = data;
+                   index++;
                 }
-             }
+             
              allAccount = portfolio.getAllAccount();
              accountData = new Object[allAccount.size()][];
              for(int i = 0; i < allAccount.size(); i++){
@@ -193,11 +160,9 @@ public class GViewControl extends JFrame{
       buy.addMouseListener(new MouseAdapter(){
          public void mousePressed(MouseEvent e){
             int tickerRow = equityTable.getSelectedRow();
-            int tickerCol = equityTable.getSelectedColumn();
             int sharePriceRow = tickerRow;
-            int sharePriceCol = tickerCol +2;
-            selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, tickerCol).toString();
-            selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, sharePriceCol).toString();
+            selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, 0).toString();
+            selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
          }
       });
       
@@ -319,7 +284,14 @@ public class GViewControl extends JFrame{
                String encryptedPass = newUser.encrypt(pass);
                newUser.setPassword(encryptedPass);
                try {
-                  newUser.transferUsernamePassword();
+                  File file = new File("Portfolios/"+newUser.getUserName()+".txt");
+
+                  boolean success = file.createNewFile();
+          		  if(success){
+                      newUser.transferUsernamePassword();
+          			}
+          			
+          		
                } catch (IOException e1) {
                   e1.printStackTrace();
                }
@@ -341,9 +313,9 @@ public class GViewControl extends JFrame{
             UserParser userParser = new UserParser();
             String associatePassword = userParser.findAccount(userAccount, "src/Account.txt");
             if(associatePassword != null){
-               User user = new User(userAccount);
-               user.setPassword(associatePassword);
-               if(user.authenticate(user.encrypt(pass))){
+               currentUser = new User(userAccount);
+               currentUser.setPassword(associatePassword);
+               if(currentUser.authenticate(currentUser.encrypt(pass))){
                   getContentPane().removeAll();
                   getContentPane().repaint();
                   JOptionPane.showMessageDialog(null, "Log in sucessful");
@@ -365,9 +337,64 @@ public class GViewControl extends JFrame{
       add(signIn);
       
       setVisible(true);
+      
+     
+      
+   }
+   
+   public void populate(){
+	   // Populate account data for the account table
+	      allAccount = portfolio.getAllAccount();
+	      accountData = new Object[allAccount.size()][];
+	      int index = 0;
+	         for(Account a : allAccount){
+	            Object[] data = new Object[3];
+	            data[0] = a.getName();
+	            data[1] = a.getBalance();
+	            data[2] = a.getDateCreated();
+	            accountData[index] = data;
+	            index++;
+	         }
+	      
+	      
+	      // Create a drop down for all available account
+	      accountDropList = new JComboBox<String>();
+	      for(Account a : allAccount){
+	         accountDropList.addItem(a.getName());
+	      }     
+	      
+	      // Populate holding data for the holding table
+	      holding = portfolio.getHolding();
+	      holdingData = new Object[holding.size()][];
+	      index = 0;
+	      for(String key : holding.keySet()){
+	            Object[] data = new Object[2];
+	            data[0] = key;
+	            data[1] = holding.get(key);
+	            holdingData[index] = data;
+	            index++;
+	         }
+	      
+	      accountTable = new JTable(accountData, accountColumnName);
+	      accountTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
+	      accountTable.setFillsViewportHeight(true);
+	      
+	      holdingTable = new JTable(holdingData, holdingColumnName);
+	      holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
+	      holdingTable.setFillsViewportHeight(true);
+	      return;
    }
    
    public static void main(String args[]){
       GViewControl view = new GViewControl("FPTS");
+      while(view.currentUser == null){
+    	  
+      }
+      // Just for testing purpose, we need to import the portfolio right away to get
+      // the data of the portfolio
+      PortfolioParser portfolioParser = new PortfolioParser();
+      view.portfolio = portfolioParser.importFile("Portfolios/"+view.currentUser.getUserName()+".txt");
+      
+      view.populate();
    }
 }
