@@ -9,10 +9,11 @@ public class Portfolio {
 	private HashMap<String, Integer> holding;
 	private ArrayList<Transaction> allTransaction;
 	
-	public Portfolio(ArrayList<Account> allAccount, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction){
+	public Portfolio(String name, ArrayList<Account> allAccount, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction){
 		this.allAccount = allAccount;
 		this.holding = holding;
 		this.allTransaction = allTransaction;
+		this.name = name;
 	}
 	
 	public ArrayList<Account> getAllAccount(){
@@ -28,7 +29,7 @@ public class Portfolio {
 	} 
 	
 	public void save() throws IOException{
-		FileWriter file = new FileWriter("src/ExamplePortfolio.txt");
+		FileWriter file = new FileWriter("Portfolios/"+name+".txt");
 		PrintWriter writer = null;
 		try{
 			writer = new PrintWriter(file);

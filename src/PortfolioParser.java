@@ -40,7 +40,10 @@ public class PortfolioParser {
 					}
 				}
 			}
-			portfolio = new Portfolio(allAccount, holding, allTransaction);
+			String name = filename;
+			name.replace("Portfolios/", "");
+			name.replace(".txt", "");
+			portfolio = new Portfolio(name, allAccount, holding, allTransaction);
 			bufferedReader.close();
 		}
 		catch(FileNotFoundException e){
