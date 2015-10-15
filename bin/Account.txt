@@ -2,5 +2,9 @@ qvu,1b2f7134@C[
 qvu1994,a71a1b77@C[
 qvu000,olleh
 qvu10,mnm
+<<<<<<< HEAD
 pav,4321
 pav,4321
+=======
+mitch,321
+>>>>>>> newBranch
