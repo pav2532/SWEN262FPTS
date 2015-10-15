@@ -218,6 +218,10 @@ public class GViewControl extends JFrame{
       equityOption.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
             scrollPane.setViewportView(equityTable);
+            remove(sell);
+            add(buy, BorderLayout.SOUTH);
+            revalidate();
+            repaint();
          }
       });
 
@@ -229,7 +233,11 @@ public class GViewControl extends JFrame{
       
       holdingOption.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
-            scrollPane.setViewportView(holdingTable);
+        	 remove(buy);
+             add(sell, BorderLayout.SOUTH);
+             scrollPane.setViewportView(holdingTable);
+             revalidate();
+             repaint();
          }
       });
       
