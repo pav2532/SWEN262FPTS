@@ -158,10 +158,14 @@ public class GViewControl extends JFrame{
       });
       buy.addMouseListener(new MouseAdapter(){
          public void mousePressed(MouseEvent e){
-            int tickerRow = equityTable.getSelectedRow();
-            int sharePriceRow = tickerRow;
-            selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, 0).toString();
-            selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
+        	 if(equityTable.getSelectedRow() != -1){
+        		 int tickerRow = equityTable.getSelectedRow();
+        		 int sharePriceRow = tickerRow;
+        		 selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, 0).toString();
+        		 selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
+         }else{
+        	 JOptionPane.showMessageDialog(buyFrame, "Please select a stock");
+         }
          }
       });
       
