@@ -2,24 +2,24 @@
 public class Account {
 
 	private String name;
-	
+
 	private Float balance;
-	
+
 	private String dateCreated;
-	
-	public Account(String name, Float balance, String dateCreated){
+
+	public Account(String name, Float balance, String dateCreated) {
 		this.name = name;
 		this.setBalance(balance);
 		this.setDateCreated(dateCreated);
 	}
-	
-	public Account(String name, String dateCreated){
+
+	public Account(String name, String dateCreated) {
 		this.name = name;
 		this.setBalance(0f);
 		this.setDateCreated(dateCreated);
 	}
-	
-	public String getName(){
+
+	public String getName() {
 		return this.name;
 	}
 
@@ -27,10 +27,10 @@ public class Account {
 		return balance;
 	}
 
-	public void setBalance(Float balance){
+	public void setBalance(Float balance) {
 		this.balance = balance;
 	}
-	
+
 	public String getDateCreated() {
 		return dateCreated;
 	}
@@ -38,18 +38,18 @@ public class Account {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	
+
 	public void addFunds(Float funds) {
 		this.balance = balance + funds;
 	}
 
-	public int removeFunds(Float funds){
-		if(funds <= balance){
+	public int removeFunds(Float funds) {
+		if (funds <= balance) {
 			balance = balance - funds;
 			return 1;
-		}else{
+		} else {
 			return 0;
 		}
 	}
-	
+
 }

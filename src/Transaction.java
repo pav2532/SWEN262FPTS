@@ -6,14 +6,14 @@ public abstract class Transaction {
 	String to;
 	String from;
 	String SharePrice;
-	
-	public String getTransaction(){
+
+	public String getTransaction() {
 		return this.Transaction;
 	}
-	
-	public Transaction(){
+
+	public Transaction() {
 		this.Transaction = "Default Transaction class. This should never display";
 	}
-	
+
 	public abstract String saveTransaction();
 }
