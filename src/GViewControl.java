@@ -115,8 +115,6 @@ public class GViewControl extends JFrame{
       holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
       holdingTable.setFillsViewportHeight(true);
       
-      transaction
-      
       scrollPane = new JScrollPane(equityTable);
       scrollPane.setSize(scrollPane.getPreferredSize());
       scrollPane.setLocation(100, 200);

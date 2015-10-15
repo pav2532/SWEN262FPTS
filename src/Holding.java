@@ -7,10 +7,13 @@ public class Holding {
 	
 	private Float price;
 	
-	public Holding(String tS, String name, Float price){
+	private String sectors;
+	
+	public Holding(String tS, String name, Float price, String sectors){
 		this.tickerSymbol = tS;
 		this.name = name;
 		this.price = price;
+		this.sectors = sectors;
 	}
 	
 	public Holding(Holding holding){
@@ -33,5 +36,8 @@ public class Holding {
 	
 	protected void setPrice(Float p){
 		this.price = p;
+	}
+	protected String getSectors(){
+		return this.sectors;
 	}
 }
