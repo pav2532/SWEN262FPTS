@@ -3,7 +3,7 @@ import java.util.Map.Entry;
 
 public class EquitiesHolder {
 
-	public static HashMap<String,HashMap<String,Holding>> Indices;
+	public static HashMap<String,HashMap<String,Holding>> Indices = new HashMap<String,HashMap<String,Holding>>();
 	
 	/**
 	 * Adds the given holding to the EquitiesHolder (the 'world')

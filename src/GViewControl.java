@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Map.Entry;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -40,6 +41,7 @@ public class GViewControl extends JFrame{
    private String pass;
    private String selectedTickerSymbol;
    private String selectedSharePrice;
+   private static EquitiesHolder equities;
    
    public GViewControl(String name){
       super(name);
@@ -55,10 +57,36 @@ public class GViewControl extends JFrame{
       
       // equity data is going to get the info from equity class
          
-      Object[][] equityData = {
-            {"3", "1", "2", "3"},
-      };
       
+      ArrayList list = new ArrayList();
+      EquityParser parser = new EquityParser();
+      
+      try {
+		equities = parser.findAccount("src/equities.txt");
+      } catch (IOException e2) {
+		// TODO Auto-generated catch block
+		e2.printStackTrace();
+      }
+      HashMap<String,Holding> results = new HashMap<String,Holding>();
+      
+      for(Entry<String, HashMap<String,Holding>> IndexEntry : equities.Indices.entrySet()){
+			HashMap<String,Holding> value = IndexEntry.getValue();
+			for(Entry<String,Holding> entry : value.entrySet()){
+				String key = entry.getKey();
+				results.put(key, entry.getValue());
+			}
+      }
+      Object[][] equityData = new Object [results.size()][4];
+      int row = 0;
+      for(Entry<String,Holding> entry : results.entrySet()){
+    	  ArrayList tempList = new ArrayList();
+    	  equityData[row][0] = entry.getValue().getTickerSymbol();
+    	  equityData[row][1] = entry.getValue().getName();
+    	  equityData[row][2] = entry.getValue().getPrice();
+    	  equityData[row][3] = entry.getValue().getSectors();
+    	  row ++;
+      }
+    	  
       
       
       // Populate account data for the account table
