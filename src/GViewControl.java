@@ -9,6 +9,7 @@ import javax.swing.*;
 public class GViewControl extends JFrame{
    
    private Portfolio portfolio;
+   private Transaction transaction;
    private JTextField usernameLogIn = new JTextField();
    private JTextField numShare = new JTextField();
    private JPasswordField passwordLogIn = new JPasswordField();
@@ -35,7 +36,7 @@ public class GViewControl extends JFrame{
    private JTable equityTable;
    private JTable accountTable;
    private JTable holdingTable;
-   private JTextArea transaction;
+   private JTextArea transactionList;
    private JFileChooser fileChooser = new JFileChooser("Import");
    private ArrayList<Account> allAccount;
    private String userAccount;
@@ -53,8 +54,7 @@ public class GViewControl extends JFrame{
    public GViewControl(String name){
       super(name);
       
-      // Just for testing purpose, we need to import the portfolio right away to get
-      // the data of the portfolio
+
       PortfolioParser portfolioParser = new PortfolioParser();
       portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
       
@@ -141,6 +141,8 @@ public class GViewControl extends JFrame{
       holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
       holdingTable.setFillsViewportHeight(true);
       
+      
+      
       scrollPane = new JScrollPane(equityTable);
       scrollPane.setSize(scrollPane.getPreferredSize());
       scrollPane.setLocation(100, 200);
@@ -163,24 +165,24 @@ public class GViewControl extends JFrame{
              
              holding = portfolio.getHolding();
              holdingData = new Object[holding.size()][];
-             for(int i = 0; i < holding.size(); i++){
-                for(String key : holding.keySet()){
-                   Object[] data = new Object[2];
-                   data[0] = key;
-                   data[1] = holding.get(key);
-                   holdingData[i] = data;
-                }
+             int i = 0;
+             for(String key : holding.keySet()){
+                Object[] data = new Object[2];
+                data[0] = key;
+                data[1] = holding.get(key);
+                holdingData[i] = data;
+                i++;
              }
              allAccount = portfolio.getAllAccount();
              accountData = new Object[allAccount.size()][];
-             for(int i = 0; i < allAccount.size(); i++){
-                for(Account a : allAccount){
-                   Object[] data = new Object[3];
-                   data[0] = a.getName();
-                   data[1] = a.getBalance();
-                   data[2] = a.getDateCreated();
-                   accountData[i] = data;
-                }
+             int j = 0;
+             for(Account a : allAccount){
+                 Object[] data = new Object[3];
+                 data[0] = a.getName();
+                 data[1] = a.getBalance();
+                 data[2] = a.getDateCreated();
+                 accountData[j] = data;
+                 j++;
              }
              
              holdingTable = new JTable(holdingData, holdingColumnName);
@@ -193,11 +195,9 @@ public class GViewControl extends JFrame{
       buy.addMouseListener(new MouseAdapter(){
          public void mousePressed(MouseEvent e){
             int tickerRow = equityTable.getSelectedRow();
-            int tickerCol = equityTable.getSelectedColumn();
             int sharePriceRow = tickerRow;
-            int sharePriceCol = tickerCol +2;
-            selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, tickerCol).toString();
-            selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, sharePriceCol).toString();
+            selectedTickerSymbol = equityTable.getModel().getValueAt(tickerRow, 0).toString();
+            selectedSharePrice = equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
          }
       });
       
@@ -271,7 +271,7 @@ public class GViewControl extends JFrame{
       
       transactionOption.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
-            scrollPane.setViewportView(transaction);
+            scrollPane.setViewportView(transactionList);
          }
       });
       
