@@ -19,6 +19,7 @@ public class GViewControl extends JFrame implements Observer{
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
 	private JButton buyConfirm = new JButton("Confirm");
+
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -38,8 +39,6 @@ public class GViewControl extends JFrame implements Observer{
 	private ArrayList<Account> allAccount;
 	private String userAccount;
 	private String pass;
-	private String selectedTickerSymbol;
-	private String selectedSharePrice;
 	
 	public GViewControl(String name){
 		super(name);
@@ -53,6 +52,7 @@ public class GViewControl extends JFrame implements Observer{
       
 		String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
+
 		String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
 		
 		// equity data is going to get the info from equity class
@@ -96,6 +96,18 @@ public class GViewControl extends JFrame implements Observer{
 				holdingData[i] = data;
 			}
 		}
+
+//		// Example data
+//		Object[][] equityData = {
+//				{"3", "1", "2", "3"},
+//		};
+//		Object[][] portfolioData = {
+//				{"User10", "hlo", "1000"}	
+//		};
+//		Object[][] accountData = {
+//				{"abc123", "10000", "10/10/2010"}
+//		};
+
 		
 		setLayout(null);
 		setSize(350,250);
@@ -104,7 +116,7 @@ public class GViewControl extends JFrame implements Observer{
 		
 		portfolioOption.add(accountOption);
 		equityTable = new JTable(equityData, equityColumnName);
-		equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
+		equityTable.setPreferredScrollableViewportSize(new Dimension(100, 100));
 		equityTable.setFillsViewportHeight(true);
 		
 		accountTable = new JTable(accountData, accountColumnName);
@@ -119,6 +131,7 @@ public class GViewControl extends JFrame implements Observer{
 		scrollPane.setSize(scrollPane.getPreferredSize());
 		scrollPane.setLocation(100, 200);
 		
+
 		
 		buyConfirm.addActionListener(new ActionListener(){
 		   public void actionPerformed(ActionEvent e){
@@ -168,6 +181,7 @@ public class GViewControl extends JFrame implements Observer{
 		      buyFrame.add(numShare);
 			}
 		});
+
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
@@ -286,9 +300,7 @@ public class GViewControl extends JFrame implements Observer{
 						setSize(1000, 500);
 						setLocation(150, 150);
 						setJMenuBar(menu);
-						setLayout(new BorderLayout());
-						add(scrollPane, BorderLayout.CENTER);
-						add(buy, BorderLayout.SOUTH);
+						setContentPane(scrollPane);
 					}else{
 						JOptionPane.showMessageDialog(null, "Not a correct password");
 					}
