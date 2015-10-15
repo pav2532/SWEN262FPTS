@@ -19,7 +19,6 @@ public class GViewControl extends JFrame implements Observer{
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
 	private JButton buyConfirm = new JButton("Confirm");
-
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -39,6 +38,8 @@ public class GViewControl extends JFrame implements Observer{
 	private ArrayList<Account> allAccount;
 	private String userAccount;
 	private String pass;
+	private String selectedTickerSymbol;
+	private String selectedSharePrice;
 	
 	public GViewControl(String name){
 		super(name);
@@ -96,18 +97,6 @@ public class GViewControl extends JFrame implements Observer{
 				holdingData[i] = data;
 			}
 		}
-
-//		// Example data
-//		Object[][] equityData = {
-//				{"3", "1", "2", "3"},
-//		};
-//		Object[][] portfolioData = {
-//				{"User10", "hlo", "1000"}	
-//		};
-//		Object[][] accountData = {
-//				{"abc123", "10000", "10/10/2010"}
-//		};
-
 		
 		setLayout(null);
 		setSize(350,250);
