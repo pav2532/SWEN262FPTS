@@ -12,6 +12,7 @@ import javax.swing.*;
 public class GViewControl extends JFrame{
    private  User currentUser;
    private Portfolio portfolio;
+   private Transaction transaction;
    private JTextField usernameLogIn = new JTextField();
    private JTextField numShare = new JTextField();
    private JPasswordField passwordLogIn = new JPasswordField();
@@ -38,7 +39,7 @@ public class GViewControl extends JFrame{
    private JTable equityTable;
    private JTable accountTable;
    private JTable holdingTable;
-   private JTextArea transaction;
+   private JTextArea transactionList;
    private JFileChooser fileChooser = new JFileChooser("Import");
    private ArrayList<Account> allAccount;
    private String userAccount;
@@ -55,7 +56,7 @@ public class GViewControl extends JFrame{
    
    public GViewControl(String name){
       super(name);
-      
+ 
       
 
       String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
@@ -90,11 +91,6 @@ public class GViewControl extends JFrame{
            }  
 
       
-      
-      
-     
-      
-      
       setLayout(null);
       setSize(350,250);
       setLocation(500, 250);
@@ -106,6 +102,8 @@ public class GViewControl extends JFrame{
       equityTable.setFillsViewportHeight(true);
       
     
+      
+      
       
       scrollPane = new JScrollPane(equityTable);
       scrollPane.setSize(scrollPane.getPreferredSize());
@@ -129,6 +127,7 @@ public class GViewControl extends JFrame{
              
              holding = portfolio.getHolding();
              holdingData = new Object[holding.size()][];
+
              int index = 0;
             	 for(Entry<String,Integer> entry : portfolio.getHolding().entrySet()){
                    Object[] data = new Object[2];
@@ -137,17 +136,17 @@ public class GViewControl extends JFrame{
                    holdingData[index] = data;
                    index++;
                 }
-             
+
              allAccount = portfolio.getAllAccount();
              accountData = new Object[allAccount.size()][];
-             for(int i = 0; i < allAccount.size(); i++){
-                for(Account a : allAccount){
-                   Object[] data = new Object[3];
-                   data[0] = a.getName();
-                   data[1] = a.getBalance();
-                   data[2] = a.getDateCreated();
-                   accountData[i] = data;
-                }
+             int j = 0;
+             for(Account a : allAccount){
+                 Object[] data = new Object[3];
+                 data[0] = a.getName();
+                 data[1] = a.getBalance();
+                 data[2] = a.getDateCreated();
+                 accountData[j] = data;
+                 j++;
              }
              
              holdingTable = new JTable(holdingData, holdingColumnName);
@@ -236,7 +235,7 @@ public class GViewControl extends JFrame{
       
       transactionOption.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
-            scrollPane.setViewportView(transaction);
+            scrollPane.setViewportView(transactionList);
          }
       });
       
