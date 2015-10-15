@@ -34,12 +34,19 @@ public class GViewControl extends JFrame{
    private JTable equityTable;
    private JTable accountTable;
    private JTable holdingTable;
+   private JTextArea transaction;
    private JFileChooser fileChooser = new JFileChooser("Import");
    private ArrayList<Account> allAccount;
    private String userAccount;
    private String pass;
    private String selectedTickerSymbol;
    private String selectedSharePrice;
+   private JFrame buyFrame = new JFrame();
+   HashMap<String, Integer> holding;
+   Object[][] holdingData;
+   private Object[][] accountData;
+   private String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
+   private String[] accountColumnName = {"Name", "Balance", "Date Created"};
    
    public GViewControl(String name){
       super(name);
@@ -50,20 +57,18 @@ public class GViewControl extends JFrame{
       portfolio = portfolioParser.importFile("src/ExamplePortfolio.txt");
       
       String[] equityColumnName = {"Ticker Symbol", "Equity Name", "Share Price", "Sector"};
-      String[] accountColumnName = {"Name", "Balance", "Date Created"};
-      String[] holdingColumnName = {"Ticker Symbol", "Number of Share"};
       
       // equity data is going to get the info from equity class
          
       Object[][] equityData = {
-            {"3", "1", "2", "3"},
+            {"abc", "1", "2", "i"}
       };
       
       
       
       // Populate account data for the account table
       allAccount = portfolio.getAllAccount();
-      Object[][] accountData = new Object[allAccount.size()][];
+      accountData = new Object[allAccount.size()][];
       for(int i = 0; i < allAccount.size(); i++){
          for(Account a : allAccount){
             Object[] data = new Object[3];
@@ -81,8 +86,8 @@ public class GViewControl extends JFrame{
       }     
       
       // Populate holding data for the holding table
-      HashMap<String, Integer> holding = portfolio.getHolding();
-      Object[][] holdingData = new Object[holding.size()][];
+      holding = portfolio.getHolding();
+      holdingData = new Object[holding.size()][];
       for(int i = 0; i < holding.size(); i++){
          for(String key : holding.keySet()){
             Object[] data = new Object[2];
@@ -110,6 +115,8 @@ public class GViewControl extends JFrame{
       holdingTable.setPreferredScrollableViewportSize(new Dimension(100, 100)); 
       holdingTable.setFillsViewportHeight(true);
       
+      transaction
+      
       scrollPane = new JScrollPane(equityTable);
       scrollPane.setSize(scrollPane.getPreferredSize());
       scrollPane.setLocation(100, 200);
@@ -118,7 +125,7 @@ public class GViewControl extends JFrame{
       buyConfirm.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
              for(Account a : allAccount){
-                if(a.getName().equals(selectedTickerSymbol)){
+                if(a.getName().equals(accountDropList.getSelectedItem())){
                    try {
                      portfolio.buy(selectedTickerSymbol, Float.valueOf(selectedSharePrice), Integer.valueOf(numShare.getText()), a);
                   } catch (NumberFormatException e1) {
@@ -129,6 +136,34 @@ public class GViewControl extends JFrame{
                   break;
                 }
              }
+             
+             holding = portfolio.getHolding();
+             holdingData = new Object[holding.size()][];
+             for(int i = 0; i < holding.size(); i++){
+                for(String key : holding.keySet()){
+                   Object[] data = new Object[2];
+                   data[0] = key;
+                   data[1] = holding.get(key);
+                   holdingData[i] = data;
+                }
+             }
+             allAccount = portfolio.getAllAccount();
+             accountData = new Object[allAccount.size()][];
+             for(int i = 0; i < allAccount.size(); i++){
+                for(Account a : allAccount){
+                   Object[] data = new Object[3];
+                   data[0] = a.getName();
+                   data[1] = a.getBalance();
+                   data[2] = a.getDateCreated();
+                   accountData[i] = data;
+                }
+             }
+             
+             holdingTable = new JTable(holdingData, holdingColumnName);
+             accountTable = new JTable(accountData, accountColumnName);
+             buyFrame.dispose();
+             scrollPane.setViewportView(holdingTable);
+             
          }
       });
       buy.addMouseListener(new MouseAdapter(){
@@ -144,7 +179,6 @@ public class GViewControl extends JFrame{
       
       buy.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
-            JFrame buyFrame = new JFrame();
             buyFrame.setLayout(null);
             buyFrame.setSize(350, 250);
             buyFrame.setLocation(500, 250);
@@ -158,11 +192,16 @@ public class GViewControl extends JFrame{
             numShare.setLocation(120, 50);
             accountDropList.setLocation(10, 80);
             accountDropList.setSize(accountDropList.getPreferredSize());
+            buyConfirm.setSize(buyConfirm.getPreferredSize());
+            buyConfirm.setLocation(150, 100);
+            buyFrame.add(buyConfirm);
             buyFrame.add(accountDropList);
             buyFrame.add(numberOfShare);
             buyFrame.add(numShare);
          }
       });
+      
+      
       exit.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
             System.exit(0);
@@ -203,6 +242,12 @@ public class GViewControl extends JFrame{
       holdingOption.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
             scrollPane.setViewportView(holdingTable);
+         }
+      });
+      
+      transactionOption.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent e){
+            scrollPane.setViewportView(transaction);
          }
       });
       

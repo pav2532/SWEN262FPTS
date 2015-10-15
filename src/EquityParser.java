@@ -5,7 +5,7 @@ import java.io.*;
 public class EquityParser {
 	
 	
-	public EquitiesHolder findAccount(String userName, String filename) throws IOException{
+	public EquitiesHolder findAccount(String filename) throws IOException{
 	String line = null;
   	Holding newEquity = null;
   	EquitiesHolder temp = new EquitiesHolder();
