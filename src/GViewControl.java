@@ -24,6 +24,8 @@ public class GViewControl extends JFrame {
 	private JButton buy = new JButton("Buy");
 	private JButton sell = new JButton("Sell");
 	private JButton buyConfirm = new JButton("Confirm");
+	private JButton addWacthlist = new JButton("Add to Wacthlist");
+	private JButton removeWacthList = new JButton("Remove");
 	private JMenuBar menu = new JMenuBar();
 	private JMenu file = new JMenu("File");
 	private JMenu portfolioOption = new JMenu("Portfolio");
@@ -34,11 +36,13 @@ public class GViewControl extends JFrame {
 	private JMenuItem accountOption = new JMenuItem("Account");
 	private JMenuItem holdingOption = new JMenuItem("Holding");
 	private JMenuItem transactionOption = new JMenuItem("Transaction");
+	private JMenuItem wacthListOption = new JMenuItem("WacthList");
 	private JComboBox<String> accountDropList = new JComboBox<String>();
 	private JScrollPane scrollPane;
 	private JTable equityTable;
 	private JTable accountTable;
 	private JTable holdingTable;
+	private JTable wacthlist;
 	private JTextArea transactionList;
 	private JFileChooser fileChooser = new JFileChooser("Import");
 	private ArrayList<Account> allAccount;
@@ -52,6 +56,7 @@ public class GViewControl extends JFrame {
 	private Object[][] accountData;
 	private String[] holdingColumnName = { "Ticker Symbol", "Number of Share" };
 	private String[] accountColumnName = { "Name", "Balance", "Date Created" };
+	private String[] wacthListColumnName = { "Ticker Symbol", "Number of Share" };
 	private static EquitiesHolder equities;
 
 	public GViewControl(String name) {
@@ -62,6 +67,7 @@ public class GViewControl extends JFrame {
 		// equity data is going to get the info from equity class
 
 		ArrayList list = new ArrayList();
+		// Equity Parsers and add to the table
 		EquityParser parser = new EquityParser();
 		try {
 			equities = parser.findAccount("src/equities.txt");
@@ -87,21 +93,22 @@ public class GViewControl extends JFrame {
 			equityData[row][3] = entry.getValue().getSectors();
 			row++;
 		}
-
+		// End of equity Parsers and table for loop
+		// Set GUI
+		
 		setLayout(null);
 		setSize(350, 250);
 		setLocation(500, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		portfolioOption.add(accountOption);
 		equityTable = new JTable(equityData, equityColumnName);
 		equityTable.setPreferredScrollableViewportSize(new Dimension(500, 500));
 		equityTable.setFillsViewportHeight(true);
-
 		scrollPane = new JScrollPane(equityTable);
 		scrollPane.setSize(scrollPane.getPreferredSize());
 		scrollPane.setLocation(100, 200);
-
+		//Confirm amount;
 		buyConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (Account a : allAccount) {
@@ -149,6 +156,7 @@ public class GViewControl extends JFrame {
 
 			}
 		});
+		//Selected Equity
 		buy.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				if (equityTable.getSelectedRow() != -1) {
@@ -161,7 +169,7 @@ public class GViewControl extends JFrame {
 				}
 			}
 		});
-
+		//Buy Equity
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buyFrame.setLayout(null);
@@ -185,13 +193,13 @@ public class GViewControl extends JFrame {
 				buyFrame.add(numShare);
 			}
 		});
-
+		//Logout/Close program
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-
+		//Add portfolio to the user
 		open.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
@@ -201,7 +209,7 @@ public class GViewControl extends JFrame {
 				}
 			}
 		});
-
+		//Save porfolio
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -211,6 +219,7 @@ public class GViewControl extends JFrame {
 				}
 			}
 		});
+		//Change vie to equity table
 		equityOption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setViewportView(equityTable);
@@ -220,13 +229,13 @@ public class GViewControl extends JFrame {
 				repaint();
 			}
 		});
-
+		//Change view to Account Table
 		accountOption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setViewportView(accountTable);
 			}
 		});
-
+		//Change view to protfolio Table
 		holdingOption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(buy);
@@ -236,10 +245,16 @@ public class GViewControl extends JFrame {
 				repaint();
 			}
 		});
-
+		//Change view to Transantion Table;
 		transactionOption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setViewportView(transactionList);
+			}
+		});
+		//Change view to WacthList Table;
+		wacthListOption.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				
 			}
 		});
 
@@ -247,9 +262,11 @@ public class GViewControl extends JFrame {
 		file.add(save);
 		file.add(equityOption);
 		file.add(portfolioOption);
+		
 		portfolioOption.add(accountOption);
 		portfolioOption.add(holdingOption);
 		portfolioOption.add(transactionOption);
+		portfolioOption.add(wacthListOption);
 		file.add(exit);
 		menu.add(file);
 
@@ -387,6 +404,7 @@ public class GViewControl extends JFrame {
 	public static void main(String args[]) {
 		GViewControl view = new GViewControl("FPTS");
 		while (view.currentUser == null) {
+			System.out.println("");
 
 		}
 		// Just for testing purpose, we need to import the portfolio right away
