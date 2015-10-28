@@ -224,6 +224,7 @@ public class GViewControl extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setViewportView(equityTable);
 				remove(sell);
+				remove(removeWacthList);
 				add(buy, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -254,6 +255,13 @@ public class GViewControl extends JFrame {
 		//Change view to WacthList Table;
 		wacthListOption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
+				scrollPane.setViewportView(wacthlist);
+				remove(buy);
+				remove(sell);
+				add(removeWacthList, BorderLayout.SOUTH);
+				revalidate();
+				repaint();
+				
 				
 			}
 		});
