@@ -16,4 +16,13 @@ public abstract class Transaction {
 	}
 
 	public abstract String saveTransaction();
+	
+	@Override
+	public boolean equals(Object obj){
+		Transaction t = (Transaction) obj;
+		if(this.Transaction.equals(t.getTransaction())){
+			return true;
+		}
+		return false;
+	} 
 }

@@ -10,13 +10,16 @@ public class AddAccountCommand extends AbstractCommand {
 	
 	@Override
 	void execute() {
-		// TODO Auto-generated method stub
-
+		//PortfolioController.Portfolio.addAccount(account);
+		
+		
 	}
 
 	@Override
 	void unexecute() {
-		// TODO Auto-generated method stub
+		//PortfolioController.Portfolio.removeAccount(account);
+		
+		
 
 	}
 

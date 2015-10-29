@@ -54,6 +54,10 @@ public class Account {
 
 	@Override
 	public boolean equals(Object obj){
-		if(this.name.equals((Account) obj.getName())
+		Account a = (Account) obj;
+		if(this.name.equals(a.getName()) && this.balance.equals(a.getBalance()) && this.dateCreated.equals(a.getDateCreated()) ){
+			return true;
+		}
+		return false;
 	}
 }

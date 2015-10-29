@@ -45,6 +45,21 @@ public class Portfolio {
 		allAccount.remove(a);
 	}
 	
+	public void transfer(String accountTo, String accountFrom, Float amount) throws InsufficientFundsException{
+		for(int i = 0; i < allAccount.size(); i++){
+			if(allAccount.get(i).getName().equals(accountTo)){
+				int result = allAccount.get(i).removeFunds(amount);
+				if(result == 0){
+					throw new InsufficientFundsException();
+				}
+			}
+			
+			if(allAccount.get(i).getName().equals(accountFrom)){
+				allAccount.get(i).addFunds(amount);
+			}
+		}
+	}
+	
 	public void save() throws IOException {
 		FileWriter file = new FileWriter("Portfolios/" + name + ".txt");
 		PrintWriter writer = null;
