@@ -29,6 +29,22 @@ public class Portfolio {
 		return holding;
 	}
 
+	public void addTransaction(Transaction t){
+		allTransaction.add(t);
+	}
+	
+	public void removeTransaction(Transaction t){
+		allTransaction.remove(t);
+	}
+	
+	public void addAccount(Account a){
+		allAccount.add(a);
+	}
+	
+	public void removeAccount(Account a){
+		allAccount.remove(a);
+	}
+	
 	public void save() throws IOException {
 		FileWriter file = new FileWriter("Portfolios/" + name + ".txt");
 		PrintWriter writer = null;

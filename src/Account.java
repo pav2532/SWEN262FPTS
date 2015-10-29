@@ -52,4 +52,8 @@ public class Account {
 		}
 	}
 
+	@Override
+	public boolean equals(Object obj){
+		if(this.name.equals((Account) obj.getName())
+	}
 }
