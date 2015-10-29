@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class Portfolio {
+	
 	private String name;
 	private int userID;
 	private ArrayList<Account> allAccount;
@@ -17,34 +18,77 @@ public class Portfolio {
 		this.name = name;
 	}
 
+	/**
+	 * Getter for the account list
+	 * 
+	 * @return The account list for the portfolio. 
+	 */
 	public ArrayList<Account> getAllAccount() {
 		return allAccount;
 	}
 
+	/**
+	 * Getter for the Transaction list
+	 * 
+	 * @return  The Transaction list.
+	 */
 	public ArrayList<Transaction> getAllTransaction() {
 		return allTransaction;
 	}
 
+	/**
+	 * Getter for the holding hashmap
+	 * 
+	 * @return	the hashmap of holdings the portfolio owns.
+	 */
 	public HashMap<String, Integer> getHolding() {
 		return holding;
 	}
 
+	/**
+	 * adds the provided Transaction to the Transaction list
+	 * 
+	 * @param t 	The Transaction to be added to the portfolio's list.
+	 */
 	public void addTransaction(Transaction t){
 		allTransaction.add(t);
 	}
 	
+	/**
+	 * removes a Transaction that matches the provided Transaction
+	 * 
+	 * @param t 	The Transaction to be removed from the Transaction list.
+	 */
 	public void removeTransaction(Transaction t){
 		allTransaction.remove(t);
 	}
 	
+	/**
+	 * adds the given account to the portfolio's account list.
+	 * 
+	 * @param a 	The account to be added to the portfolio's account list.
+	 */
 	public void addAccount(Account a){
 		allAccount.add(a);
 	}
 	
+	/**
+	 * removes the given account from the portfolio's account list.
+	 * 
+	 * @param a 	The account to be removed from the portfolio's account list.
+	 */
 	public void removeAccount(Account a){
 		allAccount.remove(a);
 	}
 	
+	/**
+	 * transfers the given amount from accountFrom to account To
+	 * 
+	 * @param accountTo 	The account to transfer funds from.
+	 * @param accountFrom 	The account to transfer funds to.
+	 * @param amount 		The amount to be transfered between accounts.
+	 * @throws InsufficientFundsException 	Exception thrown when accountFrom does not have enough funds to transfer the given amount.
+	 */
 	public void transfer(String accountTo, String accountFrom, Float amount) throws InsufficientFundsException{
 		for(int i = 0; i < allAccount.size(); i++){
 			if(allAccount.get(i).getName().equals(accountTo)){
@@ -60,6 +104,11 @@ public class Portfolio {
 		}
 	}
 	
+	/**
+	 * Saves the entirety of the portfolio to a file named after the name of the portfolio.
+	 * 
+	 * @throws IOException
+	 */
 	public void save() throws IOException {
 		FileWriter file = new FileWriter("Portfolios/" + name + ".txt");
 		PrintWriter writer = null;
@@ -84,6 +133,17 @@ public class Portfolio {
 		}
 	}
 
+	/**
+	 * Simulates buying 'NumShares' of the stock associated with 'ticker'. This is done by
+	 * adding the ticker and amount to the portfolios holding hashmap and removing the 
+	 * funds needed (price*NumShares) from the given account.
+	 * 
+	 * @param ticker 	ticker symbol of the stock being purchased.
+	 * @param price 	price of the stock being purchased.
+	 * @param NumShares 	Number of shares of the stock being purchased.
+	 * @param account 	account used to pay for the purchase of the stock.
+	 * @throws InsufficientFundsException 	Exception thrown when accountFrom does not have enough funds to transfer the given amount.
+	 */
 	public void buy(String ticker, Float price, int NumShares, Account account) throws InsufficientFundsException {
 		int index = allAccount.lastIndexOf(account);
 		if (index == -1) {
@@ -104,6 +164,18 @@ public class Portfolio {
 		return;
 	}
 
+	/**
+	 * Simulates selling a stock the portfolio owns. This is done by reducing the value (which represents number of shares)
+	 * of the k,v pair in the holding hashmap equal to the NumShares param. Then funds are added to the specified account
+	 * equal to the price of the stock * the number of shares being sold. If all of the shares are sold, the holding is 
+	 * removed from the hashmap.
+	 * 
+	 * @param ticker 	ticker symbol of the stock being sold.
+	 * @param price 	price of the stock being sold.
+	 * @param NumShares 	Number of shares of the stock being sold.
+	 * @param account 	account the profits are transfered into.
+	 * @throws NotEnoughOwnedSharesException 	Thrown when there are less shares owned than trying to be sold.
+	 */
 	public void sell(String ticker, Float price, int NumShares, Account account) throws NotEnoughOwnedSharesException {
 		int index = allAccount.lastIndexOf(account);
 		if (index == -1) {
