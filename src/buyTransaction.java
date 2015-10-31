@@ -12,7 +12,8 @@ public class buyTransaction extends Transaction {
 	}
 	
 	public String saveTransaction(){
+
 		return ("T,B,"+to+","+from+","+SharePrice+","+amount);
 	}
-	
+
 }

@@ -15,22 +15,22 @@ public class User {
 		this.ID = ++numberOfUser;
 		this.userName = userName;
 	}
-	
+
 	// get the User's ID
 	public int getID(){
 		return ID;
 	}
-	
+
 	//get the User's name
 	public String getUserName(){
 		return userName;
 	}
-	
+
 	// get the User's encrypted password
 	public String getEncryptedPassword(){
 		return encryptedPassword;
 	}
-	
+
 	public void setPassword(String pass){
 		this.encryptedPassword = pass; 
 	}

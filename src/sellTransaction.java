@@ -11,6 +11,8 @@ public class sellTransaction extends Transaction {
 	}
 	
 	public String saveTransaction(){
+
 		return ("T,S,"+to+","+from+","+SharePrice+","+amount);
 	}
+
 }

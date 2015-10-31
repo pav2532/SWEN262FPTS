@@ -40,9 +40,8 @@ public class PortfolioParser {
 					}
 				}
 			}
-			String name = filename;
-			name.replace("Portfolios/", "");
-			name.replace(".txt", "");
+			String name = filename.replace("Portfolios/", "");
+			name = name.replace(".txt", "");
 			portfolio = new Portfolio(name, allAccount, holding, allTransaction);
 			bufferedReader.close();
 		}
