@@ -3,7 +3,7 @@
  */
 public class DowJones {
 
-    public void caculation(){
-        
+    public void caculation(Float divisor){
+
     }
 }

@@ -1,4 +1,3 @@
-
 public class Holding {
 
 	private String tickerSymbol;

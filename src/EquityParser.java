@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.io.*;
 
@@ -33,8 +34,4 @@ public class EquityParser {
 			return temp;
 				//ticker symbol, equity name, initial per share price
 	}
-	
 }
-  
-
-

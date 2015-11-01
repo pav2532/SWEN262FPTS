@@ -1,4 +1,3 @@
-
 public abstract class Transaction {
 
 	String Transaction;

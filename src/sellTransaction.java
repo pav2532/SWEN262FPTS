@@ -1,4 +1,3 @@
-
 public class sellTransaction extends Transaction {
 
 	public sellTransaction(String ticker, String accountName, Float Price, int numShares){
@@ -16,3 +15,4 @@ public class sellTransaction extends Transaction {
 	}
 
 }
+

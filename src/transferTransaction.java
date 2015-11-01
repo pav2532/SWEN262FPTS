@@ -1,4 +1,3 @@
-
 public class transferTransaction extends Transaction {
 
 	public transferTransaction(String accountNameF, String accountNameT, Float amount){
@@ -12,3 +11,4 @@ public class transferTransaction extends Transaction {
 		return ("T,T,"+to+","+from+","+amount);
 	}
 }
+

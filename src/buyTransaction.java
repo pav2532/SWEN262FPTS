@@ -17,3 +17,4 @@ public class buyTransaction extends Transaction {
 	}
 
 }
+

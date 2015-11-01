@@ -2,66 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdd958c6-a6cb-427c-9b52-a904754272bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DowJones.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GetUserData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UserProxy.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/GViewControl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/InsufficentFundsException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/PortfolioController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Account.class" afterPath="$PROJECT_DIR$/bin/Account.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Algorithim.class" afterPath="$PROJECT_DIR$/bin/Algorithim.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/BearMarket.class" afterPath="$PROJECT_DIR$/bin/BearMarket.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/AbstractCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/BuyCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Portfolios/giz.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/package-info.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/BullMarket.class" afterPath="$PROJECT_DIR$/bin/BullMarket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/DesignDocument.docx" afterPath="$PROJECT_DIR$/Documentation File/DesignDocument.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/DesignPatternUsage.pdf" afterPath="$PROJECT_DIR$/Documentation File/DesignPatternUsage.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/EquitiesHolder.class" afterPath="$PROJECT_DIR$/bin/EquitiesHolder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/EquityParser.class" afterPath="$PROJECT_DIR$/bin/EquityParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/Group1DomainModel.pdf" afterPath="$PROJECT_DIR$/Documentation File/Group1DomainModel.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$1.class" afterPath="$PROJECT_DIR$/bin/GViewControl$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$10.class" afterPath="$PROJECT_DIR$/bin/GViewControl$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$11.class" afterPath="$PROJECT_DIR$/bin/GViewControl$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$12.class" afterPath="$PROJECT_DIR$/bin/GViewControl$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$2.class" afterPath="$PROJECT_DIR$/bin/GViewControl$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$3.class" afterPath="$PROJECT_DIR$/bin/GViewControl$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$4.class" afterPath="$PROJECT_DIR$/bin/GViewControl$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$5.class" afterPath="$PROJECT_DIR$/bin/GViewControl$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$6.class" afterPath="$PROJECT_DIR$/bin/GViewControl$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$7.class" afterPath="$PROJECT_DIR$/bin/GViewControl$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$8.class" afterPath="$PROJECT_DIR$/bin/GViewControl$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$9.class" afterPath="$PROJECT_DIR$/bin/GViewControl$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl.class" afterPath="$PROJECT_DIR$/bin/GViewControl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Holding.class" afterPath="$PROJECT_DIR$/bin/Holding.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/InsufficientFundsException.class" afterPath="$PROJECT_DIR$/bin/InsufficientFundsException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/NoGrowthMarket.class" afterPath="$PROJECT_DIR$/bin/NoGrowthMarket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/NotEnoughOwnedSharesException.class" afterPath="$PROJECT_DIR$/bin/NotEnoughOwnedSharesException.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Portfolio.class" afterPath="$PROJECT_DIR$/bin/Portfolio.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/PortfolioParser.class" afterPath="$PROJECT_DIR$/bin/PortfolioParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/Sequence Diagram.vsdx" afterPath="$PROJECT_DIR$/Documentation File/Sequence Diagram.vsdx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/SimulationView.class" afterPath="$PROJECT_DIR$/bin/SimulationView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Transaction.class" afterPath="$PROJECT_DIR$/bin/Transaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/User.class" afterPath="$PROJECT_DIR$/bin/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/UserParser.class" afterPath="$PROJECT_DIR$/bin/UserParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/buyTransaction.class" afterPath="$PROJECT_DIR$/bin/buyTransaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/desing.docx" afterPath="$PROJECT_DIR$/Documentation File/desing.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repository.pdf" afterPath="$PROJECT_DIR$/repository.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/sellTransaction.class" afterPath="$PROJECT_DIR$/bin/sellTransaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simulationController.class" afterPath="$PROJECT_DIR$/bin/simulationController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/transferTransaction.class" afterPath="$PROJECT_DIR$/bin/transferTransaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation File/.~lock.Desing Documents.doc#" afterPath="$PROJECT_DIR$/Documentation File/.~lock.Desing Documents.doc#" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Account.java" afterPath="$PROJECT_DIR$/src/Account.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Account.txt" afterPath="$PROJECT_DIR$/bin/Account.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Account.txt" afterPath="$PROJECT_DIR$/src/Account.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/ExamplePortfolio.txt" afterPath="$PROJECT_DIR$/bin/ExamplePortfolio.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginScreen.java" afterPath="$PROJECT_DIR$/src/LoginScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SE262-FPTS.iml" afterPath="$PROJECT_DIR$/SE262-FPTS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithim.java" afterPath="$PROJECT_DIR$/src/Algorithim.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BearMarket.java" afterPath="$PROJECT_DIR$/src/BearMarket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BullMarket.java" afterPath="$PROJECT_DIR$/src/BullMarket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DowJones.java" afterPath="$PROJECT_DIR$/src/DowJones.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EquitiesHolder.java" afterPath="$PROJECT_DIR$/src/EquitiesHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EquityParser.java" afterPath="$PROJECT_DIR$/src/EquityParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GViewControl.java" afterPath="$PROJECT_DIR$/src/GViewControl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Holding.java" afterPath="$PROJECT_DIR$/src/Holding.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NoGrowthMarket.java" afterPath="$PROJECT_DIR$/src/NoGrowthMarket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Portfolio.java" afterPath="$PROJECT_DIR$/src/Portfolio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PortfolioController.java" afterPath="$PROJECT_DIR$/src/PortfolioController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PortfolioParser.java" afterPath="$PROJECT_DIR$/src/PortfolioParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SimulationView.java" afterPath="$PROJECT_DIR$/src/SimulationView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Transaction.java" afterPath="$PROJECT_DIR$/src/Transaction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/User.java" afterPath="$PROJECT_DIR$/src/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Portfolios/e.txt" afterPath="$PROJECT_DIR$/Portfolios/e.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/equities.txt" afterPath="$PROJECT_DIR$/bin/equities.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Portfolios/mitch.txt" afterPath="$PROJECT_DIR$/Portfolios/mitch.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Portfolios/r.txt" afterPath="$PROJECT_DIR$/Portfolios/r.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserParser.java" afterPath="$PROJECT_DIR$/src/UserParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/buyTransaction.java" afterPath="$PROJECT_DIR$/src/buyTransaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sellTransaction.java" afterPath="$PROJECT_DIR$/src/sellTransaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transferTransaction.java" afterPath="$PROJECT_DIR$/src/transferTransaction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Portfolios/y.txt" afterPath="$PROJECT_DIR$/Portfolios/y.txt" />
     </list>
     <ignored path="SE262-FPTS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,17 +77,103 @@
         <entry file="file://$PROJECT_DIR$/src/Portfolio.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+              <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortfolioParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sellTransaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DowJones.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DowJones.java">
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15358362">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transferTransaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/transferTransaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.3566552">
+              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BearMarket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BearMarket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EquityParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EquityParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Holding.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Holding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,19 +204,26 @@
         <option value="$PROJECT_DIR$/src/Run.java" />
         <option value="$PROJECT_DIR$/src/BuyFrame.java" />
         <option value="$PROJECT_DIR$/src/AddAccountFrame.java" />
-        <option value="$PROJECT_DIR$/src/PortfolioParser.java" />
         <option value="$PROJECT_DIR$/src/Account.txt" />
         <option value="$PROJECT_DIR$/src/MainView.java" />
-        <option value="$PROJECT_DIR$/src/sellTransaction.java" />
-        <option value="$PROJECT_DIR$/src/Transaction.java" />
-        <option value="$PROJECT_DIR$/src/buyTransaction.java" />
         <option value="$PROJECT_DIR$/src/ScrollPane.java" />
         <option value="$PROJECT_DIR$/src/Authentication.java" />
         <option value="$PROJECT_DIR$/src/GetUserData.java" />
         <option value="$PROJECT_DIR$/src/UserProxy.java" />
-        <option value="$PROJECT_DIR$/src/User.java" />
         <option value="$PROJECT_DIR$/src/LoginScreen.java" />
         <option value="$PROJECT_DIR$/src/DowJones.java" />
+        <option value="$PROJECT_DIR$/src/buyTransaction.java" />
+        <option value="$PROJECT_DIR$/src/BullMarket.java" />
+        <option value="$PROJECT_DIR$/src/BearMarket.java" />
+        <option value="$PROJECT_DIR$/src/EquityParser.java" />
+        <option value="$PROJECT_DIR$/src/EquitiesHolder.java" />
+        <option value="$PROJECT_DIR$/src/Holding.java" />
+        <option value="$PROJECT_DIR$/src/Portfolio.java" />
+        <option value="$PROJECT_DIR$/src/PortfolioParser.java" />
+        <option value="$PROJECT_DIR$/src/sellTransaction.java" />
+        <option value="$PROJECT_DIR$/src/transferTransaction.java" />
+        <option value="$PROJECT_DIR$/src/Transaction.java" />
+        <option value="$PROJECT_DIR$/src/User.java" />
       </list>
     </option>
   </component>
@@ -199,9 +282,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -236,6 +316,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -457,9 +540,9 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18892509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18892509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -482,34 +565,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/transferTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/buyTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -655,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EquityParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.031982943">
@@ -676,24 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22340426">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Run.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -718,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/transferTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -732,13 +759,6 @@
           <folding>
             <element signature="e#3558#3819#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5106383">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -777,36 +797,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GetUserData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#593#594#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,16 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding>
-            <element signature="e#143#144#0" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,20 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BuyFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9680851">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Portfolios/vkl.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -856,10 +826,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buyTransaction.java">
+    <entry file="file://$PROJECT_DIR$/src/DowJones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23037542">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BullMarket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#804#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BearMarket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EquitiesHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/buyTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.025597269">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BuyFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8959044">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EquityParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Holding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -867,15 +905,59 @@
     <entry file="file://$PROJECT_DIR$/src/Portfolio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DowJones.java">
+    <entry file="file://$PROJECT_DIR$/src/transferTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15358362">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3566552">
+          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
           <folding />
         </state>
       </provider>

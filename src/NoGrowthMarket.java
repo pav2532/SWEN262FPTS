@@ -13,9 +13,9 @@ import java.util.HashMap;
  */
 public class NoGrowthMarket implements Algorithim {
 
-    @Override
-    public Holding simulate(int percentage, int type, int intervals,Holding holding) {
-        return holding;
-    }
-    
+	@Override
+	public Holding simulate(int percentage, int type, int intervals, Holding holding) {
+		return holding;
+	}
+
 }
