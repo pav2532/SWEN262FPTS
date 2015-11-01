@@ -29,6 +29,13 @@ public class EquitiesHolder {
 		}
 	}// end addEquity
 
+	/**
+	 * uses the TickerSearch method to get a specific holding using 
+	 * the provided ticker symbol
+	 * 
+	 * @param ticker ticker symbol of the Holding to be retrieved
+	 * @return returns the holding that matches the given ticker symbol
+	 */
 	public Holding getHolding(String ticker) {
 		HashMap<String, Holding> temp = new HashMap<String, Holding>();
 		temp = TickerSearch(temp, ticker);
