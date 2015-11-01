@@ -77,6 +77,7 @@ public class MainView extends JFrame implements Observer {
                    String name = accFrame.getAccName();
                    Float amount = Float.valueOf(accFrame.getAccAmount());
                    portfolio.addAccount(name, amount, "10/29/15");
+                   accFrame.dispose();
                    pane.displayAccountTable(portfolio.allAccount);
                }
             });

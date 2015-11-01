@@ -2,55 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdd958c6-a6cb-427c-9b52-a904754272bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/AbstractCommand.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/BuyCommand.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Portfolios/giz.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/command/package-info.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GViewControl.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/BearMarket.class" afterPath="$PROJECT_DIR$/bin/BearMarket.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/BullMarket.class" afterPath="$PROJECT_DIR$/bin/BullMarket.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/EquitiesHolder.class" afterPath="$PROJECT_DIR$/bin/EquitiesHolder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/EquityParser.class" afterPath="$PROJECT_DIR$/bin/EquityParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$1.class" afterPath="$PROJECT_DIR$/bin/GViewControl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$10.class" afterPath="$PROJECT_DIR$/bin/GViewControl$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$11.class" afterPath="$PROJECT_DIR$/bin/GViewControl$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$12.class" afterPath="$PROJECT_DIR$/bin/GViewControl$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$2.class" afterPath="$PROJECT_DIR$/bin/GViewControl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$3.class" afterPath="$PROJECT_DIR$/bin/GViewControl$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$4.class" afterPath="$PROJECT_DIR$/bin/GViewControl$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$5.class" afterPath="$PROJECT_DIR$/bin/GViewControl$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$6.class" afterPath="$PROJECT_DIR$/bin/GViewControl$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$7.class" afterPath="$PROJECT_DIR$/bin/GViewControl$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$8.class" afterPath="$PROJECT_DIR$/bin/GViewControl$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl$9.class" afterPath="$PROJECT_DIR$/bin/GViewControl$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/GViewControl.class" afterPath="$PROJECT_DIR$/bin/GViewControl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Holding.class" afterPath="$PROJECT_DIR$/bin/Holding.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Portfolio.class" afterPath="$PROJECT_DIR$/bin/Portfolio.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/PortfolioParser.class" afterPath="$PROJECT_DIR$/bin/PortfolioParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/SimulationView.class" afterPath="$PROJECT_DIR$/bin/SimulationView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Transaction.class" afterPath="$PROJECT_DIR$/bin/Transaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/User.class" afterPath="$PROJECT_DIR$/bin/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/buyTransaction.class" afterPath="$PROJECT_DIR$/bin/buyTransaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/sellTransaction.class" afterPath="$PROJECT_DIR$/bin/sellTransaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Account.java" afterPath="$PROJECT_DIR$/src/Account.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/transferTransaction.class" afterPath="$PROJECT_DIR$/bin/transferTransaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Account.txt" afterPath="$PROJECT_DIR$/bin/Account.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Account.txt" afterPath="$PROJECT_DIR$/src/Account.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithim.java" afterPath="$PROJECT_DIR$/src/Algorithim.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BearMarket.java" afterPath="$PROJECT_DIR$/src/BearMarket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BullMarket.java" afterPath="$PROJECT_DIR$/src/BullMarket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DowJones.java" afterPath="$PROJECT_DIR$/src/DowJones.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EquitiesHolder.java" afterPath="$PROJECT_DIR$/src/EquitiesHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EquityParser.java" afterPath="$PROJECT_DIR$/src/EquityParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GViewControl.java" afterPath="$PROJECT_DIR$/src/GViewControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Holding.java" afterPath="$PROJECT_DIR$/src/Holding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NoGrowthMarket.java" afterPath="$PROJECT_DIR$/src/NoGrowthMarket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Portfolio.java" afterPath="$PROJECT_DIR$/src/Portfolio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PortfolioController.java" afterPath="$PROJECT_DIR$/src/PortfolioController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PortfolioParser.java" afterPath="$PROJECT_DIR$/src/PortfolioParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SimulationView.java" afterPath="$PROJECT_DIR$/src/SimulationView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Transaction.java" afterPath="$PROJECT_DIR$/src/Transaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/User.java" afterPath="$PROJECT_DIR$/src/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserParser.java" afterPath="$PROJECT_DIR$/src/UserParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/buyTransaction.java" afterPath="$PROJECT_DIR$/src/buyTransaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sellTransaction.java" afterPath="$PROJECT_DIR$/src/sellTransaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transferTransaction.java" afterPath="$PROJECT_DIR$/src/transferTransaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/command/BuyCommand.java" afterPath="$PROJECT_DIR$/src/command/BuyCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainView.java" afterPath="$PROJECT_DIR$/src/MainView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SE262-FPTS.iws" />
@@ -77,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/Portfolio.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
+              <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,95 +50,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PortfolioParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
+      <file leaf-file-name="Run.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Run.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#66#67#0" expanded="true" />
+                <element signature="e#122#123#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sellTransaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
+      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Transaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transferTransaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/transferTransaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3566552">
-              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BearMarket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BearMarket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EquityParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EquityParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3597#3858#0" expanded="true" />
+                <element signature="e#3857#3858#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Holding.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Holding.java">
+      <file leaf-file-name="BuyCommand.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/command/BuyCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.031914894">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -205,7 +112,6 @@
         <option value="$PROJECT_DIR$/src/BuyFrame.java" />
         <option value="$PROJECT_DIR$/src/AddAccountFrame.java" />
         <option value="$PROJECT_DIR$/src/Account.txt" />
-        <option value="$PROJECT_DIR$/src/MainView.java" />
         <option value="$PROJECT_DIR$/src/ScrollPane.java" />
         <option value="$PROJECT_DIR$/src/Authentication.java" />
         <option value="$PROJECT_DIR$/src/GetUserData.java" />
@@ -224,6 +130,8 @@
         <option value="$PROJECT_DIR$/src/transferTransaction.java" />
         <option value="$PROJECT_DIR$/src/Transaction.java" />
         <option value="$PROJECT_DIR$/src/User.java" />
+        <option value="$PROJECT_DIR$/src/MainView.java" />
+        <option value="$PROJECT_DIR$/src/command/BuyCommand.java" />
       </list>
     </option>
   </component>
@@ -282,6 +190,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,11 +224,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SE262-FPTS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SWEN262FPTS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="command" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -526,23 +452,23 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2046729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18892509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18892509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -565,13 +491,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Run.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -584,7 +503,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
-            <element signature="e#3558#3819#0" expanded="true" />
+            <element signature="e#3597#3858#0" expanded="true" />
+            <element signature="e#3857#3858#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -637,7 +557,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
-            <element signature="e#3558#3819#0" expanded="true" />
+            <element signature="e#3597#3858#0" expanded="true" />
+            <element signature="e#3857#3858#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -683,7 +604,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3558#3819#0" expanded="true" />
+            <element signature="e#3597#3858#0" expanded="true" />
+            <element signature="e#3857#3858#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -724,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Run.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AddAccountFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -749,16 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28723404">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
-          <folding>
-            <element signature="e#3558#3819#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23037542">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -846,9 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#804#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.025597269">
           <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,31 +800,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Portfolio.java">
+    <entry file="file://$PROJECT_DIR$/src/UserParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35836178">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -940,24 +825,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.28156996">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserParser.java">
+    <entry file="file://$PROJECT_DIR$/src/sellTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.46075085">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.java">
+    <entry file="file://$PROJECT_DIR$/src/PortfolioParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3566552">
-          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.84641635">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Portfolio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#66#67#0" expanded="true" />
+            <element signature="e#122#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding>
+            <element signature="e#3597#3858#0" expanded="true" />
+            <element signature="e#3857#3858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/command/BuyCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031914894">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
