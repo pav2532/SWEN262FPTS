@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class LoginScreen extends JFrame{
-   Portfolio p;
    JLabel usernameLabel = new JLabel("Username");
    JLabel passwordLabel = new JLabel("Password");
    JButton signUp = new JButton("Sign Up");

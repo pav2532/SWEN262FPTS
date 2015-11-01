@@ -4,6 +4,7 @@ import java.util.*;
 
 public class BuyFrame extends JFrame {
    JButton buyConfirm = new JButton("Buy");
+   JLabel accLabel = new JLabel("Account:");
    JComboBox<String> accountDropList = new JComboBox<String>();
    JLabel numberOfShare = new JLabel("Number of share:");
    JTextField numShare = new JTextField();
@@ -16,8 +17,10 @@ public class BuyFrame extends JFrame {
       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       
       buyConfirm.setSize(buyConfirm.getPreferredSize());
-      buyConfirm.setLocation(230, 100);
-      accountDropList.setLocation(10, 80);
+      buyConfirm.setLocation(240, 120);
+      accLabel.setSize(accLabel.getPreferredSize());
+      accLabel.setLocation(10, 80);
+      accountDropList.setLocation(119, 80);
       accountDropList.setSize(100,20);
       numberOfShare.setSize(numberOfShare.getPreferredSize());
       numberOfShare.setLocation(10, 50);
@@ -27,6 +30,7 @@ public class BuyFrame extends JFrame {
       numShare.setLocation(120, 50);
       
       add(buyConfirm);
+      add(accLabel);
       add(accountDropList);
       add(numberOfShare);
       add(numShare);

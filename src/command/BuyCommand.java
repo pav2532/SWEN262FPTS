@@ -1,5 +1,5 @@
 package command;
-
+/*
 public class BuyCommand extends AbstractCommand {
 
 	String ticker;
@@ -27,3 +27,4 @@ public class BuyCommand extends AbstractCommand {
 	}
 
 }
+*/

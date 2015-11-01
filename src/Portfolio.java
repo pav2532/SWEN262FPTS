@@ -99,4 +99,7 @@ public class Portfolio implements Subject{
    		notifyObserver();
 	}
 
+    public void transfer(int transferAmount, Account sender, Account receiver){
+
+    }
 }

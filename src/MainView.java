@@ -24,6 +24,7 @@ public class MainView extends JFrame implements Observer {
       
       final JButton buy = new JButton("Buy Stock");
       final JButton sell = new JButton("Sell Stock");
+      final JButton transfer = new JButton("Transfer Money");
       
       final ScrollPane pane = new ScrollPane();
       add(pane, BorderLayout.CENTER);
@@ -63,6 +64,7 @@ public class MainView extends JFrame implements Observer {
          public void actionPerformed(ActionEvent e){
             pane.displayEquityTable();
             remove(sell);
+            remove(transfer);
             add(buy, BorderLayout.SOUTH);
             revalidate();
             repaint();
@@ -89,6 +91,7 @@ public class MainView extends JFrame implements Observer {
             pane.displayAccountTable(portfolio.allAccount);
             remove(sell);
             remove(buy);
+            add(transfer, BorderLayout.SOUTH);
             revalidate();
             repaint();
          } 
@@ -97,6 +100,7 @@ public class MainView extends JFrame implements Observer {
          public void actionPerformed(ActionEvent e){
             pane.displayHoldingTable(portfolio.holding);
             remove(buy);
+            remove(transfer);
             add(sell, BorderLayout.SOUTH);
             revalidate();
             repaint();
@@ -156,7 +160,19 @@ public class MainView extends JFrame implements Observer {
              }
          }
       });
-      
+
+      transfer.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+              TransferFrame tFrame = new TransferFrame("Transfer Money");
+          }
+      });
+
+      transfer.addMouseListener(new MouseAdapter(){
+          public void mousePressed(MouseEvent e){
+
+          }
+      });
+
       add(buy, BorderLayout.SOUTH);
       setJMenuBar(menu);
       setVisible(true);
