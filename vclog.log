@@ -1,0 +1,84 @@
+fecb0de was Quang Vu, 69 minutes ago, message: Update
+8f73008 was Quang Vu, 80 minutes ago, message: update
+c76d08a was Mitchell Derby, 2 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+e451fa0 was Mitchell Derby, 2 hours ago, message: On account create, create new portfolio file
+b66acb9 was Quang Vu, 2 hours ago, message: Updated
+950453a was Quang Vu, 2 hours ago, message: update
+8d1403f was Mitchell Derby, 2 hours ago, message: Fixes to buy, creates portfolio text files and loads correct one on sign in.
+5409a28 was Quang Vu, 3 hours ago, message: Updated
+9c66741 was Quang Vu, 3 hours ago, message: update
+6f8906e was Quang Vu, 3 hours ago, message: Fixed the buy button, and updated its function
+72003e9 was pav2532, 3 hours ago, message: EquityParse working with ui
+c5ccc60 was Quang Vu, 6 hours ago, message: Updated
+295b886 was Quang Vu, 6 hours ago, message: update
+8f4f771 was pav2532, 6 hours ago, message: Fix
+6b5c536 was pav2532, 8 hours ago, message: user update
+62a95fe was pav2532, 8 hours ago, message: Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
+54cc8b7 was pav2532, 8 hours ago, message: Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
+7d1ce13 was pav2532, 9 hours ago, message: Modification to algorithm and child class
+55d9532 was Quang Vu, 10 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+4d6f4fd was Beltran Caliz, 10 hours ago, message: EquitiesParser (not working copy)
+bc2b52a was Quang Vu, 10 hours ago, message: Added buy windown for buying stock
+86a6a31 was Quang Vu, 12 hours ago, message: update
+0b6e812 was Quang Vu, 12 hours ago, message: update
+ae9b314 was Quang Vu, 27 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+4ce2572 was Quang Vu, 27 hours ago, message: Populate the data for the Account and Holding table
+36b3340 was Mitchell Derby, 30 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+08a41f3 was Mitchell Derby, 30 hours ago, message: Added some exceptions and Buy and Sell functions to Portfolio
+54efe2b was Quang Vu, 30 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+9692664 was Quang Vu, 30 hours ago, message: Added buy button for equity
+f677fd5 was Mitchell Derby, 31 hours ago, message: added getHolding method to EquitiesHolding
+e9c5b86 was Mitchell Derby, 31 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+352ce45 was Mitchell Derby, 31 hours ago, message: added SimulationView and simulationController
+c5ec2aa was Quang Vu, 32 hours ago, message: DesignDocument
+7be69a4 was Quang Vu, 34 hours ago, message: Added a save function
+3c7088d was Quang Vu, 34 hours ago, message: Added Equity, Portfolio, and Account table to GUI
+2aa3925 was Quang Vu, 35 hours ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+cec457e was Quang Vu, 35 hours ago, message: Added Equity table without real data
+5ad4a91 was pav2532, 2 days ago, message: Simulation class completed
+80ea069 was Quang Vu, 2 days ago, message: Fixed the login screen, dedleted the equityParser, and added equity table
+67d850d was pav2532, 6 days ago, message: NoGrowthMarket created
+9b405fe was pav2532, 3 days ago, message: update file
+efa1631 was pav2532, 3 days ago, message: delete files
+f41220f was pav2532, 3 days ago, message: Fix design document, and added the minimum requirement for the desing document
+de536d9 was Quang Vu, 3 days ago, message: Added EquityParser
+3764a4e was Quang Vu, 3 days ago, message: Added import menu item, and read in an example portfolio
+3170820 was Quang Vu, 3 days ago, message: Added a import function for the GUI
+9192753 was Quang Vu, 3 days ago, message: Add the state of reading Transaction from porfolio file
+95bbf78 was Quang Vu, 3 days ago, message: update
+46597d5 was Quang Vu, 3 days ago, message: Updated
+3b7307c was Quang Vu, 3 days ago, message: Added menubar and fixed the signup issue
+5d204ae was Quang Vu, 3 days ago, message: update
+c5f7edb was Quang Vu, 3 days ago, message: added menubar
+366c024 was Mitchell Derby, 3 days ago, message: Fixed file paths to be relative, fixed the depreciation problem with the .getText().
+cc93c8c was Mitchell Derby, 3 days ago, message: Added Transaction class and subclass.
+6282313 was Quang Vu, 3 days ago, message: Update
+c3c2820 was pav2532, 4 days ago, message: Creation of Sequence Diagram and Modification to it.
+067bcbc was Quang Vu, 4 days ago, message: Update sign up and sign in: able to check for correct password and username
+8d2245c was Quang Vu, 5 days ago, message: Added sign up and sign in button
+96f9c15 was Quang Vu, 5 days ago, message: Update UI
+8a3bbb0 was Quang Vu, 5 days ago, message: updated
+67371ea was Quang Vu, 5 days ago, message: update
+0d6cadb was Quang Vu, 5 days ago, message: updated
+bcdeaa4 was mderb4, 5 days ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+a54db47 was mderb4, 5 days ago, message: Added some documentation
+d6a4247 was Quang Vu, 6 days ago, message: Added a login screen for user without any action listener
+8b1643a was Quang Vu, 6 days ago, message: Update the Portfolio parser
+0914b50 was Mitchell Derby, 6 days ago, message: Search Functionality added to EquitiesHolder.
+f19a6e7 was pav2532, 6 days ago, message: Creation of Algorithm interface and Bear and Bull Market
+93f1f06 was pav2532, 9 days ago, message: Added Domain Model
+638eb3c was Quang Vu, 8 days ago, message: Added PortfolioParser class that read Porfolio files
+28ae0d6 was Quang Vu, 8 days ago, message: Added account saving method for User class
+b8380c7 was pav2532, 10 days ago, message: modify documents
+bd43a86 was Quang Vu, 10 days ago, message: Update user class
+52ce008 was Quang Vu, 10 days ago, message: Added User class
+c51bc01 was Mitchell Derby, 10 days ago, message: Added Account, Holding and EquitiesHolder
+3a74a55 was pav2532, 10 days ago, message: re create design document. First document was not working
+a123831 was pav2532, 11 days ago, message: Creation of Main Documents
+6cf443b was pav2532, 2 weeks ago, message: Domain Model added
+8a8f070 was pav2532, 2 weeks ago, message: Documentation files added
+e3cfcc1 was Quang Vu, 2 weeks ago, message: update
+f183fbf was Quang Vu, 2 weeks ago, message: update
+79d113a was pav2532, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+3779959 was pav2532, 3 weeks ago, message: first commit
+9cee27c was pav2532, 3 weeks ago, message: testing git hub

@@ -4,7 +4,7 @@ import java.io.*;
 /*
  * User class represent each user using this system
  */
-public class User {
+public class User implements GetUserData{
 	private int ID;
 	private String userName;
 	private String encryptedPassword;
@@ -16,44 +16,43 @@ public class User {
 		this.userName = userName;
 	}
 
-	// get the User's ID
-	public int getID(){
-		return ID;
-	}
+    @Override
+    public String getPassword() {
+        return encryptedPassword;
+    }
 
-	//get the User's name
-	public String getUserName(){
-		return userName;
-	}
+    @Override
+    public String getUsername() {
+        return userName;
+    }
 
-	// get the User's encrypted password
-	public String getEncryptedPassword(){
-		return encryptedPassword;
-	}
+    @Override
+	public int getID() {
+        return ID;
+    }
 
 	public void setPassword(String pass){
-		this.encryptedPassword = pass; 
+		this.encryptedPassword = pass;
 	}
-	
+
 	//Reverse the password
 	public String encrypt(String password){
 		String reverse = "";
-		char[] pass = password.toCharArray(); 
+		char[] pass = password.toCharArray();
 		for(int i = (pass.length -1); i >= 0; i--){
 			reverse += pass[i];
 		}
 		return reverse;
 	}
-	
+
 	// Compare the encrypted codes
 	public boolean authenticate(String password){
-		String pass = new String(this.getEncryptedPassword());
-		if(pass.equals(password)){
+		if(encryptedPassword.equals(password)){
 			return true;
 		}
 		return false;
 	}
-	
+
 	//Record new account in the account file
 	public void transferUsernamePassword() throws IOException{
 		FileWriter file = new FileWriter("src/Account.txt", true);

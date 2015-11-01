@@ -53,15 +53,15 @@ public class LoginScreen extends JFrame{
             String existAccount = userParser.findAccount(userAccount, "src/Account.txt");
             if(existAccount == null && userLength.length() != 0 && pass.length() != 0){
                User newUser = new User(userAccount);
+               GetUserData userProxy = new UserProxy(newUser);
 
                String encryptedPass = newUser.encrypt(pass);
                newUser.setPassword(encryptedPass);
                try {
-                  File file = new File("Portfolios/"+newUser.getUserName()+".txt");
-
+                  File file = new File("Portfolios/"+userProxy.getUsername()+".txt");
                   boolean success = file.createNewFile();
                  if(success){
-                      newUser.transferUsernamePassword();
+                     newUser.transferUsernamePassword();
                   }
 
                } catch (IOException e1) {
@@ -93,10 +93,12 @@ public class LoginScreen extends JFrame{
             String associatePassword = userParser.findAccount(userAccount, "src/Account.txt");
             if(associatePassword != null){
                currentUser = new User(userAccount);
+               GetUserData userProxy = new UserProxy(currentUser);
+
                currentUser.setPassword(associatePassword);
                if(currentUser.authenticate(currentUser.encrypt(pass))){
                   PortfolioParser parser = new PortfolioParser();
-                  Portfolio p = parser.importFile("Portfolios/"+currentUser.getUserName()+".txt");
+                  Portfolio p = parser.importFile("Portfolios/"+userProxy.getUsername()+".txt");
                   dispose();
                   MainView view = new MainView("FPTS", p);
                   JOptionPane.showMessageDialog(null, "Log in sucessful");
