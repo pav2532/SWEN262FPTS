@@ -1,0 +1,2 @@
+B,BankOfAmerica,998627.0,10/29/15
+S,SPLS,100

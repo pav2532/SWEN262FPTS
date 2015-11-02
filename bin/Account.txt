@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 qvu,1b2f7134@C[
 qvu1994,a71a1b77@C[
 qvu000,olleh
@@ -6,5 +7,15 @@ pav,4321
 pav,4321
 pav2532,4321
 mitch,321
->>>>>>> newBranch
+vkl,090
+=======
+qvu,1b2f7134@C[
+qvu1994,a71a1b77@C[
+qvu000,olleh
+qvu10,mnm
+pav,4321
+pav,4321
+pav2532,4321
+mitch,321
 giz,321
+>>>>>>> a9fbb2c593cca4938c985ed65ac81faba71c4d2b

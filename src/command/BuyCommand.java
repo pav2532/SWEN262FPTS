@@ -1,14 +1,14 @@
 package command;
-
-
+/*
 public class BuyCommand extends AbstractCommand {
 
 	String ticker;
 	Float price;
 	int NumShares;
 	Account account;
+
 	buyTransaction t;
-	
+
 	public BuyCommand(String ticker, Float price, int NumShares, Account account){
 		this.account = account;
 		this.NumShares = NumShares;
@@ -32,3 +32,4 @@ public class BuyCommand extends AbstractCommand {
 	}
 
 }
+*/
