@@ -8,8 +8,8 @@ import java.io.IOException;
 public class MainView extends JFrame implements Observer {
    private Portfolio portfolio;
    private JFileChooser fileChooser = new JFileChooser();
-   private String selectedTickerSymbol;
-   private String selectedSharePrice;
+   private String firstValue;
+   private String secondValue;
    private boolean access;
    
    public MainView(String name, Portfolio p){
@@ -127,9 +127,9 @@ public class MainView extends JFrame implements Observer {
                      for(Account a : portfolio.allAccount){
                         if(a.getName().equals(bFrame.accountDropList.getSelectedItem())){
                            int share = Integer.valueOf(bFrame.getNumShare());
-                           float price = Float.valueOf(selectedSharePrice);
+                           float price = Float.valueOf(secondValue);
                            try {
-                              portfolio.buy(selectedTickerSymbol, price, share, a);
+                              portfolio.buy(firstValue, price, share, a);
                            } catch (InsufficientFundsException e1) {
                               e1.printStackTrace();
                            } catch (NumberFormatException e1){
@@ -151,8 +151,8 @@ public class MainView extends JFrame implements Observer {
              if(pane.equityTable.getSelectedRow() != -1){
                 int tickerRow = pane.equityTable.getSelectedRow();
                 int sharePriceRow = tickerRow;
-                selectedTickerSymbol = pane.equityTable.getModel().getValueAt(tickerRow, 0).toString();
-                selectedSharePrice = pane.equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
+                firstValue = pane.equityTable.getModel().getValueAt(tickerRow, 0).toString();
+                secondValue = pane.equityTable.getModel().getValueAt(sharePriceRow, 2).toString();
                 access = true;
              }else{
                 access = false;
@@ -163,12 +163,33 @@ public class MainView extends JFrame implements Observer {
 
       transfer.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
-              TransferFrame tFrame = new TransferFrame("Transfer Money");
+              if(access) {
+                  final TransferFrame tFrame = new TransferFrame("Transfer Money");
+                  tFrame.setAccountDropList(portfolio.allAccount);
+                  tFrame.transferConfirm.addActionListener(new ActionListener() {
+                      public void actionPerformed(ActionEvent e) {
+                          for (Account a : portfolio.allAccount){
+                              if(a.getName().equals(tFrame.accountDropList.getSelectedItem())){
+                                  float value = Float.valueOf(tFrame.getAmount());
+                                  // Work on this tomorrow?? ?
+                              }
+                          }
+                      }
+                  });
+              }
           }
       });
 
       transfer.addMouseListener(new MouseAdapter(){
           public void mousePressed(MouseEvent e){
+              if(pane.accountTable.getSelectedRow() != -1){
+                  int accRow = pane.accountTable.getSelectedRow();
+                  firstValue = pane.accountTable.getModel().getValueAt(accRow, 0).toString();
+                  access = true;
+              }else{
+                  access = false;
+                  JOptionPane.showMessageDialog(null, "Please select an account to receive money");
+              }
 
           }
       });

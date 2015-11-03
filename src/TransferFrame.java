@@ -19,10 +19,10 @@ public class TransferFrame extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         transferConfirm.setSize(transferConfirm.getPreferredSize());
-        transferConfirm.setLocation(210, 88);
+        transferConfirm.setLocation(210, 150);
         accLabel.setSize(accLabel.getPreferredSize());
-        accLabel.setLocation(10, 90);
-        accountDropList.setLocation(20, 90);
+        accLabel.setLocation(15, 90);
+        accountDropList.setLocation(110, 90);
         accountDropList.setSize(100,20);
         amountLabel.setSize(amountLabel.getPreferredSize());
         amountLabel.setLocation(15, 50);
@@ -44,5 +44,9 @@ public class TransferFrame extends JFrame{
         for(Account a : allAccount){
             accountDropList.addItem(a.getName());
         }
+    }
+
+    public String getAmount(){
+        return amountField.getText();
     }
 }

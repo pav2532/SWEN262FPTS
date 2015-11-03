@@ -27,7 +27,7 @@ public class BuyFrame extends JFrame {
       numShare.setColumns(15);
       numShare.setToolTipText("Enter the amount you want to buy");
       numShare.setSize(numShare.getPreferredSize());
-      numShare.setLocation(120, 50);
+      numShare.setLocation(120, 45);
       
       add(buyConfirm);
       add(accLabel);

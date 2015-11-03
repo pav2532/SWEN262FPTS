@@ -99,7 +99,17 @@ public class Portfolio implements Subject{
    		notifyObserver();
 	}
 
-    public void transfer(int transferAmount, Account sender, Account receiver){
+    public void transfer(Float transferAmount, Account sender, Account receiver){
+        int indexReceiver = allAccount.lastIndexOf(receiver);
+        int indexSender = allAccount.lastIndexOf(sender);
+        if(indexReceiver == -1){
+            return;
+        }
+
+        allAccount.get(indexReceiver).addFunds(transferAmount);
+        allAccount.get(indexSender).removeFunds(transferAmount);
+
+        notifyObserver();
 
     }
 }
