@@ -152,15 +152,17 @@ public class Portfolio implements Subject{
 	 * @throws InsufficientFundsException 	Exception thrown when accountFrom does not have enough funds to transfer the given amount.
 	 */
 	public void transfer(String accountTo, String accountFrom, Float amount) throws InsufficientFundsException{
+		int result = 0;
 		for(int i = 0; i < allAccount.size(); i++){
-			if(allAccount.get(i).getName().equals(accountTo)){
-				int result = allAccount.get(i).removeFunds(amount);
+			if(allAccount.get(i).getName().equals(accountFrom)){
+				 result = allAccount.get(i).removeFunds(amount);
 				if(result == 0){
 					throw new InsufficientFundsException("There are not enough funds to complete the transfer");
+					
 				}
 			}
 			
-			if(allAccount.get(i).getName().equals(accountFrom)){
+			if(allAccount.get(i).getName().equals(accountTo) && result != 0){
 				allAccount.get(i).addFunds(amount);
 			}
 		}

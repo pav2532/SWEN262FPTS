@@ -253,15 +253,13 @@ public class MainView extends JFrame implements Observer {
 								AbstractCommand sell = new SellCommand(selectedTickerSymbol, price, share, a);
 								sell.execute();
 								undo.push(sell);
-								//portfolio.sell(selectedTickerSymbol, price, share, a);
 							} catch (NumberFormatException e1){
 								e1.printStackTrace();
 							} catch (NotEnoughOwnedSharesException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 							} catch (InsufficientFundsException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
+
 							}
 
 
@@ -307,7 +305,26 @@ public class MainView extends JFrame implements Observer {
 
 		transfer.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				TransferFrame tFrame = new TransferFrame("Transfer Money");
+				final TransferFrame tFrame = new TransferFrame("Transfer Money");
+				tFrame.setAccountDropLists(portfolio.getAllAccount());
+				tFrame.transferConfirm.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						String to = tFrame.getToField();
+						String from = tFrame.getFromField();
+						Float amount = tFrame.getAmount();
+						AbstractCommand transfer = new TransferCommand(to, from, amount);
+						try {
+							transfer.execute();
+							undo.push(transfer);
+						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
+							JOptionPane.showMessageDialog(pane, e1.getMessage());
+							
+						} 
+						tFrame.dispose();
+						pane.displayAccountTable(portfolio.getAllAccount());
+						
+					}
+				});
 			}
 		});
 
