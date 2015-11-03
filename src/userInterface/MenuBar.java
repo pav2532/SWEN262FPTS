@@ -16,6 +16,7 @@ public class MenuBar extends JMenuBar{
    JMenuItem accountOption = new JMenuItem("Accounts");
    JMenuItem holdingOption = new JMenuItem("Holdings");
    JMenuItem transactionOption = new JMenuItem("Transaction History");
+   JMenuItem wacthList	 = new JMenuItem("WacthList");
    JMenuItem addAccount = new JMenuItem("New Account");
    JMenuItem logout = new JMenuItem("Logout");
    JMenuItem undo = new JMenuItem("Undo");
@@ -46,6 +47,7 @@ public class MenuBar extends JMenuBar{
       portfolioOption.add(accountOption);
       portfolioOption.add(holdingOption);
       portfolioOption.add(transactionOption);
+      portfolioOption.add(wacthList);
       file.add(addAccount);
       file.add(logout);
       file.add(exit);

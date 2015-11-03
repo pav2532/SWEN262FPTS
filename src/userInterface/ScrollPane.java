@@ -16,6 +16,7 @@ public class ScrollPane extends JScrollPane{
 	JTable equityTable;
 	JTable accountTable;
 	JTable holdingTable;
+	JTable wacthListTable;
 	JTextPane transactionPane;
 	protected static EquitiesHolder equities;
 
@@ -103,6 +104,11 @@ public class ScrollPane extends JScrollPane{
 
 		transactionPane.setDocument(doc);
 		setViewportView(transactionPane);
+	}
+	
+	public void displayWacthListTable(ArrayList w){
+		//Need code wacthlist implemented to do it
+		setViewportView(wacthListTable);
 	}
 
 	/**

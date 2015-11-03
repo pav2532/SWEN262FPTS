@@ -47,8 +47,8 @@ public class MainView extends JFrame implements Observer {
 		final JButton notify = new JButton("Check notification");
 		final JButton remove = new JButton("Remove");
 		final JButton add = new JButton("Add");
-		final JFrame wacthlistButtons = new JFrame();
-
+		final JPanel wacthlistButtons = new JPanel();
+		
 
 
 		pane = new ScrollPane();
@@ -200,6 +200,16 @@ public class MainView extends JFrame implements Observer {
 				repaint();
 			}
 		});
+		menu.wacthList.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				pane.displayWacthListTable(null);
+				remove(buy);
+				remove(sell);
+				add(wacthlistButtons, BorderLayout.SOUTH);
+				revalidate();
+				repaint();
+			}
+		});
 
 		buy.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -334,7 +344,10 @@ public class MainView extends JFrame implements Observer {
 
 			}
 		});
-
+		wacthlistButtons.add(remove);
+		//wacthlistButtons.add(sell);
+		wacthlistButtons.add(notify);
+		
 		add(buy, BorderLayout.SOUTH);
 		setJMenuBar(menu);
 		setVisible(true);
