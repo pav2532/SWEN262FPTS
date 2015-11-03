@@ -147,7 +147,13 @@ public class MainView extends JFrame implements Observer {
 						String name = accFrame.getAccName();
 						Float amount = Float.valueOf(accFrame.getAccAmount());
 						Account temp = new Account(name, amount, "10/29/15");
-						portfolio.addAccount(temp);
+						AbstractCommand addAccount = new AddAccountCommand(temp);
+						try {
+							addAccount.execute();
+						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
+							e1.printStackTrace();
+						}
+						undo.push(addAccount);
 						accFrame.dispose();
 						pane.displayAccountTable(portfolio.getAllAccount());
 					}
