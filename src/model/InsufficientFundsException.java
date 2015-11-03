@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * 
+ * @author Mitchell
+ *
+ *Exception thrown when an account does not have enough funds for an operation.
+ */
 public class InsufficientFundsException extends Exception {
 
 	public InsufficientFundsException(String string) {

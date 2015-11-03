@@ -6,6 +6,12 @@ import model.NotEnoughOwnedSharesException;
 import transactions.*;
 import userInterface.MainView;
 
+/**
+ * 
+ * @author Mitchell
+ * 
+ * Sell command for selling stocks from a portfolio. Funds are placed in selected account.
+ */
 public class SellCommand extends AbstractCommand {
 	
 	String ticker;

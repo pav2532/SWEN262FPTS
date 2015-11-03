@@ -5,6 +5,12 @@ import model.Account;
 import model.InsufficientFundsException;
 import model.NotEnoughOwnedSharesException;
 
+/**
+ * 
+ * @author Mitchell
+ *
+ * Buy command for buying stocks in a portfolio. Funds are drawn from selected account.
+ */
 public class BuyCommand extends AbstractCommand {
 
 	String ticker;

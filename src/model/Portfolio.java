@@ -39,6 +39,7 @@ public class Portfolio implements Subject{
    }
    
    /**
+    *  @author Mitchell
 	 * Getter for the account list
 	 * 
 	 * @return The account list for the portfolio. 
@@ -48,6 +49,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * Setter for the account list
 	 * 
 	 * @param a new Account list
@@ -57,6 +59,7 @@ public class Portfolio implements Subject{
 	}
 
 	/**
+	 *  @author Mitchell
 	 * Getter for the Transaction list
 	 * 
 	 * @return  The Transaction list.
@@ -66,6 +69,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * Setter for the Transaction list
 	 * 
 	 * @param t new Transaction list
@@ -75,6 +79,7 @@ public class Portfolio implements Subject{
 	}
 
 	/**
+	 *  @author Mitchell
 	 * Getter for the holding hashmap
 	 * 
 	 * @return	the hashmap of holdings the portfolio owns.
@@ -84,6 +89,7 @@ public class Portfolio implements Subject{
 	}
 
 	/**
+	 *  @author Mitchell
 	 * setter for the Holding Hashmap
 	 * 
 	 * @param h new Holding HashMap
@@ -93,6 +99,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * adds the provided Transaction to the Transaction list
 	 * 
 	 * @param t 	The Transaction to be added to the portfolio's list.
@@ -103,6 +110,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * removes a Transaction that matches the provided Transaction
 	 * 
 	 * @param t 	The Transaction to be removed from the Transaction list.
@@ -113,6 +121,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * adds the given account to the portfolio's account list.
 	 * 
 	 * @param a 	The account to be added to the portfolio's account list.
@@ -123,6 +132,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * removes the given account from the portfolio's account list.
 	 * 
 	 * @param a 	The account to be removed from the portfolio's account list.
@@ -133,6 +143,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * transfers the given amount from accountFrom to account To
 	 * 
 	 * @param accountTo 	The account to transfer funds from.
@@ -179,6 +190,7 @@ public class Portfolio implements Subject{
 	}
 	
 	/**
+	 *  @author Mitchell
 	 * Simulates buying 'NumShares' of the stock associated with 'ticker'. This is done by
 	 * adding the ticker and amount to the portfolios holding hashmap and removing the 
 	 * funds needed (price*NumShares) from the given account.
@@ -216,6 +228,8 @@ public class Portfolio implements Subject{
 	}
 
 	/**
+	 * @author Mitchell
+	 * 
 	 * Simulates selling a stock the portfolio owns. This is done by reducing the value (which represents number of shares)
 	 * of the k,v pair in the holding hashmap equal to the NumShares param. Then funds are added to the specified account
 	 * equal to the price of the stock * the number of shares being sold. If all of the shares are sold, the holding is 

@@ -4,6 +4,12 @@ import model.InsufficientFundsException;
 import transactions.*;
 import userInterface.MainView;
 
+/**
+ * 
+ * @author Mitchell
+ * 
+ * Transfer Command for transfering money between two selected accounts in a portfolio.
+ */
 public class TransferCommand extends AbstractCommand {
 	
 	String accountTo;
