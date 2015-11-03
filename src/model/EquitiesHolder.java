@@ -1,5 +1,8 @@
 package model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -174,4 +177,24 @@ public class EquitiesHolder {
 
 		return results;
 	}// end NameSearch()
+	
+	public void save() throws IOException{
+			FileWriter file = new FileWriter("src/equities.txt");
+			PrintWriter writer = null;
+			try{
+				writer = new PrintWriter(file);
+				for (Entry<String, HashMap<String, Holding>> IndexEntry : Indices.entrySet()) {
+					HashMap<String, Holding> value = IndexEntry.getValue();
+
+					for (Entry<String, Holding> entry : value.entrySet()) {
+						Holding holding = entry.getValue();
+						writer.println("\""+holding.getTickerSymbol()+"\",\""+holding.getName()+"\",\""+holding.getPrice()+"\",\""+holding.getSectors()+"\"");
+					}
+				}
+			}finally{
+				if(writer != null){
+					writer.close();
+				}
+			}
+	}
 }

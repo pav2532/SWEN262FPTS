@@ -222,6 +222,9 @@ public class Portfolio implements Subject{
 			for(Entry<String, Integer> IndexEntry : holding.entrySet()){
 				writer.println("S,"+IndexEntry.getKey()+","+IndexEntry.getValue());
 			}
+			for(watchListHolding h : watchList){
+				writer.println("W,"+h.save());
+			}
 		}
 		finally{
 			if (writer != null){

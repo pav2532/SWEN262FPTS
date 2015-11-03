@@ -29,6 +29,7 @@ public class MenuBar extends JMenuBar{
 				if(n == 0){
 					try {
 						MainView.portfolio.save();
+						ScrollPane.equities.save();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}

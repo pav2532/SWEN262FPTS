@@ -52,4 +52,9 @@ public class watchListHolding{
 	public Holding getHolding(){
 		return holding;
 	}
+	
+	public String save(){
+		return highTrigger+","+lowTrigger+","+
+				"\""+holding.getTickerSymbol()+"\",\""+holding.getName()+"\",\""+holding.getPrice()+"\",\""+holding.getSectors()+"\"";
+	}
 }

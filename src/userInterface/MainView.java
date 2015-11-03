@@ -73,6 +73,7 @@ public class MainView extends JFrame implements Observer {
 				if(n == 0){
 					try {
 						portfolio.save();
+						ScrollPane.equities.save();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -87,6 +88,7 @@ public class MainView extends JFrame implements Observer {
 			public void actionPerformed(ActionEvent e){
 				try {
 					portfolio.save();
+					ScrollPane.equities.save();
 					JOptionPane.showMessageDialog(pane, "Save Successful");
 				} catch (IOException e1) {
 					e1.printStackTrace();

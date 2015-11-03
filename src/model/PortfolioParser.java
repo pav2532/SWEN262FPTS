@@ -16,6 +16,7 @@ public class PortfolioParser {
 		ArrayList<Account> allAccount = new ArrayList<Account>();
 		ArrayList<Transaction> allTransaction = new ArrayList<Transaction>();
 		HashMap<String, Integer> holding = new HashMap<String, Integer>();
+		ArrayList<watchListHolding> watchList = new ArrayList<watchListHolding>();
 		try{
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 	
@@ -34,6 +35,10 @@ public class PortfolioParser {
 				}else if(separateValue[0].equals("S")){
 					int value = Integer.valueOf(separateValue[2]);
 					holding.put(separateValue[1], value);
+				}else if(separateValue[0].equals("W")){
+					watchListHolding wLH = new watchListHolding(Float.valueOf(separateValue[1]), Float.valueOf(separateValue[2]), 
+							new Holding(separateValue[3].replaceAll("[^a-zA-Z0-9.]", ""),separateValue[4], Float.valueOf(separateValue[5].replaceAll("[^0-9.]", "")), (separateValue[6]+ ", " + separateValue[7].replaceAll("[^a-zA-Z0-9.]", ""))));
+					watchList.add(wLH);
 				}else{
 					if(separateValue[1].equals("S")){
 						sellTransaction sell = new sellTransaction(separateValue[2], separateValue[3], Float.valueOf(separateValue[4]), Integer.valueOf(separateValue[5]));
@@ -49,7 +54,7 @@ public class PortfolioParser {
 			}
 			String name = filename.replace("Portfolios/", "");
 			name = name.replace(".txt", "");
-			portfolio = new Portfolio(name, allAccount, holding, allTransaction);
+			portfolio = new Portfolio(name, allAccount, holding, allTransaction, watchList);
 			bufferedReader.close();
 		}
 		catch(FileNotFoundException e){
