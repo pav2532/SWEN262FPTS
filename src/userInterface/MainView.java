@@ -2,7 +2,9 @@ package userInterface;
 import javax.swing.*;
 
 import model.Account;
+import model.EquitiesHolder;
 import model.InsufficientFundsException;
+import model.NotEnoughOwnedSharesException;
 import model.Observer;
 import model.Portfolio;
 import model.PortfolioParser;
@@ -37,6 +39,12 @@ public class MainView extends JFrame implements Observer {
       final JButton buy = new JButton("Buy Stock");
       final JButton sell = new JButton("Sell Stock");
       final JButton transfer = new JButton("Transfer Money");
+      final JButton notify = new JButton("Check notification");
+      final JButton remove = new JButton("Remove");
+      final JButton add = new JButton("Add");
+      final JFrame wacthlistButtons = new JFrame();
+      
+      
       
       final ScrollPane pane = new ScrollPane();
       add(pane, BorderLayout.CENTER);
@@ -158,6 +166,36 @@ public class MainView extends JFrame implements Observer {
             }
          }
       });
+      //Sell stock
+      sell.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+             if(access){
+                final SellFrame bFrame = new SellFrame("Stock purchase");
+                bFrame.setAccountDropList(portfolio.getAllAccount());
+                bFrame.sellConfirm.addActionListener(new ActionListener(){
+                   public void actionPerformed(ActionEvent e){
+                      for(Account a : portfolio.getAllAccount()){
+                         if(a.getName().equals(bFrame.accountDropList.getSelectedItem())){
+                            int share = Integer.valueOf(bFrame.getNumShare());
+                            float price = Float.valueOf(selectedSharePrice);
+                            try {
+                               portfolio.sell(selectedTickerSymbol, price, share, a);
+                            } catch (NumberFormatException e1){
+                               e1.printStackTrace();
+                            } catch (NotEnoughOwnedSharesException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+                            break;
+                         }
+                      }
+                      bFrame.dispose();
+                      pane.displayHoldingTable(portfolio.getHolding());
+                   }
+                });
+             }
+          }
+       });
       
       buy.addMouseListener(new MouseAdapter(){
          public void mousePressed(MouseEvent e){
@@ -173,6 +211,21 @@ public class MainView extends JFrame implements Observer {
              }
          }
       });
+      //selected sell command
+      sell.addMouseListener(new MouseAdapter(){
+          public void mousePressed(MouseEvent e){
+              if(pane.holdingTable.getSelectedRow() != -1){
+                 int tickerRow = pane.holdingTable.getSelectedRow();
+                 int sharePriceRow = tickerRow;
+                 selectedTickerSymbol = pane.holdingTable.getModel().getValueAt(tickerRow, 0).toString();
+                 selectedSharePrice = pane.equities.getHolding(selectedTickerSymbol).getPrice().toString();
+                 access = true;
+              }else{
+                 access = false;
+                 JOptionPane.showMessageDialog(null, "Please select a stock");
+              }
+          }
+       });
 
       transfer.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
