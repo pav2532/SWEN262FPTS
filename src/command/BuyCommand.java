@@ -1,35 +1,43 @@
 package command;
-/*
+import transactions.*;
+import userInterface.MainView;
+import model.Account;
+import model.InsufficientFundsException;
+import model.NotEnoughOwnedSharesException;
+
 public class BuyCommand extends AbstractCommand {
 
 	String ticker;
 	Float price;
 	int NumShares;
-	Account account;
+	String account;
 
-	buyTransaction t;
+	Transaction t;
 
-	public BuyCommand(String ticker, Float price, int NumShares, Account account){
+	public BuyCommand(String ticker, Float price, int NumShares, String account){
 		this.account = account;
 		this.NumShares = NumShares;
 		this.price = price;
 		this.ticker = ticker;
-		t = new buyTransaction(ticker, account.getName(), price, NumShares);
+		t = new buyTransaction(ticker, account, price, NumShares);
 	}
 	
+	
+
 	@Override
-	void execute() {
-		//PortfolioController.portfolio.buy(this.ticker, this.price, this.NumShares, this.account);
-		//PortfolioController.portfolio.addTransaction(t);
+	public void execute() throws InsufficientFundsException {
+		
+		MainView.portfolio.buy(this.ticker, this.price, this.NumShares, this.account);
+		MainView.portfolio.addTransaction(t);
 
 	}
 
 	@Override
-	void unexecute() {
-		//PortfolioController.portfolio.sell(this.ticker, this.price, this.NumShares, this.account);
-		//PortfolioController.portfolio.removeTransaction(t);
+	public void unexecute() throws NotEnoughOwnedSharesException {
+		MainView.portfolio.sell(this.ticker, this.price, this.NumShares, this.account);
+		MainView.portfolio.removeTransaction(t);
 
 	}
 
 }
-*/
+

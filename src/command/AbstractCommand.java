@@ -1,9 +1,12 @@
 package command;
 
+import model.InsufficientFundsException;
+import model.NotEnoughOwnedSharesException;
+
 public abstract class AbstractCommand {
 
-	abstract void execute();
+	public abstract void execute() throws InsufficientFundsException, NotEnoughOwnedSharesException;
 	
-	abstract void unexecute();
+	public abstract void unexecute() throws NotEnoughOwnedSharesException, InsufficientFundsException;
 	
 }

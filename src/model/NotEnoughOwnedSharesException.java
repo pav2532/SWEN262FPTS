@@ -2,6 +2,11 @@ package model;
 
 public class NotEnoughOwnedSharesException extends Exception {
 
+
+	public NotEnoughOwnedSharesException(String string) {
+		super(string);
+	}
+
 	/**
 	 * 
 	 */

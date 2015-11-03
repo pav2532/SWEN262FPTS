@@ -1,5 +1,8 @@
 package command;
 
+import model.Account;
+import userInterface.MainView;
+
 public class AddAccountCommand extends AbstractCommand {
 
 	Account account;
@@ -9,15 +12,17 @@ public class AddAccountCommand extends AbstractCommand {
 	}
 	
 	@Override
+	public
 	void execute() {
-		//PortfolioController.Portfolio.addAccount(account);
+		MainView.portfolio.addAccount(account);
 		
 		
 	}
 
 	@Override
+	public
 	void unexecute() {
-		//PortfolioController.Portfolio.removeAccount(account);
+		MainView.portfolio.removeAccount(account);
 		
 		
 

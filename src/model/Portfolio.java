@@ -8,7 +8,6 @@ import transactions.Transaction;
 public class Portfolio implements Subject{
 	ArrayList<Observer> observers;
 	private String name;
-	private int userID;
 	private ArrayList<Account> allAccount;
 	private HashMap<String, Integer> holding;
 	private ArrayList<Transaction> allTransaction;
@@ -100,6 +99,7 @@ public class Portfolio implements Subject{
 	 */
 	public void addTransaction(Transaction t){
 		allTransaction.add(t);
+		notifyObserver();
 	}
 	
 	/**
@@ -109,6 +109,7 @@ public class Portfolio implements Subject{
 	 */
 	public void removeTransaction(Transaction t){
 		allTransaction.remove(t);
+		notifyObserver();
 	}
 	
 	/**
@@ -118,6 +119,7 @@ public class Portfolio implements Subject{
 	 */
 	public void addAccount(Account a){
 		allAccount.add(a);
+		notifyObserver();
 	}
 	
 	/**
@@ -127,6 +129,7 @@ public class Portfolio implements Subject{
 	 */
 	public void removeAccount(Account a){
 		allAccount.remove(a);
+		notifyObserver();
 	}
 	
 	/**
@@ -142,7 +145,7 @@ public class Portfolio implements Subject{
 			if(allAccount.get(i).getName().equals(accountTo)){
 				int result = allAccount.get(i).removeFunds(amount);
 				if(result == 0){
-					throw new InsufficientFundsException();
+					throw new InsufficientFundsException("There are not enough funds to complete the transfer");
 				}
 			}
 			
@@ -150,6 +153,7 @@ public class Portfolio implements Subject{
 				allAccount.get(i).addFunds(amount);
 			}
 		}
+		notifyObserver();
 	}
    
 	public void save() throws IOException{
@@ -185,8 +189,14 @@ public class Portfolio implements Subject{
 	 * @param account 	account used to pay for the purchase of the stock.
 	 * @throws InsufficientFundsException 	Exception thrown when accountFrom does not have enough funds to transfer the given amount.
 	 */
-	public void buy(String ticker, Float price, int NumShares, Account account) throws InsufficientFundsException {
-		int index = allAccount.lastIndexOf(account);
+	public void buy(String ticker, Float price, int NumShares, String account) throws InsufficientFundsException {
+		int index = 0;
+		
+		for(Account a : allAccount){
+			if(a.getName().equals(account)){
+				index = allAccount.indexOf(a);
+			}
+		 }
 		if (index == -1) {
 			return;
 		}
@@ -199,9 +209,9 @@ public class Portfolio implements Subject{
 				holding.put(ticker, NumShares);
 			}
 		} else {
-			throw new InsufficientFundsException();
+			throw new InsufficientFundsException("That account does not have enough funds for your purchase");
 		}
-
+		notifyObserver();
 		return;
 	}
 
@@ -217,9 +227,14 @@ public class Portfolio implements Subject{
 	 * @param account 	account the profits are transfered into.
 	 * @throws NotEnoughOwnedSharesException 	Thrown when there are less shares owned than trying to be sold.
 	 */
-	public void sell(String ticker, Float price, int NumShares, Account account) throws NotEnoughOwnedSharesException {
-		int index = allAccount.lastIndexOf(account);
-		if (index == -1) {
+	public void sell(String ticker, Float price, int NumShares, String account) throws NotEnoughOwnedSharesException {
+		int index = 0;
+		
+		for(Account a : allAccount){
+			if(a.getName().equals(account)){
+				index = allAccount.indexOf(a);
+			}
+		 }		if (index == -1) {
 			return;
 		}
 
@@ -229,7 +244,9 @@ public class Portfolio implements Subject{
 		} else if (holding.get(ticker) > NumShares) {
 			holding.put(ticker, holding.get(ticker) - NumShares);
 		} else {
-			throw new NotEnoughOwnedSharesException();
+			throw new NotEnoughOwnedSharesException("You do not own that many shares of this stock");
 		}
+		
+		notifyObserver();
 	}
 }
