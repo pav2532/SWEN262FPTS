@@ -25,7 +25,15 @@ public class MenuBar extends JMenuBar{
       
       exit.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
+        	 int n = JOptionPane.showConfirmDialog(null, "Exit?");
+				if(n == 0){
+					try {
+						MainView.portfolio.save();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
             System.exit(0);
+         }
          }
       });
       

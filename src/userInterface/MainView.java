@@ -69,14 +69,17 @@ public class MainView extends JFrame implements Observer {
 
 		menu.logout.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				try {
-					portfolio.save();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+				int n = JOptionPane.showConfirmDialog(pane, "Logout?");
+				if(n == 0){
+					try {
+						portfolio.save();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					dispose();
+					LoginScreen firstScreen = new LoginScreen();
+					JOptionPane.showMessageDialog(null, "Log out sucessful");
 				}
-				dispose();
-				LoginScreen firstScreen = new LoginScreen();
-				JOptionPane.showMessageDialog(null, "Log out sucessful");
 			}
 		});
 
@@ -84,9 +87,12 @@ public class MainView extends JFrame implements Observer {
 			public void actionPerformed(ActionEvent e){
 				try {
 					portfolio.save();
+					JOptionPane.showMessageDialog(pane, "Save Successful");
 				} catch (IOException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(pane, "Save Unsuccessful: IO Error encountered");
 				}
+
 			}
 		});
 
@@ -231,7 +237,7 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
-		
+
 		//Sell stock
 		sell.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -282,7 +288,7 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
-		
+
 		//selected sell command
 		sell.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
