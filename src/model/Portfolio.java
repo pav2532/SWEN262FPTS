@@ -11,13 +11,15 @@ public class Portfolio implements Subject{
 	private ArrayList<Account> allAccount;
 	private HashMap<String, Integer> holding;
 	private ArrayList<Transaction> allTransaction;
+	private ArrayList<watchListHolding> watchList;
 	
-	public Portfolio(String name, ArrayList<Account> allAccount, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction){
+	public Portfolio(String name, ArrayList<Account> allAccount, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction, ArrayList<watchListHolding> watchList){
 		this.allAccount = allAccount;
 		this.holding = holding;
 		this.allTransaction = allTransaction;
 		this.name = name;
 		this.observers = new ArrayList<Observer>();
+		this.watchList = watchList;
 	}
 	
    @Override
@@ -140,6 +142,43 @@ public class Portfolio implements Subject{
 	public void removeAccount(Account a){
 		allAccount.remove(a);
 		notifyObserver();
+	}
+	
+	/**
+	 * @author Mitchell
+	 * 
+	 * getter for the watchList
+	 * @return the portfolio's watchList.
+	 */
+	public ArrayList<watchListHolding> getWatchList(){
+		return watchList;
+	}
+	
+	/**
+	 * @author Mitchell
+	 * 
+	 * sets the portfolio's watchList to the parameter.
+	 * @param watchList the new watchList.
+	 */
+	public void setWatchList(ArrayList<watchListHolding> watchList){
+		this.watchList = watchList;
+	}
+	
+	/**
+	 * @author Mitchell
+	 * 
+	 * given a ticker, returns a watchListHolding if the watchList contains a holding with a matching ticker
+	 *
+	 * @param ticker ticker used to find the watchListHolding in the watchList.
+	 * @return returns a watchListHolding or null if non match the given ticker.
+	 */
+	public watchListHolding watchListContains(String ticker){
+		for(watchListHolding h : watchList){
+			if(h.getHolding().getTickerSymbol().equals(ticker)){
+				return h;
+			}
+		}
+		return null;
 	}
 	
 	/**

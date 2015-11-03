@@ -213,13 +213,12 @@ public class MainView extends JFrame implements Observer {
 								AbstractCommand buy = new BuyCommand(selectedTickerSymbol, price, share, a);
 								buy.execute();
 								undo.push(buy);
-								//portfolio.buy(selectedTickerSymbol, price, share, a);
 							} catch (InsufficientFundsException e1) {
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 							} catch (NumberFormatException e1){
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, "Please enter a valid number");
 							} catch (NotEnoughOwnedSharesException e1) {
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 
 							}
 
