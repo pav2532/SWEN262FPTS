@@ -14,6 +14,7 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class MainView extends JFrame implements Observer {
 	/**
@@ -28,7 +29,7 @@ public class MainView extends JFrame implements Observer {
 	private Stack<AbstractCommand> undo;
 	private Stack<AbstractCommand> redo;
 	final ScrollPane pane;
-
+	
 	public MainView(String name, Portfolio p){
 		super(name);
 		this.portfolio = p;
@@ -50,7 +51,7 @@ public class MainView extends JFrame implements Observer {
 		final JPanel wacthlistButtons = new JPanel();
 		
 
-
+		
 		pane = new ScrollPane();
 		add(pane, BorderLayout.CENTER);
 		pane.displayEquityTable();
@@ -103,6 +104,7 @@ public class MainView extends JFrame implements Observer {
 
 				try {
 					AbstractCommand undoneCommand = undo.pop();
+					
 					undoneCommand.unexecute();
 					redo.push(undoneCommand);
 				} catch (NotEnoughOwnedSharesException | InsufficientFundsException e1) {
@@ -138,10 +140,17 @@ public class MainView extends JFrame implements Observer {
 
 		menu.equityOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				try {
+					ScrollPane.equities.updatePrices();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				pane.displayEquityTable();
 				remove(sell);
 				remove(transfer);
 				add(buy, BorderLayout.SOUTH);
+				
 				revalidate();
 				repaint();
 			}
@@ -154,7 +163,8 @@ public class MainView extends JFrame implements Observer {
 					public void actionPerformed(ActionEvent e){
 						String name = accFrame.getAccName();
 						Float amount = Float.valueOf(accFrame.getAccAmount());
-						Account temp = new Account(name, amount, "10/29/15");
+						Account temp = new Account(name, amount, (Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+
+												Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"/"+Calendar.getInstance().get(Calendar.YEAR));
 						AbstractCommand addAccount = new AddAccountCommand(temp);
 						try {
 							addAccount.execute();

@@ -56,6 +56,7 @@ public class ScrollPane extends JScrollPane{
 		equityTable.setFillsViewportHeight(true);
 
 		setViewportView(equityTable);
+		equities.updateThread();
 	}
 
 	public void displayAccountTable(ArrayList<Account> account){
@@ -163,5 +164,7 @@ public class ScrollPane extends JScrollPane{
 		}
 
 		transactionPane.setDocument(doc);
+		setViewportView(holdingTable);
+
 	}
 }
