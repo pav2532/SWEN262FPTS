@@ -270,6 +270,19 @@ public class Portfolio implements Subject{
 		notifyObserver();
 		return;
 	}
+	public void add(String ticker, Float high, Float low) throws AlreadyContainsException{
+		for(watchListHolding w : watchList){
+			if (w.getHolding().getTickerSymbol().equals(ticker)){
+				throw new AlreadyContainsException("Ticker Symbol is already in WacthList");
+				
+			}else{
+				EquitiesHolder temp = null;
+				watchList.add(new watchListHolding(high, low, temp.getHolding(ticker)));
+			}
+			
+		}
+		notifyObserver();
+	}
 
 	/**
 	 * @author Mitchell

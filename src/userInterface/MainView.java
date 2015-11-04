@@ -2,6 +2,7 @@ package userInterface;
 import javax.swing.*;
 
 import model.Account;
+import model.AlreadyContainsException;
 import model.InsufficientFundsException;
 import model.NotEnoughOwnedSharesException;
 import model.Observer;
@@ -130,6 +131,9 @@ public class MainView extends JFrame implements Observer {
 					e1.printStackTrace();
 				}catch (EmptyStackException e2){
 					JOptionPane.showMessageDialog(pane, "Nothing to redo");
+				} catch (AlreadyContainsException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 
 				revalidate();
@@ -144,6 +148,7 @@ public class MainView extends JFrame implements Observer {
 				pane.displayEquityTable();
 				remove(sell);
 				remove(transfer);
+				remove(wacthlistButtons);
 				add(buy, BorderLayout.SOUTH);
 				
 				revalidate();
@@ -165,6 +170,9 @@ public class MainView extends JFrame implements Observer {
 							addAccount.execute();
 						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
 							e1.printStackTrace();
+						} catch (AlreadyContainsException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
 						undo.push(addAccount);
 						accFrame.dispose();
@@ -179,6 +187,7 @@ public class MainView extends JFrame implements Observer {
 				pane.displayAccountTable(portfolio.getAllAccount());
 				remove(sell);
 				remove(buy);
+				remove(wacthlistButtons);
 				add(transfer, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -190,6 +199,7 @@ public class MainView extends JFrame implements Observer {
 				pane.displayHoldingTable(portfolio.getHolding());
 				remove(buy);
 				remove(transfer);
+				remove(wacthlistButtons);
 				add(sell, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -201,15 +211,18 @@ public class MainView extends JFrame implements Observer {
 				pane.displayTransactionTable(portfolio.getAllTransaction());
 				remove(buy);
 				remove(sell);
+				remove(transfer);
+				remove(wacthlistButtons);
 				revalidate();
 				repaint();
 			}
 		});
 		menu.wacthList.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				pane.displayWacthListTable(null);
+				pane.displayWacthListTable(portfolio.getWatchList());
 				remove(buy);
 				remove(sell);
+				remove(transfer);
 				add(wacthlistButtons, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -237,6 +250,9 @@ public class MainView extends JFrame implements Observer {
 							} catch (NotEnoughOwnedSharesException e1) {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
 
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
 							}
 
 
@@ -275,7 +291,9 @@ public class MainView extends JFrame implements Observer {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
 							} catch (InsufficientFundsException e1) {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
-
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
 							}
 
 
@@ -287,7 +305,46 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
+		//Add
+		add.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					final AddWacthList bFrame = new AddWacthList("Add Stock");
+					bFrame.AddConfirm.addActionListener(new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Float highValue = Float.parseFloat(bFrame.getHighValue());
+							Float lowValue = Float.valueOf(bFrame.getLowValue());
+							try {
+								AbstractCommand add = new AddCommand(selectedTickerSymbol, highValue, lowValue);
+								add.execute();
+								undo.push(add);
+							} catch (InsufficientFundsException e1) {
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
+							} catch (NumberFormatException e1){
+								JOptionPane.showMessageDialog(pane, "Please enter a valid number");
+							} catch (NotEnoughOwnedSharesException e1) {
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+
+
+
+							bFrame.dispose();
+							pane.displayHoldingTable(portfolio.getHolding());
+							remove(buy);
+							remove(transfer);
+							add(sell, BorderLayout.SOUTH);
+							revalidate();
+							repaint();
+						}
+					});
+				}
+			}
+		});
+		//selected stock for buy
 		buy.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
 				if(pane.equityTable.getSelectedRow() != -1){
@@ -302,7 +359,25 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
-
+		//selected stock for add
+		add.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				if(pane.equityTable.getSelectedRow() != -1){
+					int tickerRow = pane.equityTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.equityTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else if (pane.holdingTable.getSelectedRow() != -1){
+					int tickerRow = pane.equityTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.holdingTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else{
+					access = false;
+					JOptionPane.showMessageDialog(null, "Please select a stock");
+				}
+			}
+		});
 		//selected sell command
 		sell.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
@@ -332,7 +407,7 @@ public class MainView extends JFrame implements Observer {
 						try {
 							transfer.execute();
 							undo.push(transfer);
-						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
+						} catch (InsufficientFundsException | NotEnoughOwnedSharesException | AlreadyContainsException e1) {
 							JOptionPane.showMessageDialog(pane, e1.getMessage());
 							
 						} 
