@@ -17,7 +17,7 @@ public class ScrollPane extends JScrollPane{
    JTable accountTable;
    JTable holdingTable;
    JTextPane transactionPane;
-   private static EquitiesHolder equities;
+   protected static EquitiesHolder equities;
    
    public ScrollPane(){
       setSize(this.getPreferredSize());
