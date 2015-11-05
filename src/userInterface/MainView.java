@@ -2,11 +2,13 @@ package userInterface;
 import javax.swing.*;
 
 import model.Account;
+import model.AlreadyContainsException;
 import model.InsufficientFundsException;
 import model.NotEnoughOwnedSharesException;
 import model.Observer;
 import model.Portfolio;
 import model.PortfolioParser;
+import model.watchListHolding;
 import transactions.Transaction;
 import command.*;
 
@@ -46,9 +48,11 @@ public class MainView extends JFrame implements Observer {
 		final JButton sell = new JButton("Sell Stock");
 		final JButton transfer = new JButton("Transfer Money");
 		final JButton notify = new JButton("Check notification");
-		final JButton remove = new JButton("Remove");
-		final JButton add = new JButton("Add");
-		final JPanel wacthlistButtons = new JPanel();
+		final JButton remove = new JButton("Remove from WatchList");
+		final JButton add = new JButton("Add to WatchList");
+		final JPanel wacthListButtons = new JPanel();
+		final JPanel sellListButtons = new JPanel();
+		final JPanel subPanel = new JPanel();
 		
 
 		
@@ -130,6 +134,9 @@ public class MainView extends JFrame implements Observer {
 					e1.printStackTrace();
 				}catch (EmptyStackException e2){
 					JOptionPane.showMessageDialog(pane, "Nothing to redo");
+				} catch (AlreadyContainsException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 
 				revalidate();
@@ -142,10 +149,10 @@ public class MainView extends JFrame implements Observer {
 			public void actionPerformed(ActionEvent e){
 				
 				pane.displayEquityTable();
-				remove(sell);
+				remove(sellListButtons);
+				remove(wacthListButtons);
 				remove(transfer);
-				add(buy, BorderLayout.SOUTH);
-				
+				add(subPanel, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -165,6 +172,9 @@ public class MainView extends JFrame implements Observer {
 							addAccount.execute();
 						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
 							e1.printStackTrace();
+						} catch (AlreadyContainsException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
 						undo.push(addAccount);
 						accFrame.dispose();
@@ -177,8 +187,9 @@ public class MainView extends JFrame implements Observer {
 		menu.accountOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayAccountTable(portfolio.getAllAccount());
-				remove(sell);
-				remove(buy);
+				remove(sellListButtons);
+				remove(subPanel);
+				remove(wacthListButtons);
 				add(transfer, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -188,9 +199,10 @@ public class MainView extends JFrame implements Observer {
 		menu.holdingOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayHoldingTable(portfolio.getHolding());
-				remove(buy);
+				remove(subPanel);
 				remove(transfer);
-				add(sell, BorderLayout.SOUTH);
+				remove(wacthListButtons);
+				add(sellListButtons, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -199,18 +211,21 @@ public class MainView extends JFrame implements Observer {
 		menu.transactionOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayTransactionTable(portfolio.getAllTransaction());
-				remove(buy);
-				remove(sell);
+				remove(subPanel);
+				remove(sellListButtons);
+				remove(transfer);
+				remove(wacthListButtons);
 				revalidate();
 				repaint();
 			}
 		});
 		menu.wacthList.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				pane.displayWacthListTable(null);
-				remove(buy);
-				remove(sell);
-				add(wacthlistButtons, BorderLayout.SOUTH);
+				pane.displayWacthListTable(portfolio.getWatchList());
+				remove(subPanel);
+				remove(sellListButtons);
+				remove(transfer);
+				add(wacthListButtons, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -237,6 +252,9 @@ public class MainView extends JFrame implements Observer {
 							} catch (NotEnoughOwnedSharesException e1) {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
 
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
 							}
 
 
@@ -275,7 +293,9 @@ public class MainView extends JFrame implements Observer {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
 							} catch (InsufficientFundsException e1) {
 								JOptionPane.showMessageDialog(pane, e1.getMessage());
-
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
 							}
 
 
@@ -287,7 +307,92 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
+		//Add
+		add.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					final AddWacthList bFrame = new AddWacthList("Add Stock");
+					bFrame.AddConfirm.addActionListener(new ActionListener(){
+						public void actionPerformed(ActionEvent e){
+							Float highValue = Float.parseFloat(bFrame.getHighValue());
+							Float lowValue = Float.valueOf(bFrame.getLowValue());
+							try {
+								AbstractCommand add = new AddCommand(selectedTickerSymbol, highValue, lowValue);
+								add.execute();
+								undo.push(add);
+							} catch (InsufficientFundsException e1) {
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
+							} catch (NumberFormatException e1){
+								JOptionPane.showMessageDialog(pane, "Please enter a valid number");
+							} catch (NotEnoughOwnedSharesException e1) {
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 
+							} catch (AlreadyContainsException e1) {
+								// TODO Auto-generated catch block
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
+							}
+
+
+
+							bFrame.dispose();
+							System.out.println(highValue);
+							pane.displayHoldingTable(portfolio.getHolding());
+							remove(subPanel);
+							remove(transfer);
+							remove(wacthListButtons);
+							add(sellListButtons, BorderLayout.SOUTH);
+							revalidate();
+							repaint();
+						}
+					});
+				}
+			}
+		});
+		//Notification button 
+		notify.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					String text = "";
+					watchListHolding w = portfolio.getWacthListHolding(pane.wacthListTable.getModel().getValueAt(pane.wacthListTable.getSelectedRow(), 0).toString());
+					if(w.isAboveHighTrigger()){
+						text += "The price of stock is over high Value.\n";
+					}
+					if(w.isBelowLowTrigger()){
+						text += "The price of stock is below low Value.\n";
+					}
+					if(w.wasAboveTrigger()){
+						text += "The price of stock was above high Value. \n";
+					}
+					if(w.wasBelowTrigger()){
+						text += "The price of stock was below low Value. \n";
+					}
+					JOptionPane.showMessageDialog(pane,text);
+				}
+			}});
+		
+		//Remove stock from wacthList
+		remove.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					portfolio.remove(selectedTickerSymbol);
+				}
+			}
+		});
+		//Select stock in wacthList
+		remove.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				if(pane.wacthListTable.getSelectedRow() != -1){
+					int tickerRow = pane.wacthListTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.wacthListTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else{
+					access = false;
+					JOptionPane.showMessageDialog(null, "Please select a stock");
+				}
+			}
+		});
+		//selected stock for buy
 		buy.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
 				if(pane.equityTable.getSelectedRow() != -1){
@@ -302,7 +407,25 @@ public class MainView extends JFrame implements Observer {
 				}
 			}
 		});
-
+		//selected stock for add
+		add.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				if(pane.equityTable.getSelectedRow() != -1){
+					int tickerRow = pane.equityTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.equityTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else if (pane.holdingTable.getSelectedRow() != -1){
+					int tickerRow = pane.holdingTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.holdingTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else{
+					access = false;
+					JOptionPane.showMessageDialog(null, "Please select a stock");
+				}
+			}
+		});
 		//selected sell command
 		sell.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
@@ -332,7 +455,7 @@ public class MainView extends JFrame implements Observer {
 						try {
 							transfer.execute();
 							undo.push(transfer);
-						} catch (InsufficientFundsException | NotEnoughOwnedSharesException e1) {
+						} catch (InsufficientFundsException | NotEnoughOwnedSharesException | AlreadyContainsException e1) {
 							JOptionPane.showMessageDialog(pane, e1.getMessage());
 							
 						} 
@@ -349,17 +472,21 @@ public class MainView extends JFrame implements Observer {
 
 			}
 		});
-		wacthlistButtons.add(remove);
-		//wacthlistButtons.add(sell);
-		wacthlistButtons.add(notify);
+		wacthListButtons.add(remove);
+		wacthListButtons.add(notify);
+		sellListButtons.add(sell);
+		sellListButtons.add(add);
+		subPanel.add(buy);
+		subPanel.add(add);
 		
-		add(buy, BorderLayout.SOUTH);
+		
+		add(subPanel, BorderLayout.SOUTH);
 		setJMenuBar(menu);
 		setVisible(true);
 	}
 
 	@Override
-	public void update(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction){
-		pane.updateTables(account, holding, allTransaction);
+	public void update(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction, ArrayList<watchListHolding> wacthList){
+		pane.updateTables(account, holding, allTransaction, wacthList);
 	}
 }
