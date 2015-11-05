@@ -194,6 +194,7 @@ public class MainView extends JFrame implements Observer {
 				remove(sellListButtons);
 				remove(subPanel);
 				remove(wacthListButtons);
+				remove(sell);
 				add(transfer, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -267,6 +268,7 @@ public class MainView extends JFrame implements Observer {
 							pane.displayHoldingTable(portfolio.getHolding());
 							remove(buy);
 							remove(transfer);
+							remove(subPanel);
 							add(sell, BorderLayout.SOUTH);
 							revalidate();
 							repaint();
