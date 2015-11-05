@@ -1,6 +1,16 @@
 package command;
 import transactions.*;
 
+import model.InsufficientFundsException;
+import transactions.*;
+import userInterface.MainView;
+
+/**
+ * 
+ * @author Mitchell
+ * 
+ * Transfer Command for transfering money between two selected accounts in a portfolio.
+ */
 public class TransferCommand extends AbstractCommand {
 	
 	String accountTo;
@@ -16,16 +26,18 @@ public class TransferCommand extends AbstractCommand {
 	}
 
 	@Override
-	void execute() {
-		//PortfolioController.Portfolio.transfer(accountTo, accountFrom, amount);
-		//PortfolioController.Portfolio.addTransaction(t);
+	public
+	void execute() throws InsufficientFundsException {
+		MainView.portfolio.transfer(accountTo, accountFrom, amount);
+		MainView.portfolio.addTransaction(t);
 
 	}
 
 	@Override
-	void unexecute() {
-		//PortfolioController.Portfolio.transfer(accountFrom, accountTo, amount);
-		//PortfolioController.Portfolio.removeTransaction(t);
+	public
+	void unexecute() throws InsufficientFundsException {
+		MainView.portfolio.transfer(accountFrom, accountTo, amount);
+		MainView.portfolio.removeTransaction(t);
 
 	}
 

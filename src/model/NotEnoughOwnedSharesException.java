@@ -1,6 +1,17 @@
 package model;
 
+/**
+ * 
+ * @author Mitchell
+ *
+ * Thrown when a portfolio does not own enough shares to complete an operation.
+ */
 public class NotEnoughOwnedSharesException extends Exception {
+
+
+	public NotEnoughOwnedSharesException(String string) {
+		super(string);
+	}
 
 	/**
 	 * 

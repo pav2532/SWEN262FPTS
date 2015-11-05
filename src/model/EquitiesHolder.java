@@ -1,12 +1,43 @@
 package model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class EquitiesHolder {
 
 	public static HashMap<String, HashMap<String, Holding>> Indices = new HashMap<String, HashMap<String, Holding>>();
+	private int updateTime = 600000;
 
+	public int getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(int updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public void updateThread(){
+		new Thread (){
+			public void run(){
+				try {
+					sleep(updateTime);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					updatePrices();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		};
+	}
 	/**
 	 * Adds the given holding to the EquitiesHolder (the 'world')
 	 * 
@@ -38,9 +69,10 @@ public class EquitiesHolder {
 	 * @param ticker ticker symbol of the Holding to be retrieved
 	 * @return returns the holding that matches the given ticker symbol
 	 */
-	public Holding getHolding(String ticker) {
+	public static Holding getHolding(String ticker) {
 		HashMap<String, Holding> temp = new HashMap<String, Holding>();
 		temp = TickerSearch(temp, ticker);
+		System.out.println(temp.get(ticker).getPrice());
 		return temp.get(ticker);
 	}
 
@@ -107,7 +139,7 @@ public class EquitiesHolder {
 	 *            matching
 	 * @return returns a HashMap of results
 	 */
-	private HashMap<String, Holding> TickerSearch(HashMap<String, Holding> results, String term) {
+	private static HashMap<String, Holding> TickerSearch(HashMap<String, Holding> results, String term) {
 		// if no results have been provided, search the entire world
 		// if there are provided results, narrow them using the search term
 		if (results.isEmpty()) {
@@ -174,4 +206,45 @@ public class EquitiesHolder {
 
 		return results;
 	}// end NameSearch()
+
+	public static void save() throws IOException{
+		FileWriter file = new FileWriter("src/equities.txt");
+		PrintWriter writer = null;
+		try{
+			writer = new PrintWriter(file);
+			for (Entry<String, HashMap<String, Holding>> IndexEntry : Indices.entrySet()) {
+				HashMap<String, Holding> value = IndexEntry.getValue();
+
+				for (Entry<String, Holding> entry : value.entrySet()) {
+					Holding holding = entry.getValue();
+					writer.println("\""+holding.getTickerSymbol()+"\",\""+holding.getName()+"\",\""+holding.getPrice()+"\",\""+holding.getSectors()+"\"");
+				}
+			}
+		}finally{
+			if(writer != null){
+				writer.close();
+			}
+		}
+	}
+
+	public static void updatePrices() throws IOException{
+		HashMap<String, Float> data;
+		ArrayList<String> tickers = new ArrayList<String>();
+		for (Entry<String, HashMap<String, Holding>> IndexEntry : Indices.entrySet()) {
+			HashMap<String, Holding> value = IndexEntry.getValue();
+
+			for (Entry<String, Holding> entry : value.entrySet()) {
+				tickers.add(entry.getKey());
+			}
+		}
+
+		data = (new YahooAPI()).update(tickers);
+		for(Entry<String, Float> entry : data.entrySet()){
+			getHolding(entry.getKey()).setPrice(entry.getValue());
+			System.out.println("I'm Updating prices!"+entry.getKey()+entry.getValue());
+			System.out.println(getHolding(entry.getKey()).getPrice());
+		}
+		
+		save();
+	}
 }

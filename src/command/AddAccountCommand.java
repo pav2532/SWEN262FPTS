@@ -1,6 +1,14 @@
 package command;
 import model.Account;
 
+import model.Account;
+import userInterface.MainView;
+
+/**
+ * 
+ * @author Mitchell
+ * Command for adding accounts to a portfolio
+ */
 public class AddAccountCommand extends AbstractCommand {
 
 	Account account;
@@ -9,16 +17,25 @@ public class AddAccountCommand extends AbstractCommand {
 		this.account = account;
 	}
 	
+
+	/**
+	 * adds account
+	 */
 	@Override
+	public
 	void execute() {
-		//PortfolioController.Portfolio.addAccount(account);
+		MainView.portfolio.addAccount(account);
 		
 		
 	}
 
+	/**
+	 * removes account
+	 */
 	@Override
+	public
 	void unexecute() {
-		//PortfolioController.Portfolio.removeAccount(account);
+		MainView.portfolio.removeAccount(account);
 		
 		
 
