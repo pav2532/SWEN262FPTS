@@ -140,12 +140,7 @@ public class MainView extends JFrame implements Observer {
 
 		menu.equityOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				try {
-					ScrollPane.equities.updatePrices();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
 				pane.displayEquityTable();
 				remove(sell);
 				remove(transfer);
