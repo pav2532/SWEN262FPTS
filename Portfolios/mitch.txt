@@ -1,9 +1,3 @@
-B,Micro,99827.64,10/06/2015
-T,S,lol,acc32,3.3,200
-T,B,mnm,acc10,2.2,1000
-T,T,acc000,acc999,2000.2
-S,ATEN,2
-S,CMRE,10
-S,BBX,1
-S,AAL,30
-S,FOX,20
+"B","Micro","99827.64","10/06/2015"
+"T","S","lol","acc32","3.3","200"
+"W","100.0","100.0","ATEN","A10 Networks, Inc.","6.51","TECHNOLOGY"

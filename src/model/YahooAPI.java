@@ -70,7 +70,7 @@ public class YahooAPI {
         	}
         }
         
-        System.out.println(response.toString());
+        //System.out.println(response.toString());
 		return stocks;
         
         

@@ -1,7 +1,12 @@
 import userInterface.LoginScreen;
+import model.*;
 
 public class Run {
-    public static void main(String args[]){
-        LoginScreen firstScreen = new LoginScreen();
-    }
+   public static void main(String[] args) {
+	  if(args.length != 0){
+		  CommandLine removeAccount = new CommandLine();
+		  removeAccount.findAccount(args[0], "src/Account.txt");
+	  }
+      LoginScreen firstScreen = new LoginScreen();
+   }
 }

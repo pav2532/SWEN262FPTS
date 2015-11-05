@@ -10,7 +10,7 @@ public class transferTransaction extends Transaction {
 	}
 	
 	public String saveTransaction(){
-		return ("T,T,"+to+","+from+","+amount);
+		return ("\"T,\"T,\""+to+"\",\""+from+"\",\""+amount);
 	}
 }
 

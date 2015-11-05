@@ -36,7 +36,7 @@ public class Portfolio implements Subject{
    @Override
    public void notifyObserver() {
       for(Observer observer : observers){
-         observer.update(allAccount, holding, allTransaction);
+         observer.update(allAccount, holding, allTransaction, watchList);
       }
    }
    
@@ -214,16 +214,16 @@ public class Portfolio implements Subject{
 		try{
 			writer = new PrintWriter(file);
 			for(int i = 0; i < allAccount.size(); i++){
-				writer.println("B,"+allAccount.get(i).getName()+","+allAccount.get(i).getBalance()+","+allAccount.get(i).getDateCreated());
+				writer.println("\"B\",\""+allAccount.get(i).getName()+"\",\""+allAccount.get(i).getBalance()+"\",\""+allAccount.get(i).getDateCreated()+"\"");
 			}
 			for(int i = 0; i< allTransaction.size(); i++){
 				writer.println(allTransaction.get(i).saveTransaction());
 			}
 			for(Entry<String, Integer> IndexEntry : holding.entrySet()){
-				writer.println("S,"+IndexEntry.getKey()+","+IndexEntry.getValue());
+				writer.println("\"S,\"" + IndexEntry.getKey() + "\",\"" + IndexEntry.getValue() + "\"");
 			}
 			for(watchListHolding h : watchList){
-				writer.println("W,"+h.save());
+				writer.println("\"W\","+h.save());
 			}
 		}
 		finally{
@@ -269,6 +269,44 @@ public class Portfolio implements Subject{
 		}
 		notifyObserver();
 		return;
+	}
+	public void add(String ticker, Float high, Float low) throws AlreadyContainsException{
+		if(watchList.size()==0){
+			watchList.add(new watchListHolding(high, low, EquitiesHolder.getHolding(ticker)));
+		}else{
+			for(watchListHolding w : watchList){
+				if (w.getHolding().getTickerSymbol().equals(ticker)){
+					throw new AlreadyContainsException("Ticker Symbol is already in WacthList");
+					
+				}else{
+					System.out.println("It added");
+					watchList.add(new watchListHolding(high, low, EquitiesHolder.getHolding(ticker)));
+					break;
+				}
+				
+			}
+			notifyObserver();
+		}
+	}
+	public void remove(String ticker){
+		int index = 0;
+		for(watchListHolding w: watchList){
+			if(w.getHolding().getTickerSymbol().equals(ticker))
+				break;
+			index++;
+		}
+		watchList.remove(index);
+		
+		notifyObserver();
+	
+	}
+	public watchListHolding getWacthListHolding(String ticker){
+		for(watchListHolding w : watchList){
+			if (w.getHolding().getTickerSymbol().equals(ticker)){
+				return w;
+			}	
+		}
+		return null;
 	}
 
 	/**

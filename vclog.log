@@ -1,4 +1,14 @@
-b644f6b was Quang Vu, 6 hours ago, message: small update
+49169bc was Quang Vu, 6 minutes ago, message: Fix conflicts
+b644f6b was Quang Vu, 7 hours ago, message: small update
+2848225 was Mitchell Derby, 23 hours ago, message: Update works! Whoo! Except some tickers get no data from Yahoo :(. Command line needs to be plugged in still. We now remove the ^ (and letters after) when parsing the Equities.txt file (only needed initially). Update *should* now update every 10 minutes, no UI yet to select specific timings.
+5f70311 was pav2532, 30 hours ago, message: Creation of WacthList Table and code
+0c70871 was Mitchell Derby, 35 hours ago, message: Added ability to save the EquitiesHolder back to the equities file, also watchList items are saved with the portfolio. also equites saves on all exits/save
+c0b9cd1 was Mitchell Derby, 2 days ago, message: Added the watchList backend. Once updating is pushed, I can update the watchList items and write the update for the EquitiesHolder.
+4054129 was Mitchell Derby, 2 days ago, message: Implemented Transfers with commands, added some more error checking dialogs. Fixed bug where To and From accounts were switched in portfolio.transfer() implementation.
+6efe032 was mderb4, 2 days ago, message: Some Documention (javadoc comments) added to various classes (transactions, portfolio, exceptions).
+a5b1967 was mderb4, 2 days ago, message: Added confirm dialogs for log out and exit, also added save successful/unsuccessful dialogs
+1ca3e41 was mderb4, 2 days ago, message: AddAccount now uses command pattern.
+52d3ed6 was mderb4, 2 days ago, message: Command structure implemented for buying and selling, needs to be used for transactions, follow implementation. Undo and Redo are implemented for all commands that are plugged in (will work for other commands when they are plugged into the view). Some edge case handling added. Logging out now saves the portfolio.
 473efed was pav2532, 2 days ago, message: Added Missing Code
 30e9d64 was Quang Vu, 2 days ago, message: Updated
 d17541a was Quang Vu, 2 days ago, message: update transfer frame and buy frame

@@ -53,8 +53,16 @@ public class watchListHolding{
 		return holding;
 	}
 	
+	public Float getHighTrigger() {
+		return highTrigger;
+	}
+
+	public Float getLowTrigger() {
+		return lowTrigger;
+	}
+
 	public String save(){
-		return highTrigger+","+lowTrigger+","+
+		return "\""+highTrigger+"\",\""+lowTrigger+"\",\""+
 				"\""+holding.getTickerSymbol()+"\",\""+holding.getName()+"\",\""+holding.getPrice()+"\",\""+holding.getSectors()+"\"";
 	}
 }
