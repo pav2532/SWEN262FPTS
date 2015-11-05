@@ -79,7 +79,7 @@ public class EquitiesHolder {
 	public static Holding getHolding(String ticker) {
 		HashMap<String, Holding> temp = new HashMap<String, Holding>();
 		temp = TickerSearch(temp, ticker);
-		System.out.println(temp.get(ticker).getPrice());
+		//System.out.println(temp.get(ticker).getPrice());
 		return temp.get(ticker);
 	}
 
@@ -248,8 +248,8 @@ public class EquitiesHolder {
 		data = (new YahooAPI()).update(tickers);
 		for(Entry<String, Float> entry : data.entrySet()){
 			getHolding(entry.getKey()).setPrice(entry.getValue());
-			System.out.println("I'm Updating prices!"+entry.getKey()+entry.getValue());
-			System.out.println(getHolding(entry.getKey()).getPrice());
+			//System.out.println("I'm Updating prices!"+entry.getKey()+entry.getValue());
+			//System.out.println(getHolding(entry.getKey()).getPrice());
 		}
 		
 		save();

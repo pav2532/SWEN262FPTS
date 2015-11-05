@@ -32,7 +32,7 @@ public class ScrollPane extends JScrollPane{
 		EquityParser parser = new EquityParser();  
 		try {  
 			equities = parser.findAccount("src/equities.txt"); 
-			EquitiesHolder.updatePrices();
+			//EquitiesHolder.updatePrices();
 		}catch (IOException e2) {   
 			e2.printStackTrace();  
 		}  

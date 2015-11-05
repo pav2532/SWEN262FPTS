@@ -3,6 +3,7 @@ import javax.swing.*;
 
 import model.Account;
 import model.AlreadyContainsException;
+import model.EquitiesHolder;
 import model.InsufficientFundsException;
 import model.NotEnoughOwnedSharesException;
 import model.Observer;
@@ -11,6 +12,8 @@ import model.PortfolioParser;
 import model.watchListHolding;
 import transactions.Transaction;
 import command.*;
+import java.util.Timer;
+
 
 import java.util.*;
 import java.awt.*;
@@ -31,6 +34,7 @@ public class MainView extends JFrame implements Observer {
 	private Stack<AbstractCommand> undo;
 	private Stack<AbstractCommand> redo;
 	final ScrollPane pane;
+	int time = 60000;
 	
 	public MainView(String name, Portfolio p){
 		super(name);
@@ -490,3 +494,5 @@ public class MainView extends JFrame implements Observer {
 		pane.updateTables(account, holding, allTransaction, wacthList);
 	}
 }
+
+

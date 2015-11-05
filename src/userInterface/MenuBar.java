@@ -3,6 +3,8 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.*;
 
@@ -24,8 +26,10 @@ public class MenuBar extends JMenuBar{
    JMenuItem undo = new JMenuItem("Undo");
    JMenuItem redo = new JMenuItem("Redo");
    JMenuItem update = new JMenuItem("Update Options");
+   private int time = 600000;
+   private Timer timer = new Timer();
+   private UpdateTask task = new UpdateTask();
    public MenuBar(){
-      
       exit.addActionListener(new ActionListener(){
          public void actionPerformed(ActionEvent e){
         	 int n = JOptionPane.showConfirmDialog(null, "Exit?");
@@ -46,12 +50,15 @@ public class MenuBar extends JMenuBar{
     		  int n;
     		  try{
     			  n = Integer.parseInt(JOptionPane.showInputDialog("Enter desired time interval between price updates (minutes)"));
+    			  n = n*60000;
     		  }catch(Exception e1){
     			  n = 10;
     		  }
-    		  
-    		  n = n*60000;
-    		  ScrollPane.equities.setUpdateTime(n);
+    		 time = n;
+    		 timer.cancel();
+    		 timer = new Timer();
+    		 task = new UpdateTask();
+    		 timer.schedule(task, time, time);
     	  }
       });
       
@@ -68,8 +75,21 @@ public class MenuBar extends JMenuBar{
       file.add(update);
       file.add(logout);
       file.add(exit);
+      timer.schedule(task, time, time);
+      //timer.scheduleAtFixedRate(task, time, 100000);
       add(file);
       add(portfolioOption);
-
+      
    }
+   class UpdateTask extends TimerTask {
+	    public void run() {
+	       try {
+	    	   
+			EquitiesHolder.updatePrices();
+	       } catch (IOException e) {
+			// TODO Auto-generated catch block
+	    	   e.printStackTrace();
+		}
+	    }
+	}
 }
