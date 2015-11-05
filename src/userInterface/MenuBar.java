@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.swing.*;
 
+import model.EquitiesHolder;
+
 public class MenuBar extends JMenuBar{
    JMenu file = new JMenu("File");
    JMenu portfolioOption = new JMenu("Portfolio");
@@ -21,7 +23,7 @@ public class MenuBar extends JMenuBar{
    JMenuItem logout = new JMenuItem("Logout");
    JMenuItem undo = new JMenuItem("Undo");
    JMenuItem redo = new JMenuItem("Redo");
-   
+   JMenuItem update = new JMenuItem("Update Options");
    public MenuBar(){
       
       exit.addActionListener(new ActionListener(){
@@ -30,13 +32,27 @@ public class MenuBar extends JMenuBar{
 				if(n == 0){
 					try {
 						MainView.portfolio.save();
-						ScrollPane.equities.save();
+						EquitiesHolder.save();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
             System.exit(0);
          }
          }
+      });
+      
+      update.addActionListener(new ActionListener(){
+    	  public void actionPerformed(ActionEvent e){
+    		  int n;
+    		  try{
+    			  n = Integer.parseInt(JOptionPane.showInputDialog("Enter desired time interval between price updates (minutes)"));
+    		  }catch(Exception e1){
+    			  n = 10;
+    		  }
+    		  
+    		  n = n*60000;
+    		  ScrollPane.equities.setUpdateTime(n);
+    	  }
       });
       
       file.add(open);
@@ -49,6 +65,7 @@ public class MenuBar extends JMenuBar{
       portfolioOption.add(transactionOption);
       portfolioOption.add(wacthList);
       file.add(addAccount);
+      file.add(update);
       file.add(logout);
       file.add(exit);
       add(file);

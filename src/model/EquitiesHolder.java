@@ -7,10 +7,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+/**
+ * Holds all of the Holding objects for the 'world'. Has search functionality and update method for prices
+ * @author Mitchell
+ *
+ */
 public class EquitiesHolder {
 
 	public static HashMap<String, HashMap<String, Holding>> Indices = new HashMap<String, HashMap<String, Holding>>();
-	private int updateTime = 600000;
+	private int updateTime = 1;
 
 	public int getUpdateTime() {
 		return updateTime;
@@ -23,6 +28,7 @@ public class EquitiesHolder {
 	public void updateThread(){
 		new Thread (){
 			public void run(){
+				do{
 				try {
 					sleep(updateTime);
 				} catch (InterruptedException e) {
@@ -35,6 +41,7 @@ public class EquitiesHolder {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}while(true);
 			}
 		};
 	}
