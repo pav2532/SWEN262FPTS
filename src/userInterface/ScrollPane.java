@@ -109,7 +109,7 @@ public class ScrollPane extends JScrollPane{
 	}
 	
 	public void displayWacthListTable(ArrayList<watchListHolding> w){
-		String[] wacthListColumnName = {"Ticker Symbol", "Current Price", "High Triger", "Low Triger"};
+		String[] wacthListColumnName = {"Ticker Symbol", "Current Price", "High Triger", "Low Triger", "Notification"};
 		Object[][] wacthListData = new Object[w.size()][];
 		int index = 0;
 		for(watchListHolding key: w){
@@ -121,11 +121,13 @@ public class ScrollPane extends JScrollPane{
 			//Check if their notification for this wacthlist
 			if(key.isAboveHighTrigger() || key.isBelowLowTrigger())
 				data[4] = true;
-			data[4] = false;
+			else
+				data[4] = false;
 			wacthListData[index] = data;
 			index ++;
 		}
 		//Need code wacthlist implemented to do it
+		wacthListTable = new JTable(wacthListData, wacthListColumnName);
 		setViewportView(wacthListTable);
 	}
 
@@ -139,7 +141,7 @@ public class ScrollPane extends JScrollPane{
 	 * @param holding 	holding data
 	 * @param transaction 	transaction data
 	 */
-	public void updateTables(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> transaction){
+	public void updateTables(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> transaction, ArrayList<watchListHolding> wacthList){
 		//account table
 		String[] accountColumnName = {"Name", "Balance", "Date Created"};
 		Object[][] accountData = new Object[account.size()][];
@@ -179,8 +181,24 @@ public class ScrollPane extends JScrollPane{
 				System.out.println(e);
 			}
 		}
-	
-
+		
+		String[] wacthListColumnName = {"Ticker Symbol", "Current Price", "High Triger", "Low Triger", "Notification"};
+		Object[][] wacthListData = new Object[wacthList.size()][];
+		index = 0;
+		for(watchListHolding key: wacthList){
+			Object[] data = new Object[5];
+			data[0] = key.getHolding().getTickerSymbol();
+			data[1] = key.getHolding().getPrice();
+			data[2] = key.getHighTrigger().toString();
+			data[3] = key.getHighTrigger().toString();
+			//Check if their notification for this wacthlist
+			if(key.isAboveHighTrigger() || key.isBelowLowTrigger())
+				data[4] = true;
+			data[4] = false;
+			wacthListData[index] = data;
+			index ++;
+		}
+		wacthListTable = new JTable(wacthListData, wacthListColumnName);
 		transactionPane.setDocument(doc);
 		setViewportView(holdingTable);
 

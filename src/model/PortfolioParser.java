@@ -21,7 +21,9 @@ public class PortfolioParser {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 	
 			while((line = bufferedReader.readLine()) != null){
-				String[] separateValue = line.split(",");
+				//System.out.println(line);
+				String[] separateValue = line.split("\",\"");
+				//System.out.println(separateValue[0]);
 				
 				// Strip out any unnecessary character around the word
 				for(int i = 0; i< separateValue.length; i++){
@@ -36,8 +38,15 @@ public class PortfolioParser {
 					int value = Integer.valueOf(separateValue[2]);
 					holding.put(separateValue[1], value);
 				}else if(separateValue[0].equals("W")){
-					watchListHolding wLH = new watchListHolding(Float.valueOf(separateValue[1]), Float.valueOf(separateValue[2]), 
-							new Holding(separateValue[3].replaceAll("[^a-zA-Z0-9.]", ""),separateValue[4], Float.valueOf(separateValue[5].replaceAll("[^0-9.]", "")), (separateValue[6]+ ", " + separateValue[7].replaceAll("[^a-zA-Z0-9.]", ""))));
+					//System.out.println(separateValue[5]);
+					watchListHolding wLH;
+					if(separateValue.length-1>6){
+						wLH = new watchListHolding(Float.parseFloat(separateValue[1]), Float.parseFloat(separateValue[2]), 
+								new Holding(separateValue[3].replaceAll("[^a-zA-Z0-9.]", ""),separateValue[4], Float.parseFloat(separateValue[5].replaceAll("[^0-9.]", "")), (separateValue[6]+ ", " + separateValue[7].replaceAll("[^a-zA-Z0-9.]", ""))));
+					}else{
+						wLH = new watchListHolding(Float.parseFloat(separateValue[1]), Float.parseFloat(separateValue[2]), 
+							new Holding(separateValue[3].replaceAll("[^a-zA-Z0-9.]", ""),separateValue[4], Float.parseFloat(separateValue[5].replaceAll("[^0-9.]", "")), (separateValue[6]+ ", ")));
+					}
 					watchList.add(wLH);
 				}else{
 					if(separateValue[1].equals("S")){
@@ -47,6 +56,7 @@ public class PortfolioParser {
 						transferTransaction transfer = new transferTransaction(separateValue[2], separateValue[3], Float.valueOf(separateValue[4]));
 						allTransaction.add(transfer);
 					}else{
+						System.out.println(separateValue[3]);
 						buyTransaction buy = new buyTransaction(separateValue[2], separateValue[3], Float.valueOf(separateValue[4]), Integer.valueOf(separateValue[5]));
 						allTransaction.add(buy);
 					}

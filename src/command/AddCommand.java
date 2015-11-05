@@ -17,6 +17,7 @@ public class AddCommand extends AbstractCommand {
 	}
 	public void execute() throws AlreadyContainsException {
 		// TODO Auto-generated method stub
+		//System.out.println("Execute");
 		MainView.portfolio.add(this.ticker, this.highValue, this.lowValue);
 		
 

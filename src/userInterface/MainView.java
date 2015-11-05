@@ -8,6 +8,7 @@ import model.NotEnoughOwnedSharesException;
 import model.Observer;
 import model.Portfolio;
 import model.PortfolioParser;
+import model.watchListHolding;
 import transactions.Transaction;
 import command.*;
 
@@ -47,9 +48,11 @@ public class MainView extends JFrame implements Observer {
 		final JButton sell = new JButton("Sell Stock");
 		final JButton transfer = new JButton("Transfer Money");
 		final JButton notify = new JButton("Check notification");
-		final JButton remove = new JButton("Remove");
-		final JButton add = new JButton("Add");
-		final JPanel wacthlistButtons = new JPanel();
+		final JButton remove = new JButton("Remove from WatchList");
+		final JButton add = new JButton("Add to WatchList");
+		final JPanel wacthListButtons = new JPanel();
+		final JPanel sellListButtons = new JPanel();
+		final JPanel subPanel = new JPanel();
 		
 
 		
@@ -146,11 +149,10 @@ public class MainView extends JFrame implements Observer {
 			public void actionPerformed(ActionEvent e){
 				
 				pane.displayEquityTable();
-				remove(sell);
+				remove(sellListButtons);
+				remove(wacthListButtons);
 				remove(transfer);
-				remove(wacthlistButtons);
-				add(buy, BorderLayout.SOUTH);
-				
+				add(subPanel, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -185,9 +187,9 @@ public class MainView extends JFrame implements Observer {
 		menu.accountOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayAccountTable(portfolio.getAllAccount());
-				remove(sell);
-				remove(buy);
-				remove(wacthlistButtons);
+				remove(sellListButtons);
+				remove(subPanel);
+				remove(wacthListButtons);
 				add(transfer, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -197,10 +199,10 @@ public class MainView extends JFrame implements Observer {
 		menu.holdingOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayHoldingTable(portfolio.getHolding());
-				remove(buy);
+				remove(subPanel);
 				remove(transfer);
-				remove(wacthlistButtons);
-				add(sell, BorderLayout.SOUTH);
+				remove(wacthListButtons);
+				add(sellListButtons, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -209,10 +211,10 @@ public class MainView extends JFrame implements Observer {
 		menu.transactionOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayTransactionTable(portfolio.getAllTransaction());
-				remove(buy);
-				remove(sell);
+				remove(subPanel);
+				remove(sellListButtons);
 				remove(transfer);
-				remove(wacthlistButtons);
+				remove(wacthListButtons);
 				revalidate();
 				repaint();
 			}
@@ -220,10 +222,10 @@ public class MainView extends JFrame implements Observer {
 		menu.wacthList.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				pane.displayWacthListTable(portfolio.getWatchList());
-				remove(buy);
-				remove(sell);
+				remove(subPanel);
+				remove(sellListButtons);
 				remove(transfer);
-				add(wacthlistButtons, BorderLayout.SOUTH);
+				add(wacthListButtons, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
 			}
@@ -327,20 +329,66 @@ public class MainView extends JFrame implements Observer {
 
 							} catch (AlreadyContainsException e1) {
 								// TODO Auto-generated catch block
-								e1.printStackTrace();
+								JOptionPane.showMessageDialog(pane, e1.getMessage());
 							}
 
 
 
 							bFrame.dispose();
+							System.out.println(highValue);
 							pane.displayHoldingTable(portfolio.getHolding());
-							remove(buy);
+							remove(subPanel);
 							remove(transfer);
-							add(sell, BorderLayout.SOUTH);
+							remove(wacthListButtons);
+							add(sellListButtons, BorderLayout.SOUTH);
 							revalidate();
 							repaint();
 						}
 					});
+				}
+			}
+		});
+		//Notification button 
+		notify.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					String text = "";
+					watchListHolding w = portfolio.getWacthListHolding(pane.wacthListTable.getModel().getValueAt(pane.wacthListTable.getSelectedRow(), 0).toString());
+					if(w.isAboveHighTrigger()){
+						text += "The price of stock is over high Value.\n";
+					}
+					if(w.isBelowLowTrigger()){
+						text += "The price of stock is below low Value.\n";
+					}
+					if(w.wasAboveTrigger()){
+						text += "The price of stock was above high Value. \n";
+					}
+					if(w.wasBelowTrigger()){
+						text += "The price of stock was below low Value. \n";
+					}
+					JOptionPane.showMessageDialog(pane,text);
+				}
+			}});
+		
+		//Remove stock from wacthList
+		remove.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if(access){
+					portfolio.remove(selectedTickerSymbol);
+				}
+			}
+		});
+		//Select stock in wacthList
+		remove.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				if(pane.wacthListTable.getSelectedRow() != -1){
+					int tickerRow = pane.wacthListTable.getSelectedRow();
+					int sharePriceRow = tickerRow;
+					selectedTickerSymbol = pane.wacthListTable.getModel().getValueAt(tickerRow, 0).toString();
+					access = true;
+				}else{
+					access = false;
+					JOptionPane.showMessageDialog(null, "Please select a stock");
 				}
 			}
 		});
@@ -368,7 +416,7 @@ public class MainView extends JFrame implements Observer {
 					selectedTickerSymbol = pane.equityTable.getModel().getValueAt(tickerRow, 0).toString();
 					access = true;
 				}else if (pane.holdingTable.getSelectedRow() != -1){
-					int tickerRow = pane.equityTable.getSelectedRow();
+					int tickerRow = pane.holdingTable.getSelectedRow();
 					int sharePriceRow = tickerRow;
 					selectedTickerSymbol = pane.holdingTable.getModel().getValueAt(tickerRow, 0).toString();
 					access = true;
@@ -424,17 +472,21 @@ public class MainView extends JFrame implements Observer {
 
 			}
 		});
-		wacthlistButtons.add(remove);
-		//wacthlistButtons.add(sell);
-		wacthlistButtons.add(notify);
+		wacthListButtons.add(remove);
+		wacthListButtons.add(notify);
+		sellListButtons.add(sell);
+		sellListButtons.add(add);
+		subPanel.add(buy);
+		subPanel.add(add);
 		
-		add(buy, BorderLayout.SOUTH);
+		
+		add(subPanel, BorderLayout.SOUTH);
 		setJMenuBar(menu);
 		setVisible(true);
 	}
 
 	@Override
-	public void update(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction){
-		pane.updateTables(account, holding, allTransaction);
+	public void update(ArrayList<Account> account, HashMap<String, Integer> holding, ArrayList<Transaction> allTransaction, ArrayList<watchListHolding> wacthList){
+		pane.updateTables(account, holding, allTransaction, wacthList);
 	}
 }

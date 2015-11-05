@@ -25,7 +25,7 @@ public class AddWacthList extends JFrame {
 	      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	      
 	      AddConfirm.setSize(AddConfirm.getPreferredSize());
-	      AddConfirm.setLocation(240, 120);
+	      AddConfirm.setLocation(240, 100);
 	      critHigh.setSize(critHigh.getPreferredSize());
 	      critHigh.setLocation(10, 80);
 	      highValue.setLocation(119, 80);
