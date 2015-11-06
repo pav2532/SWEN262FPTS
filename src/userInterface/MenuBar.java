@@ -20,7 +20,7 @@ public class MenuBar extends JMenuBar{
    JMenuItem accountOption = new JMenuItem("Accounts");
    JMenuItem holdingOption = new JMenuItem("Holdings");
    JMenuItem transactionOption = new JMenuItem("Transaction History");
-   JMenuItem wacthList	 = new JMenuItem("WacthList");
+   JMenuItem wacthList	 = new JMenuItem("WatchList");
    JMenuItem addAccount = new JMenuItem("New Account");
    JMenuItem logout = new JMenuItem("Logout");
    JMenuItem undo = new JMenuItem("Undo");

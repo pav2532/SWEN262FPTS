@@ -194,6 +194,7 @@ public class MainView extends JFrame implements Observer {
 				remove(sellListButtons);
 				remove(subPanel);
 				remove(wacthListButtons);
+				remove(sell);
 				add(transfer, BorderLayout.SOUTH);
 				revalidate();
 				repaint();
@@ -243,7 +244,12 @@ public class MainView extends JFrame implements Observer {
 					bFrame.buyConfirm.addActionListener(new ActionListener(){
 						public void actionPerformed(ActionEvent e){
 							String a = String.valueOf(bFrame.accountDropList.getSelectedItem());
-							int share = Integer.valueOf(bFrame.getNumShare());
+							int share = 0;
+							try{
+								 share = Integer.valueOf(bFrame.getNumShare());
+							}catch(Exception e1){
+								JOptionPane.showMessageDialog(pane, "enter a valid number");
+							}
 							Float price = Float.valueOf(selectedSharePrice);
 							try {
 								AbstractCommand buy = new BuyCommand(selectedTickerSymbol, price, share, a);
@@ -267,6 +273,7 @@ public class MainView extends JFrame implements Observer {
 							pane.displayHoldingTable(portfolio.getHolding());
 							remove(buy);
 							remove(transfer);
+							remove(subPanel);
 							add(sell, BorderLayout.SOUTH);
 							revalidate();
 							repaint();
