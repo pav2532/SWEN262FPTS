@@ -1,113 +1,762 @@
-49169bc was Quang Vu, 6 minutes ago, message: Fix conflicts
-b644f6b was Quang Vu, 7 hours ago, message: small update
-2848225 was Mitchell Derby, 23 hours ago, message: Update works! Whoo! Except some tickers get no data from Yahoo :(. Command line needs to be plugged in still. We now remove the ^ (and letters after) when parsing the Equities.txt file (only needed initially). Update *should* now update every 10 minutes, no UI yet to select specific timings.
-5f70311 was pav2532, 30 hours ago, message: Creation of WacthList Table and code
-0c70871 was Mitchell Derby, 35 hours ago, message: Added ability to save the EquitiesHolder back to the equities file, also watchList items are saved with the portfolio. also equites saves on all exits/save
-c0b9cd1 was Mitchell Derby, 2 days ago, message: Added the watchList backend. Once updating is pushed, I can update the watchList items and write the update for the EquitiesHolder.
-4054129 was Mitchell Derby, 2 days ago, message: Implemented Transfers with commands, added some more error checking dialogs. Fixed bug where To and From accounts were switched in portfolio.transfer() implementation.
-6efe032 was mderb4, 2 days ago, message: Some Documention (javadoc comments) added to various classes (transactions, portfolio, exceptions).
-a5b1967 was mderb4, 2 days ago, message: Added confirm dialogs for log out and exit, also added save successful/unsuccessful dialogs
-1ca3e41 was mderb4, 2 days ago, message: AddAccount now uses command pattern.
-52d3ed6 was mderb4, 2 days ago, message: Command structure implemented for buying and selling, needs to be used for transactions, follow implementation. Undo and Redo are implemented for all commands that are plugged in (will work for other commands when they are plugged into the view). Some edge case handling added. Logging out now saves the portfolio.
-473efed was pav2532, 2 days ago, message: Added Missing Code
-30e9d64 was Quang Vu, 2 days ago, message: Updated
-d17541a was Quang Vu, 2 days ago, message: update transfer frame and buy frame
-891a5a9 was Mitchell Derby, 3 days ago, message: Merge branch 'master' into commands
-a17ebf6 was Mitchell Derby, 3 days ago, message: Added Packages. Some things still need to be fixed, should be resolved tonight.
-7ec09cc was Quang Vu, 3 days ago, message: Added money transfer frame
-d0f2edb was Quang Vu, 3 days ago, message: Added DowJones calculation
-6c04197 was Quang Vu, 3 days ago, message: Delete GViewControl, fix addAccount Frame
-4c584a0 was Quang Vu, 3 days ago, message: New View, Observer and proxy pattern, logout and add account functionalities, transaction view
-d242e21 was Mitchell Derby, 3 days ago, message: added documentation to getHolding method of EquitiesHolder
-72113f9 was Quang Vu, 4 days ago, message: Added Proxy pattern to protect the password and username with indirect access
-708750a was Quang Vu, 4 days ago, message: Applied Observer pattern, decouple MainView, add transaction view, add create account function, logout function
-7b4c985 was Mitchell Derby, 7 days ago, message: Javadoc commented the Portfolio class
-d35c977 was Mitchell Derby, 7 days ago, message: Added more support for Commands, added TransferCommand
-279da93 was mderb4, 7 days ago, message: Added buy sell commands
-a9fbb2c was Mitchell Derby, 7 days ago, message: Added Command Package
-7a9c7a6 was pav2532, 3 weeks ago, message: Format all documents
-bd897f1 was Mitchell Derby, 3 weeks ago, message: Fixed arrayoutofbounds exception
-feb62ab was Mitchell Derby, 3 weeks ago, message: Garbage (I think, but you guys are having issues with my account)
-8450e0e was pav2532, 3 weeks ago, message: add sell and buy button
-c76d08a was Mitchell Derby, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-e451fa0 was Mitchell Derby, 3 weeks ago, message: On account create, create new portfolio file
-b66acb9 was Quang Vu, 3 weeks ago, message: Updated
-950453a was Quang Vu, 3 weeks ago, message: update
-8d1403f was Mitchell Derby, 3 weeks ago, message: Fixes to buy, creates portfolio text files and loads correct one on sign in.
-5409a28 was Quang Vu, 3 weeks ago, message: Updated
-9c66741 was Quang Vu, 3 weeks ago, message: update
-6f8906e was Quang Vu, 3 weeks ago, message: Fixed the buy button, and updated its function
-72003e9 was pav2532, 3 weeks ago, message: EquityParse working with ui
-c5ccc60 was Quang Vu, 3 weeks ago, message: Updated
-295b886 was Quang Vu, 3 weeks ago, message: update
-8f4f771 was pav2532, 3 weeks ago, message: Fix
-6b5c536 was pav2532, 3 weeks ago, message: user update
-62a95fe was pav2532, 3 weeks ago, message: Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
-54cc8b7 was pav2532, 3 weeks ago, message: Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
-7d1ce13 was pav2532, 3 weeks ago, message: Modification to algorithm and child class
-55d9532 was Quang Vu, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-4d6f4fd was Beltran Caliz, 3 weeks ago, message: EquitiesParser (not working copy)
-bc2b52a was Quang Vu, 3 weeks ago, message: Added buy windown for buying stock
-86a6a31 was Quang Vu, 3 weeks ago, message: update
-0b6e812 was Quang Vu, 3 weeks ago, message: update
-ae9b314 was Quang Vu, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-4ce2572 was Quang Vu, 3 weeks ago, message: Populate the data for the Account and Holding table
-36b3340 was Mitchell Derby, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-08a41f3 was Mitchell Derby, 3 weeks ago, message: Added some exceptions and Buy and Sell functions to Portfolio
-54efe2b was Quang Vu, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-9692664 was Quang Vu, 3 weeks ago, message: Added buy button for equity
-f677fd5 was Mitchell Derby, 3 weeks ago, message: added getHolding method to EquitiesHolding
-e9c5b86 was Mitchell Derby, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-352ce45 was Mitchell Derby, 3 weeks ago, message: added SimulationView and simulationController
-c5ec2aa was Quang Vu, 3 weeks ago, message: DesignDocument
-7be69a4 was Quang Vu, 3 weeks ago, message: Added a save function
-3c7088d was Quang Vu, 3 weeks ago, message: Added Equity, Portfolio, and Account table to GUI
-2aa3925 was Quang Vu, 3 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-cec457e was Quang Vu, 3 weeks ago, message: Added Equity table without real data
-5ad4a91 was pav2532, 3 weeks ago, message: Simulation class completed
-80ea069 was Quang Vu, 3 weeks ago, message: Fixed the login screen, dedleted the equityParser, and added equity table
-67d850d was pav2532, 4 weeks ago, message: NoGrowthMarket created
-9b405fe was pav2532, 3 weeks ago, message: update file
-efa1631 was pav2532, 3 weeks ago, message: delete files
-f41220f was pav2532, 3 weeks ago, message: Fix design document, and added the minimum requirement for the desing document
-de536d9 was Quang Vu, 3 weeks ago, message: Added EquityParser
-3764a4e was Quang Vu, 3 weeks ago, message: Added import menu item, and read in an example portfolio
-3170820 was Quang Vu, 3 weeks ago, message: Added a import function for the GUI
-9192753 was Quang Vu, 3 weeks ago, message: Add the state of reading Transaction from porfolio file
-95bbf78 was Quang Vu, 3 weeks ago, message: update
-46597d5 was Quang Vu, 3 weeks ago, message: Updated
-3b7307c was Quang Vu, 3 weeks ago, message: Added menubar and fixed the signup issue
-5d204ae was Quang Vu, 3 weeks ago, message: update
-c5f7edb was Quang Vu, 3 weeks ago, message: added menubar
-366c024 was Mitchell Derby, 3 weeks ago, message: Fixed file paths to be relative, fixed the depreciation problem with the .getText().
-cc93c8c was Mitchell Derby, 3 weeks ago, message: Added Transaction class and subclass.
-6282313 was Quang Vu, 3 weeks ago, message: Update
-c3c2820 was pav2532, 4 weeks ago, message: Creation of Sequence Diagram and Modification to it.
-067bcbc was Quang Vu, 4 weeks ago, message: Update sign up and sign in: able to check for correct password and username
-8d2245c was Quang Vu, 4 weeks ago, message: Added sign up and sign in button
-96f9c15 was Quang Vu, 4 weeks ago, message: Update UI
-8a3bbb0 was Quang Vu, 4 weeks ago, message: updated
-67371ea was Quang Vu, 4 weeks ago, message: update
-0d6cadb was Quang Vu, 4 weeks ago, message: updated
-bcdeaa4 was mderb4, 4 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-a54db47 was mderb4, 4 weeks ago, message: Added some documentation
-d6a4247 was Quang Vu, 4 weeks ago, message: Added a login screen for user without any action listener
-8b1643a was Quang Vu, 4 weeks ago, message: Update the Portfolio parser
-0914b50 was Mitchell Derby, 4 weeks ago, message: Search Functionality added to EquitiesHolder.
-f19a6e7 was pav2532, 4 weeks ago, message: Creation of Algorithm interface and Bear and Bull Market
-93f1f06 was pav2532, 4 weeks ago, message: Added Domain Model
-638eb3c was Quang Vu, 4 weeks ago, message: Added PortfolioParser class that read Porfolio files
-28ae0d6 was Quang Vu, 4 weeks ago, message: Added account saving method for User class
-b8380c7 was pav2532, 4 weeks ago, message: modify documents
-bd43a86 was Quang Vu, 4 weeks ago, message: Update user class
-52ce008 was Quang Vu, 4 weeks ago, message: Added User class
-c51bc01 was Mitchell Derby, 4 weeks ago, message: Added Account, Holding and EquitiesHolder
-3a74a55 was pav2532, 4 weeks ago, message: re create design document. First document was not working
-a123831 was pav2532, 5 weeks ago, message: Creation of Main Documents
-6cf443b was pav2532, 5 weeks ago, message: Domain Model added
-8a8f070 was pav2532, 5 weeks ago, message: Documentation files added
-e3cfcc1 was Quang Vu, 5 weeks ago, message: update
-f183fbf was Quang Vu, 5 weeks ago, message: update
-79d113a was pav2532, 5 weeks ago, message: Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
-3779959 was pav2532, 5 weeks ago, message: first commit
-9cee27c was pav2532, 5 weeks ago, message: testing git hub
+commit 1691d4039b4284d0ba345a5500c4e14e92b53fdd
+Merge: 49169bc d1e0940
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Nov 4 23:06:59 2015 -0500
+
+    Fix merge conflicts
+
+commit 49169bcc6cc1ae9c01a68f4d1a87b1ec5ca74996
+Merge: b644f6b 2848225
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Nov 4 22:58:34 2015 -0500
+
+    Fix conflicts
+
+commit d1e09401e83947fe483579d7a3c410670cb0b2fd
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Nov 4 22:52:02 2015 -0500
+
+    Fix update equities by times
+
+commit 79bcf1ef9395008eba8cdfc2531759b7c08b75ec
+Merge: 1b0b959 7ce178c
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Nov 4 22:06:05 2015 -0500
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 1b0b95916138992c57efb4c82e9c2cac13691729
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Nov 4 22:04:07 2015 -0500
+
+    added update interval
+
+commit 7ce178cadd44563d7d52087b860f82448e8e0b19
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Nov 4 21:46:23 2015 -0500
+
+    WacthList Notification and Remove completed
+
+commit d6cb8ba10f431827ec0b191a6272fc8decd4fbc1
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Nov 4 18:32:29 2015 -0500
+
+    Completion of the add button, only missing assigning a location for the add button.
+
+commit e77c8b7e419a5f7d85d9f50bf2c810673001999f
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Nov 4 19:06:43 2015 -0500
+
+    CommandLine is hooked into run.Main(). Removed updating every time you switch to the equities table, was for testing.
+
+commit b644f6b3c8e5d38c5ac234a82d999a8677dcbe1f
+Merge: 30e9d64 473efed
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Nov 4 16:32:25 2015 -0500
+
+    small update
+
+commit 2848225bf52c9bc0929021df1b03aa15ee5637de
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Nov 4 00:17:13 2015 -0500
+
+    Update works! Whoo! Except some tickers get no data from Yahoo :(. Command line needs to be plugged in still. We now remove the ^ (and letters after) when parsing the Equities.txt file (only needed initially). Update *should* now update every 10 minutes, no UI yet to select specific timings.
+
+commit 5f70311a908bb3646bf7bfde55bc96bb4059de82
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Tue Nov 3 16:39:53 2015 -0500
+
+    Creation of WacthList Table and code
+    
+    Only missing class for wacthList so the wacthlist is completed
+
+commit 0c70871e9e53f7f697f98da8a007f14f533c5bdd
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Nov 3 11:57:58 2015 -0500
+
+    Added ability to save the EquitiesHolder back to the equities file, also watchList items are saved with the portfolio. also equites saves on all exits/save
+
+commit c0b9cd121618c8cb2ecaa8e684ead413fd0f4541
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Nov 3 11:28:37 2015 -0500
+
+    Added the watchList backend. Once updating is pushed, I can update the watchList items and write the update for the EquitiesHolder.
+
+commit 4054129c1b203dbd99f9a97616575197b89e35c1
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Nov 3 10:46:50 2015 -0500
+
+    Implemented Transfers with commands, added some more error checking dialogs. Fixed bug where To and From accounts were switched in portfolio.transfer() implementation.
+
+commit 6efe0320797dd2a006bd871af3f2b7750c4bad3b
+Author: mderb4 <mderb4@gmail.com>
+Date:   Mon Nov 2 23:53:16 2015 -0500
+
+    Some Documention (javadoc comments) added to various classes (transactions, portfolio, exceptions).
+
+commit a5b1967862968bf16d580c370420cd0d5ef3b8f9
+Author: mderb4 <mderb4@gmail.com>
+Date:   Mon Nov 2 23:39:24 2015 -0500
+
+    Added confirm dialogs for log out and exit, also added save successful/unsuccessful dialogs
+
+commit 1ca3e4129add1da7b9836f048d39d926b0043f25
+Author: mderb4 <mderb4@gmail.com>
+Date:   Mon Nov 2 23:28:40 2015 -0500
+
+    AddAccount now uses command pattern.
+
+commit 52d3ed69448907e7d783d039fdfaee05690148ab
+Author: mderb4 <mderb4@gmail.com>
+Date:   Mon Nov 2 23:18:30 2015 -0500
+
+    Command structure implemented for buying and selling, needs to be used for transactions, follow implementation. Undo and Redo are implemented for all commands that are plugged in (will work for other commands when they are plugged into the view). Some edge case handling added. Logging out now saves the portfolio.
+
+commit 473efedaf3da6d70ad1e041b19f50ef16db967bc
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Mon Nov 2 19:49:21 2015 -0500
+
+    Added Missing Code
+    
+    for some reason my commit was incomplete and din’t added java class and
+    code I added before
+
+commit 30e9d648657fcb9919db152166186af203231940
+Merge: d17541a 891a5a9
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Mon Nov 2 19:35:15 2015 -0500
+
+    Updated
+
+commit d17541a1b3eaf4e780f97710545690eb2386baed
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Mon Nov 2 19:22:15 2015 -0500
+
+    update transfer frame and buy frame
+
+commit 891a5a9c1cd47c6bca22aefdb80669dffbe3311e
+Merge: d242e21 a17ebf6
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Mon Nov 2 00:05:54 2015 -0500
+
+    Merge branch 'master' into commands
+    
+    Conflicts:
+    	src/EquitiesHolder.java
+    	src/Portfolio.java
+    	src/command/BuyCommand.java
+    	src/transactions/Transaction.java
+
+commit a17ebf65e384f9b36d864f9575c945ffc40062e5
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Sun Nov 1 23:48:19 2015 -0500
+
+    Added Packages. Some things still need to be fixed, should be resolved tonight.
+
+commit 7ec09cc083a5f393736dff093d06520975670dc4
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Nov 1 18:31:10 2015 -0500
+
+    Added money transfer frame
+
+commit d0f2edbcefccecc6423f6b5b092960f39eb81838
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Nov 1 17:07:03 2015 -0500
+
+    Added DowJones calculation
+
+commit 6c04197e5f353003759d2a11f6f0059d5de4df6f
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Nov 1 16:21:04 2015 -0500
+
+    Delete GViewControl, fix addAccount Frame
+
+commit 4c584a0fe08bc7816a1790bd42f8fb3700b654c7
+Merge: 72113f9 a9fbb2c
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Nov 1 15:57:17 2015 -0500
+
+    New View, Observer and proxy pattern, logout and add account functionalities, transaction view
+
+commit d242e2161720cf75fd1810f05951af350a10ab6c
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Sun Nov 1 15:46:12 2015 -0500
+
+    added documentation to getHolding method of EquitiesHolder
+
+commit 72113f94794f7c42c10723e11ae44647500c4d6d
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 31 21:42:17 2015 -0400
+
+    Added Proxy pattern to protect the password and username with indirect access
+
+commit 708750ab209c262e573a13311bc943a861084975
+Author: Quang Vu <Quang@Quangs-MacBook-Pro.local>
+Date:   Sat Oct 31 15:07:52 2015 -0400
+
+    Applied Observer pattern, decouple MainView, add transaction view, add create account function, logout function
+
+commit 7b4c985b8fd661e956d5074743bf129a8ea7ace8
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Oct 28 23:06:49 2015 -0400
+
+    Javadoc commented the Portfolio class
+
+commit d35c977f44e45fc39295f0a9125e7dbdb4d191f2
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Oct 28 22:47:16 2015 -0400
+
+    Added more support for Commands, added TransferCommand
+
+commit 279da937d3b6963e4485f8768cfa2d6939d8411e
+Author: mderb4 <mderb4@gmail.com>
+Date:   Wed Oct 28 21:09:03 2015 -0400
+
+    Added buy sell commands
+
+commit a9fbb2c593cca4938c985ed65ac81faba71c4d2b
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Wed Oct 28 15:52:55 2015 -0400
+
+    Added Command Package
+
+commit 7a9c7a63de54c170902f4c84264f306e2b99378a
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Thu Oct 15 14:02:19 2015 -0400
+
+    Format all documents
+
+commit bd897f1edf850725d3aa03a24841e4e446dc2aff
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Thu Oct 15 02:17:52 2015 -0400
+
+    Fixed arrayoutofbounds exception
+
+commit feb62abf346514f89d816c7ec2c9917a951074c8
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Thu Oct 15 02:06:21 2015 -0400
+
+    Garbage (I think, but you guys are having issues with my account)
+
+commit 8450e0e4b1266ec812e6ec582d82239d4a747ae4
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Thu Oct 15 01:41:10 2015 -0400
+
+    add sell and buy button
+
+commit c76d08ae1cd0fb5907becd37330467d6b3349985
+Merge: e451fa0 b66acb9
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Thu Oct 15 01:37:11 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit e451fa022cf9c662f32404c76d73b67867642cda
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Thu Oct 15 01:33:07 2015 -0400
+
+    On account create, create new portfolio file
+
+commit b66acb92463d4b759819b05c41e3902943d32640
+Merge: 950453a 8d1403f
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Thu Oct 15 01:29:06 2015 -0400
+
+    Updated
+
+commit 950453a4266551e4459e5e4a91467ad67aca7985
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Thu Oct 15 01:22:37 2015 -0400
+
+    update
+
+commit 8d1403f5a660ae72adb95dca1ff7c8a7d1d7ec77
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Thu Oct 15 01:22:07 2015 -0400
+
+    Fixes to buy, creates portfolio text files and loads correct one on sign in.
+
+commit 5409a288b6c998bf422abb0b8a0005f7db33e549
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Thu Oct 15 00:18:30 2015 -0400
+
+    Updated
+
+commit 9c66741883ab0e1ad0173caf755c6f1eba54a389
+Merge: 6f8906e 72003e9
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Thu Oct 15 00:07:14 2015 -0400
+
+    update
+
+commit 6f8906edc62ab71ff91dcc63c998becdfbd9dc44
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Thu Oct 15 00:04:36 2015 -0400
+
+    Fixed the buy button, and updated its function
+
+commit 72003e9cf2f97907ae565114b20e8e3260749ebb
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Thu Oct 15 00:02:09 2015 -0400
+
+    EquityParse working with ui
+
+commit c5ccc60543591e2b5b1a230f39f5845e7e9646f7
+Merge: 295b886 8f4f771
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 21:36:43 2015 -0400
+
+    Updated
+
+commit 295b8863e4ef2c78992a28120ecb92696b06647f
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 21:21:47 2015 -0400
+
+    update
+
+commit 8f4f77136dcb9c82baeba0c493d09b2f324f3321
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Oct 14 21:10:34 2015 -0400
+
+    Fix
+    
+    submit
+
+commit 6b5c536a6c7202e41f034b4c5f3dbfa62450ef48
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Oct 14 19:11:54 2015 -0400
+
+    user update
+
+commit 62a95fec99d51bd08161713053f8acc121374bc6
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Oct 14 19:08:38 2015 -0400
+
+    Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
+    
+    This reverts commit 55d9532a897ed47e532a3e6a48942466ac71e9c2, reversing
+    changes made to bc2b52a56aea33b45b1904f6228b241ff6689487.
+
+commit 54cc8b76b6c19af03b03fa1365ecb86a5e70053e
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Oct 14 19:07:47 2015 -0400
+
+    Revert "Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS"
+    
+    This reverts commit 55d9532a897ed47e532a3e6a48942466ac71e9c2, reversing
+    changes made to bc2b52a56aea33b45b1904f6228b241ff6689487.
+
+commit 7d1ce136a70b36ea3d3268fb8365b70f1688feea
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Wed Oct 14 18:02:44 2015 -0400
+
+    Modification to algorithm and child class
+
+commit 55d9532a897ed47e532a3e6a48942466ac71e9c2
+Merge: bc2b52a 4d6f4fd
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 17:50:31 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 4d6f4fd3d29ada611df5a07bad708fc453c5795b
+Author: Beltran Caliz <bcmc95@gmail.com>
+Date:   Wed Oct 14 17:29:00 2015 -0400
+
+    EquitiesParser (not working copy)
+
+commit bc2b52a56aea33b45b1904f6228b241ff6689487
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 22:25:51 2015 +0100
+
+    Added buy windown for buying stock
+
+commit 86a6a31814226171dfc89f96fdb59de434dbf7de
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 20:50:52 2015 +0100
+
+    update
+
+commit 0b6e8126d558ec04518a307ea5883b902419603d
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 14 20:44:56 2015 +0100
+
+    update
+
+commit ae9b31412992060ff41ed0bfb47f97be501cbdfe
+Merge: 4ce2572 36b3340
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 23:58:41 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 4ce25722ae0656b84dc9df46904233182c5e3fcb
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 23:58:16 2015 -0400
+
+    Populate the data for the Account and Holding table
+
+commit 36b3340693712e3149aecb7a67502da25117aa80
+Merge: 08a41f3 54efe2b
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Oct 13 21:42:52 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 08a41f32078efbbd0e5159388e66f6108ce67f43
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Oct 13 21:42:46 2015 -0400
+
+    Added some exceptions and Buy and Sell functions to Portfolio
+
+commit 54efe2b2887b1811b81f24a20162e6ab32083fed
+Merge: 9692664 f677fd5
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 21:31:20 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 96926641d45b6b9f6063827270140f296f693b1c
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 21:31:06 2015 -0400
+
+    Added buy button for equity
+
+commit f677fd51c4faf5c65c2224113871da6607a72ea1
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Oct 13 20:38:48 2015 -0400
+
+    added getHolding method to EquitiesHolding
+
+commit e9c5b867e1641a6a30edd1dc865afdc71efb47f9
+Merge: 352ce45 c5ec2aa
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Oct 13 20:30:33 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 352ce45084c3b91c5b7f1b85be477f04aa5bd252
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Tue Oct 13 20:30:10 2015 -0400
+
+    added SimulationView and simulationController
+
+commit c5ec2aa4777ac591caa93ca25a113129c1d9bbd3
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 19:26:19 2015 -0400
+
+    DesignDocument
+
+commit 7be69a40d7aa19eb922cfa86ff69d8ddc75acd36
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 17:54:17 2015 -0400
+
+    Added a save function
+
+commit 3c7088d1f47826190fffea11306e3eb4cba26691
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 17:22:32 2015 -0400
+
+    Added Equity, Portfolio, and Account table to GUI
+
+commit 2aa3925377a70841422a45e96e023c052e91da0b
+Merge: cec457e 5ad4a91
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 16:12:05 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit cec457e355493d49076c32bcee8910cedece1fc1
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 13 16:12:00 2015 -0400
+
+    Added Equity table without real data
+
+commit 5ad4a9163c1d3a44b46330b82ee3cb655b6c36d3
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Tue Oct 13 10:48:41 2015 -0400
+
+    Simulation class completed
+
+commit 80ea0693855afe8b38ea71f5698ecee6adf640eb
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Mon Oct 12 20:40:49 2015 -0400
+
+    Fixed the login screen, dedleted the equityParser, and added equity table
+
+commit 67d850d493d08b7c5a72682dfe66760cef12101a
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Thu Oct 8 18:08:31 2015 -0400
+
+    NoGrowthMarket created
+
+commit 9b405fe2cca3309260e2a079390a114f64b06432
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Mon Oct 12 13:01:45 2015 -0400
+
+    update file
+
+commit efa1631335af21e203a451fae1f4167187a77b1d
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Mon Oct 12 12:18:02 2015 -0400
+
+    delete files
+
+commit f41220fefd61025867284fb6d9fa2c4af5972f43
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Mon Oct 12 12:15:12 2015 -0400
+
+    Fix design document, and added the minimum requirement for the desing document
+
+commit de536d97790b81fb3cd7b394a129ef5235b22e30
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Mon Oct 12 12:33:00 2015 -0400
+
+    Added EquityParser
+
+commit 3764a4ef0e042b947ee4a2b966ce929ea145bbd4
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 20:53:29 2015 -0400
+
+    Added import menu item, and read in an example portfolio
+
+commit 317082029906177786d577591f6ada302135a9b3
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 20:11:58 2015 -0400
+
+    Added a import function for the GUI
+
+commit 9192753945961f7a3681d35407c1f9205c07cfae
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 19:37:40 2015 -0400
+
+    Add the state of reading Transaction from porfolio file
+
+commit 95bbf78912d41cc9b2ea74577ceacf83057eb8a0
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 18:28:03 2015 -0400
+
+    update
+
+commit 46597d572824ebf8a6a00750734f8c57be6882ad
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 18:25:35 2015 -0400
+
+    Updated
+
+commit 3b7307cb06499f77b7f31f55da8b2c20e2e65b91
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 18:00:41 2015 -0400
+
+    Added menubar and fixed the signup issue
+
+commit 5d204ae1d5166a4b6dd2d367908944fe2faf6599
+Merge: c5f7edb 366c024
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 16:40:41 2015 -0400
+
+    update
+
+commit c5f7edb44be706b123ee97cbff00b383d5e02f06
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 16:38:48 2015 -0400
+
+    added menubar
+
+commit 366c0240a2d870af29d49b9aac30433a13f51ab8
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Sun Oct 11 16:37:03 2015 -0400
+
+    Fixed file paths to be relative, fixed the depreciation problem with the .getText().
+
+commit cc93c8c2ebe2af4a1fa7c81673b1071e16b4c201
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Sun Oct 11 16:20:03 2015 -0400
+
+    Added Transaction class and subclass.
+
+commit 62823136a1ba1d213abff6451906e0c56b29b0b3
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 11 16:01:04 2015 -0400
+
+    Update
+
+commit c3c282016742d8e2a06e90be026a005fd62fc20b
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Oct 11 10:49:52 2015 -0400
+
+    Creation of Sequence Diagram and Modification to it.
+
+commit 067bcbc88213bd8b0a39af6b6c7ca594aff08f5c
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 17:47:36 2015 -0400
+
+    Update sign up and sign in: able to check for correct password and username
+
+commit 8d2245c4740e12285838b1af855f10e30ae2e441
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 13:57:08 2015 -0400
+
+    Added sign up and sign in button
+
+commit 96f9c1537a27bacd047a510ba0c5b7a72fa28df6
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 13:23:52 2015 -0400
+
+    Update UI
+
+commit 8a3bbb05e869461835ed9275b09df11e161343d4
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 11:42:14 2015 -0400
+
+    updated
+
+commit 67371ea7ac8b92d5202b6d7540c78f38395056ff
+Merge: 0d6cadb bcdeaa4
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 11:36:03 2015 -0400
+
+    update
+
+commit 0d6cadbbdf52fc924d98a57605862a6a5aed1c01
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sat Oct 10 11:35:18 2015 -0400
+
+    updated
+
+commit bcdeaa46be62194af593e46250d4eee090777ca8
+Merge: a54db47 d6a4247
+Author: mderb4 <mderb4@gmail.com>
+Date:   Fri Oct 9 19:03:33 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit a54db47c4935cab930d21383a9011a98d0a40c5b
+Author: mderb4 <mderb4@gmail.com>
+Date:   Fri Oct 9 19:00:32 2015 -0400
+
+    Added some documentation
+
+commit d6a42471d38b7316472867200af0f061e233c58b
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Fri Oct 9 12:36:26 2015 -0400
+
+    Added a login screen for user without any action listener
+
+commit 8b1643ade4a82e87d7aff88d35e09bf9dca1a510
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Fri Oct 9 10:59:17 2015 -0400
+
+    Update the Portfolio parser
+
+commit 0914b50ba8ee5c1a274f8cdfe750eee3a6b32bcf
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Fri Oct 9 00:11:26 2015 -0400
+
+    Search Functionality added to EquitiesHolder.
+
+commit f19a6e7adb774db2afc8da93e299077e75258102
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Thu Oct 8 18:03:03 2015 -0400
+
+    Creation of Algorithm interface and Bear and Bull Market
+
+commit 93f1f06433f6d74275b05d6422d552b249719239
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Mon Oct 5 17:44:22 2015 -0400
+
+    Added Domain Model
+
+commit 638eb3ca19a5cdbf861bb18122109f265b33b924
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Wed Oct 7 12:31:45 2015 -0400
+
+    Added PortfolioParser class that read Porfolio files
+
+commit 28ae0d6de6421389c9f6fc5a663ee25d8cf57ccc
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Tue Oct 6 22:46:03 2015 -0400
+
+    Added account saving method for User class
+
+commit b8380c7c5541e75f76ac6e76a50973f5e749c709
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Oct 4 16:26:43 2015 -0400
+
+    modify documents
+
+commit bd43a86a144192ef2745eeeae5ec0f2dffe8c57e
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 4 16:52:07 2015 -0400
+
+    Update user class
+
+commit 52ce00861b48be499e70a52f2a78fc9f8968072d
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Oct 4 16:47:57 2015 -0400
+
+    Added User class
+
+commit c51bc01d63c63757c58286c6d24bbe77d278e609
+Author: Mitchell Derby <mxd5415@rit.edu>
+Date:   Sun Oct 4 16:12:26 2015 -0400
+
+    Added Account, Holding and EquitiesHolder
+
+commit 3a74a5536a909ea085375885382eaab1a98d897e
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Oct 4 16:06:24 2015 -0400
+
+    re create design document. First document was not working
+
+commit a123831b0dca507432fa489355d262b38f880921
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Oct 4 11:21:47 2015 -0400
+
+    Creation of Main Documents
+    
+    Outlining what desing documents need and preparation to add domain, uml
+    and case diagram
+
+commit 6cf443bf0e19f2ebee4631621873cf6647f6143c
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Sep 27 16:28:43 2015 -0400
+
+    Domain Model added
+
+commit 8a8f070a83915c5f41087d68a63ab25f8b933807
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Sep 27 16:24:16 2015 -0400
+
+    Documentation files added
+
+commit e3cfcc14b5b3fd90c1dab02f4efe12366efd05a3
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Sep 27 16:03:08 2015 -0400
+
+    update
+
+commit f183fbfc600abcb981df9f4f32248ac260aacb8d
+Author: Quang Vu <qdv2130@rit.edu>
+Date:   Sun Sep 27 16:02:35 2015 -0400
+
+    update
+
+commit 79d113ab7fe6825f6204ec18b9d1f0982699f3d1
+Merge: 9cee27c 3779959
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Sep 27 15:24:41 2015 -0400
+
+    Merge branch 'master' of https://github.com/pav2532/SWEN262FPTS
+
+commit 3779959c221b18c7344e60fdb632d7cd87a82c8f
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Sep 27 15:23:53 2015 -0400
+
+    first commit
+
+commit 9cee27cdca2388a8286100fadafa7da31d5282eb
+Author: pav2532 <pav2532@g.rit.edu>
+Date:   Sun Sep 27 15:23:18 2015 -0400
+
+    testing git hub
